@@ -1,0 +1,18 @@
+{
+  "version": "0.5.1",
+  "mesh_objects": 44,
+  "primitives": 44,
+  "triangles": 32006,
+  "materials": 18,
+  "light_groups": [
+    "Lamp_Pendant_01",
+    "Lamp_Pendant_02",
+    "Lamp_Pendant_03",
+    "Lamp_Shelf",
+    "Lamp_Stair_LED",
+    "Lamp_Table_Cylinder",
+    "Lamp_Table_Orb"
+  ],
+  "point_lights": 9,
+  "bytes": 1807652
+}

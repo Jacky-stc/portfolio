@@ -1,0 +1,42 @@
+{
+  "status": "passed",
+  "checks": [
+    "GLB headers and chunk bounds",
+    "All mesh indices in bounds",
+    "Finite vertices and unit normals",
+    "Complete non-cyclic node hierarchy",
+    "7 independent lamp groups with non-shared emissive materials",
+    "9 punctual lights",
+    "Python source syntax"
+  ],
+  "version": "0.5.1",
+  "revision_checks": [
+    "Shelf long axis perpendicular to sofa, grounded feet, deck connection and planter clearance",
+    "Floor inside walls, unwanted skirting removed, wall and plinth bottoms equal",
+    "Full back corner covered; recessed entry exposes lower course; no projecting step",
+    "Window header removed; two independently sorted dark transmission-glass panes",
+    "Both pillows inside seat; supported bottoms; embedded linen base/normal/roughness and UVs",
+    "Grey linen sofa; curved yellow-blue volleyball without white lettering; grounded at prior position",
+    "Every source triangle/normal/UV/effective colour preserved after merge; Bookshelf/TV/hotspots and seven lamp groups retained; softened warm lights"
+  ],
+  "mesh_count": 44,
+  "triangles": 32006,
+  "bounds_gltf_y_up": {
+    "min": [
+      -4.119999885559082,
+      -0.1599999964237213,
+      -3.609999895095825
+    ],
+    "max": [
+      4.0,
+      4.650000095367432,
+      3.5999999046325684
+    ]
+  },
+  "not_tested": [
+    "Blender runtime import",
+    "Three.js browser rendering",
+    "Mobile performance",
+    "External Khronos conformance validator"
+  ]
+}
