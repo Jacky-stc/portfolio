@@ -1,4 +1,6 @@
 import LoftScene from './components/LoftScene'
+import PastExperience from './components/PastExperience'
+import Skills from './components/Skills'
 
 function App() {
   return (
@@ -16,23 +18,15 @@ function App() {
           <LoftScene />
         </section>
 
-        <section
-          className="content-section"
-          id="past-experience"
-        >
-          <div>
-            <span>01</span>
-            <h2>Past Experience</h2>
-          </div>
-        </section>
+        <PastExperience />
+        <Skills />
 
         <section
           className="content-section"
           id="side-projects"
         >
           <div>
-            <span>02</span>
-            <h2>Side Projects</h2>
+            <h2 className="section-title">Side Projects</h2>
           </div>
         </section>
       </main>
