@@ -1,5 +1,6 @@
-import LoftScene from './components/LoftScene'
+import ParticleBackground from './components/ParticleBackground'
 import PastExperience from './components/PastExperience'
+import Projects from './components/Projects'
 import Skills from './components/Skills'
 
 function App() {
@@ -9,26 +10,11 @@ function App() {
         className="site-background"
         aria-hidden="true"
       />
+      <ParticleBackground />
       <main className="site-content">
-        <section
-          className="experience"
-          id="loft"
-          aria-label="Interactive portfolio room"
-        >
-          <LoftScene />
-        </section>
-
         <PastExperience />
         <Skills />
-
-        <section
-          className="content-section"
-          id="side-projects"
-        >
-          <div>
-            <h2 className="section-title">Side Projects</h2>
-          </div>
-        </section>
+        <Projects />
       </main>
     </>
   )

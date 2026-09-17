@@ -42,8 +42,8 @@ const HOTSPOTS = [
   {
     anchorNode: 'Hotspot_TV',
     groupName: 'TV',
-    interactionId: 'side-projects',
-    label: 'Side Projects',
+    interactionId: 'projects',
+    label: 'Projects',
     labelSide: 'right',
     offset: [0.97, 0.67, 0.1],
   },
