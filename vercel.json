@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/tech-news", "destination": "/index.html" },
+    { "source": "/tech-news/:path*", "destination": "/index.html" }
+  ]
+}
