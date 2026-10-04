@@ -1,3 +1,5 @@
+import type { CSSProperties } from 'react'
+
 const CONTACTS = [
   { name: 'GitHub', icon: 'github', href: 'https://github.com/Jacky-stc' },
   { name: 'Email', icon: 'email', href: 'mailto:stzuchieh@gmail.com' },
@@ -16,7 +18,7 @@ export default function ContactLinks() {
         const graphic = (
           <span
             className="contact-icon"
-            style={{ '--contact-icon': `url('/images/contact-${icon}.webp')` }}
+            style={{ '--contact-icon': `url('/images/contact-${icon}.webp')` } as CSSProperties}
             aria-hidden="true"
           />
         )

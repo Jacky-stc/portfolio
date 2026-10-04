@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict'
 import { existsSync } from 'node:fs'
 import test from 'node:test'
-import { formatNewsDate, localizeArticle, readingMinutes, techNews } from '../src/data/techNews.js'
+import { formatNewsDate, localizeArticle, readingMinutes, techNews } from '../src/data/techNews.ts'
 
 test('articles have unique routes, valid dates, images and complete translations', () => {
   assert.equal(new Set(techNews.map(({ slug }) => slug)).size, techNews.length)
@@ -11,7 +11,7 @@ test('articles have unique routes, valid dates, images and complete translations
     assert.equal(new Date(`${article.date}T00:00:00Z`).toISOString().slice(0, 10), article.date)
     assert.ok(article.translations?.['zh-TW'])
     if (article.image?.startsWith('/')) assert.ok(existsSync(new URL(`../public${article.image}`, import.meta.url)))
-    for (const language of ['en', 'zh-TW']) {
+    for (const language of ['en', 'zh-TW'] as const) {
       const localized = localizeArticle(article, language)
       assert.ok(localized.title && localized.summary && localized.sections.length && localized.tags.length)
       assert.equal(localized.slug, article.slug)
@@ -30,7 +30,7 @@ test('articles have unique routes, valid dates, images and complete translations
 })
 
 test('reading time supports English and Chinese', () => {
-  const article = (text) => ({ sections: [{ heading: '', paragraphs: [text] }] })
+  const article = (text: string) => ({ sections: [{ heading: '', paragraphs: [text] }] })
   assert.equal(readingMinutes(article('word '.repeat(401))), 3)
   assert.equal(readingMinutes(article('字'.repeat(801))), 3)
   assert.equal(readingMinutes(article('')), 1)

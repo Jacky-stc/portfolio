@@ -29,7 +29,7 @@ primitive 數量不是瀏覽器實測的 draw calls：透明、透光、陰影�
 
 `Bookshelf`、`TV` 與七組燈具父節點名稱保留，沒有跨互動群組合併；原有其他語意群組也保留。新增 `Hotspot_Bookshelf`、`Hotspot_TV` 空節點供定位使用。兩片窗戶玻璃各自保留網格；各燈具的發光材質不共用。
 合併後的子網格名稱會改為 `*_Merged_*`，互動應綁定父群組；若既有程式直接找原本零件名稱，需改查父群組。原零件對應記錄於 mesh 的 `extras.sourceParts`。
-這次沒有修改 Windows 專案的 `LoftScene.jsx`；可繼續使用既有按需渲染與 hover 邏輯。
+這次沒有修改 Windows 專案的 `LoftScene.tsx`；可繼續使用既有按需渲染與 hover 邏輯。
 
 ## 保留的前版修正
 
@@ -48,7 +48,7 @@ primitive 數量不是瀏覽器實測的 draw calls：透明、透光、陰影�
 - `linen_basecolor.png`、`linen_normal.png`、`linen_roughness.png`：512 × 512 無縫程序織紋；全部已內嵌 GLB，不需要另外放到網站。
 - `mikasa_basecolor.png`、`mikasa_normal.png`、`mikasa_roughness.png`：1024 × 512 排球 PBR 貼圖，全部內嵌 GLB。
 - `import_into_blender.py`：在 Blender 新增場景、匯入模型、加入檢視相機及燈光並儲存 .blend。
-- `lamp-controls.js`：Three.js 燈具控制函式。
+- `lamp-controls.ts`：Three.js 燈具控制函式。
 - `build_model.py`：可重建 GLB 的原始程式，需要 Python、NumPy、Pillow。
 - `render_preview.py`：離線預覽程式，另需要 SciPy、Pillow。
 - `model_stats.json`、`optimization_report.json`、`validation.json`：模型統計、最佳化明細與結構檢查。
@@ -68,7 +68,7 @@ primitive 數量不是瀏覽器實測的 draw calls：透明、透光、陰影�
 ```js
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-import { setLamp, setAllLamps } from './lamp-controls.js';
+import { setLamp, setAllLamps } from './lamp-controls.ts';
 
 const gltf = await new GLTFLoader().loadAsync('/models/jacky_loft_v1.glb?v=0.5.1');
 scene.add(gltf.scene);

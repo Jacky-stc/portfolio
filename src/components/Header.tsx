@@ -1,5 +1,7 @@
 import { Menu, X } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
+import { Link, useLocation } from 'react-router'
+import { newsPath, parseNewsPath } from '../routing/newsPaths'
 
 const SECTIONS = [
   { id: 'about', label: 'About Me' },
@@ -8,16 +10,23 @@ const SECTIONS = [
   { id: 'projects', label: 'Projects' },
 ]
 
-export default function Header({ isHome = true }) {
+export default function Header() {
+  const { pathname } = useLocation()
+  const isHome = pathname === '/'
+  const newsRoute = parseNewsPath(pathname)
+  const newsHref = newsPath(newsRoute?.language)
   const [scrolled, setScrolled] = useState(false)
   const [active, setActive] = useState('home')
   const [open, setOpen] = useState(false)
-  const buttonRef = useRef(null)
+  const buttonRef = useRef<HTMLButtonElement>(null)
+  useEffect(() => {
+    setOpen(false)
+  }, [pathname])
   const links = isHome
-    ? [...SECTIONS.map((section) => ({ ...section, href: `/#${section.id}` })), { id: 'tech-news', label: 'Tech News', href: '/tech-news' }]
+    ? [...SECTIONS.map((section) => ({ ...section, href: `/#${section.id}` })), { id: 'tech-news', label: 'Tech News', href: newsHref }]
     : [
         { id: 'home', label: 'Home', href: '/' },
-        { id: 'tech-news', label: 'Tech News', href: '/tech-news' },
+        { id: 'tech-news', label: 'Tech News', href: newsHref },
       ]
 
   useEffect(() => {
@@ -28,7 +37,8 @@ export default function Header({ isHome = true }) {
       const threshold = window.innerHeight * 0.35
       let current = 'home'
       SECTIONS.forEach(({ id }) => {
-        if (document.getElementById(id)?.getBoundingClientRect().top <= threshold) current = id
+        const section = document.getElementById(id)
+        if (section && section.getBoundingClientRect().top <= threshold) current = id
       })
       setActive(current)
     }
@@ -47,11 +57,11 @@ export default function Header({ isHome = true }) {
       window.removeEventListener('scroll', onScroll)
       window.removeEventListener('resize', onResize)
     }
-  }, [])
+  }, [pathname])
 
   return (
     <header
-      className={`site-header${scrolled || open ? ' is-scrolled' : ''}`}
+      className={['site-header', scrolled || open ? 'is-scrolled' : ''].filter(Boolean).join(' ')}
       onKeyDown={(event) => {
         if (event.key === 'Escape' && open) {
           setOpen(false)
@@ -60,9 +70,9 @@ export default function Header({ isHome = true }) {
       }}
     >
       <div className="header-inner">
-        <a
+        <Link
           className="header-brand"
-          href="/"
+          to="/"
           aria-label="Jacky Su — home"
           onClick={() => setOpen(false)}
         >
@@ -73,7 +83,7 @@ export default function Header({ isHome = true }) {
             width="48"
             height="48"
           />
-        </a>
+        </Link>
         <button
           ref={buttonRef}
           className="header-menu-toggle"
@@ -87,24 +97,18 @@ export default function Header({ isHome = true }) {
         </button>
         <nav
           id="main-navigation"
-          className={`header-nav${open ? ' is-open' : ''}`}
+          className={['header-nav', open ? 'is-open' : ''].filter(Boolean).join(' ')}
           aria-label="Main navigation"
         >
           {links.map(({ id, label, href }) => (
-            <a
+            <Link
               key={id}
-              href={href}
-              aria-current={
-                !isHome && id === 'tech-news' && window.location.pathname.startsWith('/tech-news')
-                  ? 'page'
-                  : isHome && active === id
-                    ? 'location'
-                    : undefined
-              }
+              to={href}
+              aria-current={!isHome && id === 'tech-news' && newsRoute ? 'page' : isHome && active === id ? 'location' : undefined}
               onClick={() => setOpen(false)}
             >
               {label}
-            </a>
+            </Link>
           ))}
         </nav>
       </div>

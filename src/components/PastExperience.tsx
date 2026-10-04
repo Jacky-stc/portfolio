@@ -49,9 +49,9 @@ const EXPERIENCES = [
 ]
 
 function PastExperience() {
-  const [expandedExperiences, setExpandedExperiences] = useState({})
+  const [expandedExperiences, setExpandedExperiences] = useState<Record<string, boolean>>({})
 
-  const toggleExperience = (experienceId) => {
+  const toggleExperience = (experienceId: string) => {
     setExpandedExperiences((current) => ({
       ...current,
       [experienceId]: !current[experienceId],

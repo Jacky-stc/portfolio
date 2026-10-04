@@ -2,6 +2,8 @@ import { GalleryHorizontal, List } from 'lucide-react'
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 
 const CAROUSEL_DURATION = 64000
+type CardSnapshot = { rect: DOMRect; distance: number; children: DOMRect[] }
+type LayoutSnapshot = { cards: Map<string, CardSnapshot>; height: number }
 
 const SKILLS = [
   { name: 'HTML5', icon: '/images/html5.webp' },
@@ -48,25 +50,30 @@ function SkillList({ isDuplicate = false }) {
 function Skills() {
   const [isList, setIsList] = useState(false)
   const [isAnimating, setIsAnimating] = useState(false)
-  const containerRef = useRef(null)
-  const trackRef = useRef(null)
+  const containerRef = useRef<HTMLDivElement>(null)
+  const trackRef = useRef<HTMLDivElement>(null)
   const carouselTimeRef = useRef(0)
-  const snapshotRef = useRef(null)
-  const animationsRef = useRef([])
+  const snapshotRef = useRef<LayoutSnapshot | null>(null)
+  const animationsRef = useRef<Animation[]>([])
 
   const toggleLayout = () => {
     if (snapshotRef.current || isAnimating) return
     const container = containerRef.current
+    const track = trackRef.current
+    if (!container || !track) return
     if (!isList) {
-      const carousel = trackRef.current.getAnimations().find((animation) => animation.animationName === 'skills-scroll')
+      const carousel = track
+        .getAnimations()
+        .find((animation) => animation instanceof CSSAnimation && animation.animationName === 'skills-scroll')
       // Computed progress includes the negative delay used when resuming a previous loop.
-      carouselTimeRef.current = (carousel?.effect.getComputedTiming().progress ?? 0) * CAROUSEL_DURATION
+      carouselTimeRef.current = (carousel?.effect?.getComputedTiming().progress ?? 0) * CAROUSEL_DURATION
     }
     const bounds = container.getBoundingClientRect()
-    const cards = new Map()
+    const cards = new Map<string, CardSnapshot>()
 
     // Pick the visible copy of each skill, even halfway through the carousel loop.
-    container.querySelectorAll('[data-skill]').forEach((card) => {
+    container.querySelectorAll<HTMLElement>('[data-skill]').forEach((card) => {
+      if (!card.dataset.skill) return
       const rect = card.getBoundingClientRect()
       const distance = Math.abs(rect.left + rect.width / 2 - (bounds.left + bounds.width / 2))
       const previous = cards.get(card.dataset.skill)
@@ -94,18 +101,20 @@ function Skills() {
     }
 
     const container = containerRef.current
-    const animations = []
+    if (!container) return
+    const animations: Animation[] = []
     const targetHeight = container.getBoundingClientRect().height
     // Both copies may be visible at the saved carousel position.
-    const cards = container.querySelectorAll('.skill-card')
+    const cards = container.querySelectorAll<HTMLElement>('.skill-card')
     const targets = Array.from(cards, (card) => ({
       card,
       target: card.getBoundingClientRect(),
       children: Array.from(card.children, (child) => ({ child, rect: child.getBoundingClientRect() })),
     }))
     targets.forEach(({ card, target, children }, index) => {
-      const previous = snapshot.cards.get(card.dataset.skill)
-      const timing = {
+      const previous = snapshot.cards.get(card.dataset.skill || '')
+      if (!previous) return
+      const timing: KeyframeAnimationOptions = {
         duration: 720,
         delay: (index % SKILLS.length) * 35,
         easing: 'cubic-bezier(.61,.02,.42,.87)',
@@ -194,7 +203,9 @@ function Skills() {
         </header>
 
         <div
-          className={`skills-carousel${isList ? ' skills-display--list' : ''}${isAnimating ? ' is-transitioning' : ''}`}
+          className={['skills-carousel', isList ? 'skills-display--list' : '', isAnimating ? 'is-transitioning' : '']
+            .filter(Boolean)
+            .join(' ')}
           id="skills-display"
           ref={containerRef}
           aria-label="Technical skills"

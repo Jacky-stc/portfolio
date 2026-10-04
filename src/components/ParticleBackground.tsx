@@ -9,11 +9,11 @@ const VELOCITY_DAMPING = 0.9
 const SETTLE_THRESHOLD = 0.05
 const RESIZE_DELAY = 120
 
-function getParticleCount(width, height) {
+function getParticleCount(width: number, height: number) {
   return Math.min(MAX_PARTICLES, Math.max(MIN_PARTICLES, Math.round((width * height) / PARTICLE_DENSITY)))
 }
 
-function createParticle(width, height) {
+function createParticle(width: number, height: number) {
   return {
     x: Math.random() * width,
     y: Math.random() * height,
@@ -25,22 +25,25 @@ function createParticle(width, height) {
   }
 }
 
-function clamp(value, minimum, maximum) {
+function clamp(value: number, minimum: number, maximum: number) {
   return Math.min(maximum, Math.max(minimum, value))
 }
 
 function ParticleBackground() {
-  const canvasRef = useRef(null)
+  const canvasRef = useRef<HTMLCanvasElement>(null)
 
   useEffect(() => {
     const canvas = canvasRef.current
+    if (!canvas) return
+    const container = canvas.parentElement
     const context = canvas.getContext('2d')
+    if (!container || !context) return
     const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)')
     const pointer = { active: false, clientX: 0, clientY: 0, x: 0, y: 0 }
 
     let animationFrame = 0
     let resizeTimer = 0
-    let particles = []
+    const particles: ReturnType<typeof createParticle>[] = []
     let canvasWidth = 0
     let canvasHeight = 0
     let pixelRatio = 1
@@ -115,7 +118,8 @@ function ParticleBackground() {
       const nextPixelRatio = Math.min(window.devicePixelRatio || 1, MAX_PIXEL_RATIO)
       const rootFontSize = Number.parseFloat(window.getComputedStyle(document.documentElement).fontSize)
       const nextWidth = document.documentElement.clientWidth
-      const nextHeight = Math.max(window.innerHeight, document.documentElement.scrollHeight, document.body.scrollHeight)
+      // Measure normal-flow content, never scrollHeight (which includes this canvas).
+      const nextHeight = container.getBoundingClientRect().height
 
       if (nextWidth === canvasWidth && nextHeight === canvasHeight && nextPixelRatio === pixelRatio) {
         return
@@ -157,7 +161,7 @@ function ParticleBackground() {
       resizeTimer = window.setTimeout(resize, RESIZE_DELAY)
     }
 
-    const handlePointerMove = (event) => {
+    const handlePointerMove = (event: PointerEvent) => {
       if (motionPreference.matches || event.pointerType === 'touch') return
 
       pointer.active = true
@@ -180,7 +184,7 @@ function ParticleBackground() {
       pointer.active = false
     }
 
-    const handlePointerOut = (event) => {
+    const handlePointerOut = (event: PointerEvent) => {
       if (!event.relatedTarget) releasePointer()
     }
 
@@ -200,7 +204,7 @@ function ParticleBackground() {
     const resizeObserver = new ResizeObserver(scheduleResize)
 
     resize()
-    resizeObserver.observe(document.documentElement)
+    resizeObserver.observe(container)
 
     window.addEventListener('resize', scheduleResize)
     window.addEventListener('scroll', handleScroll, { passive: true })

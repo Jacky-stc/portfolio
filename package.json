@@ -3,27 +3,43 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
+  "engines": {
+    "node": ">=22.22.0"
+  },
   "packageManager": "pnpm@11.19.0",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "format": "prettier --write index.html src",
-    "format:check": "prettier --check index.html src"
+    "dev": "react-router dev",
+    "build": "pnpm typecheck && react-router build && tsx scripts/finalize-static.ts",
+    "preview": "sirv build/client --host 127.0.0.1 --port 4197",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test tests/metadata.test.ts tests/techNews.test.ts tests/views.test.ts",
+    "test:ssg": "tsx --test tests/ssg.test.ts",
+    "format": "prettier --write src",
+    "format:check": "prettier --check src"
   },
   "dependencies": {
+    "@react-router/node": "8.4.0",
     "@react-three/drei": "^10.7.6",
     "@react-three/fiber": "^9.4.0",
+    "isbot": "^5",
     "lucide-react": "^1.42.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
+    "react-router": "^8.4.0",
     "three": "^0.180.0"
   },
   "devDependencies": {
+    "@react-router/dev": "8.4.0",
+    "@types/node": "^22.20.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@types/three": "^0.180.0",
     "@vitejs/plugin-react": "^5.0.4",
     "prettier": "^3.6.2",
     "prettier-plugin-organize-imports": "^4.3.0",
     "prettier-plugin-tailwindcss": "^0.7.1",
+    "sirv-cli": "^3.0.1",
+    "tsx": "^4.23.15",
     "typescript": "^7.0.2",
     "vite": "^7.1.12"
   }

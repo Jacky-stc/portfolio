@@ -1,8 +1,13 @@
 import { ArrowLeft, ArrowUpRight, Clock } from 'lucide-react'
-import { useEffect, useMemo, useState } from 'react'
+import { useMemo } from 'react'
+import { Link, useLocation } from 'react-router'
 import { formatNewsDate, localizeArticle, readingMinutes, techNews } from '../data/techNews'
+import { newsPath, parseNewsPath } from '../routing/newsPaths'
+import ViewCount from '../components/ViewCount'
 
-function ArticleMeta({ article, language }) {
+import type { NewsArticle, NewsLanguage } from '../data/techNews'
+
+function ArticleMeta({ article, language }: { article: NewsArticle; language: NewsLanguage }) {
   return (
     <div className="news-meta">
       <time dateTime={article.date}>{formatNewsDate(article.date, language)}</time>
@@ -14,46 +19,33 @@ function ArticleMeta({ article, language }) {
   )
 }
 
-export default function TechNews({ pathname }) {
-  const [language, setLanguage] = useState(() => {
-    try {
-      return localStorage.getItem('news-language') === 'en' ? 'en' : 'zh-TW'
-    } catch {
-      return 'zh-TW'
-    }
-  })
+export default function TechNews() {
+  const { pathname } = useLocation()
+  const route = parseNewsPath(pathname)
+  const language = route?.language || 'en'
   const chinese = language === 'zh-TW'
   const entries = useMemo(() => techNews.map((entry) => localizeArticle(entry, language)), [language])
-  const isList = pathname === '/tech-news'
-  const article = entries.find(({ slug }) => pathname === `/tech-news/${slug}`)
-  useEffect(() => {
-    try {
-      localStorage.setItem('news-language', language)
-    } catch {
-      /* Storage can be unavailable in privacy mode. */
-    }
-  }, [language])
-  useEffect(() => {
-    const original = document.title
-    document.title = `${isList ? 'Tech News' : article?.title || 'Page not found'} | Jacky Su`
-    return () => {
-      document.title = original
-    }
-  }, [isList, article])
+  const isList = !!route && !route.slug
+  const article = route && entries.find(({ slug }) => slug === route.slug)
 
-  if (!isList && !article)
+  if (!route || (!isList && !article))
     return (
-      <section className="content-section news-page">
+      <section
+        className="content-section news-page"
+        lang={language}
+      >
         <div>
           <p className="news-eyebrow">404</p>
-          <h1 className="news-title">Page not found.</h1>
-          <p className="news-intro">This page may have moved, or the article is not available yet.</p>
-          <a
+          <h1 className="news-title">{chinese ? '找不到這個頁面。' : 'Page not found.'}</h1>
+          <p className="news-intro">
+            {chinese ? '頁面可能已移動，或文章尚未發布。' : 'This page may have moved, or the article is not available yet.'}
+          </p>
+          <Link
             className="news-back"
-            href="/tech-news"
+            to={newsPath(language)}
           >
-            <ArrowLeft aria-hidden="true" /> Back to Tech News
-          </a>
+            <ArrowLeft aria-hidden="true" /> {chinese ? '返回新聞列表' : 'Back to Tech News'}
+          </Link>
         </div>
       </section>
     )
@@ -69,22 +61,20 @@ export default function TechNews({ pathname }) {
           role="group"
           aria-label="Article language / 文章語言"
         >
-          <button
-            type="button"
+          <Link
+            to={newsPath('zh-TW', route.slug)}
             lang="zh-TW"
-            aria-pressed={chinese}
-            onClick={() => setLanguage('zh-TW')}
+            aria-current={chinese ? 'page' : undefined}
           >
             繁體中文
-          </button>
-          <button
-            type="button"
+          </Link>
+          <Link
+            to={newsPath('en', route.slug)}
             lang="en"
-            aria-pressed={!chinese}
-            onClick={() => setLanguage('en')}
+            aria-current={!chinese ? 'page' : undefined}
           >
             English
-          </button>
+          </Link>
         </div>
         {isList ? (
           <>
@@ -102,9 +92,9 @@ export default function TechNews({ pathname }) {
                 .sort((a, b) => b.date.localeCompare(a.date))
                 .map((entry) => (
                   <li key={entry.slug}>
-                    <a
+                    <Link
                       className="news-card"
-                      href={`/tech-news/${entry.slug}`}
+                      to={newsPath(language, entry.slug)}
                     >
                       <div>
                         <ArticleMeta
@@ -116,10 +106,16 @@ export default function TechNews({ pathname }) {
                           <ArrowUpRight aria-hidden="true" />
                         </h2>
                         <p>{entry.summary}</p>
-                        <div className="news-tags">
-                          {entry.tags.map((tag) => (
-                            <span key={tag}>{tag}</span>
-                          ))}
+                        <div className="news-tags-row">
+                          <div className="news-tags">
+                            {entry.tags.map((tag) => (
+                              <span key={tag}>{tag}</span>
+                            ))}
+                          </div>
+                          <ViewCount
+                            slug={entry.slug}
+                            language={language}
+                          />
                         </div>
                       </div>
                       {entry.image && (
@@ -131,7 +127,7 @@ export default function TechNews({ pathname }) {
                           height="400"
                         />
                       )}
-                    </a>
+                    </Link>
                   </li>
                 ))}
             </ol>
@@ -139,20 +135,33 @@ export default function TechNews({ pathname }) {
               <p className="news-intro">{chinese ? '第一篇文章準備中，敬請期待。' : 'The first story is on its way. Check back soon.'}</p>
             )}
           </>
-        ) : (
+        ) : article ? (
           <article className="news-article">
-            <a
+            <Link
               className="news-back"
-              href="/tech-news"
+              to={newsPath(language)}
             >
               <ArrowLeft aria-hidden="true" /> {chinese ? '所有文章' : 'All stories'}
-            </a>
+            </Link>
             <ArticleMeta
               article={article}
               language={language}
             />
             <h1 className="news-title">{article.title}</h1>
             <p className="news-intro">{article.summary}</p>
+            <div className="news-tags-row news-article-tags">
+              <div className="news-tags">
+                {article.tags.map((tag) => (
+                  <span key={tag}>{tag}</span>
+                ))}
+              </div>
+              <ViewCount
+                key={article.slug}
+                slug={article.slug}
+                language={language}
+                track
+              />
+            </div>
             {article.image && (
               <figure>
                 <img
@@ -194,7 +203,7 @@ export default function TechNews({ pathname }) {
               </section>
             )}
           </article>
-        )}
+        ) : null}
       </div>
     </section>
   )

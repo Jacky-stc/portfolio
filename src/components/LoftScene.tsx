@@ -2,6 +2,18 @@ import { Billboard, ContactShadows, Html, Line, OrbitControls, useGLTF } from '@
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { Suspense, useEffect, useMemo, useState } from 'react'
 import * as THREE from 'three'
+import type { ThreeEvent } from '@react-three/fiber'
+
+type HoverHandler = (id: string | null) => void
+type SceneProps = { hoveredId: string | null; onHover: HoverHandler }
+type Hotspot = {
+  anchorNode: string
+  groupName: string
+  interactionId: string
+  label: string
+  labelSide: 'left' | 'right'
+  offset: THREE.Vector3Tuple
+}
 
 const MODEL_PATH = '/models/jacky_loft_v1.glb?v=0.5.1'
 const SCALE_EPSILON = 0.0001
@@ -14,6 +26,7 @@ function ResponsiveCamera() {
   const { camera, size, invalidate } = useThree()
 
   useEffect(() => {
+    if (!(camera instanceof THREE.PerspectiveCamera)) return
     const canvasAspect = size.width / size.height
     const rawHorizontalFit = Math.max(1, BASE_CAMERA_ASPECT / canvasAspect)
     const horizontalFit = 1 + (rawHorizontalFit - 1) * 0.7
@@ -30,7 +43,7 @@ function ResponsiveCamera() {
   return null
 }
 
-const HOTSPOTS = [
+const HOTSPOTS: Hotspot[] = [
   {
     anchorNode: 'Hotspot_Bookshelf',
     groupName: 'Bookshelf',
@@ -49,8 +62,8 @@ const HOTSPOTS = [
   },
 ]
 
-function findInteractiveParent(object) {
-  let current = object
+function findInteractiveParent(object: THREE.Object3D) {
+  let current: THREE.Object3D | null = object
 
   while (current) {
     if (current.userData?.interactive) return current
@@ -60,11 +73,21 @@ function findInteractiveParent(object) {
   return null
 }
 
-function navigateToSection(sectionId) {
+function navigateToSection(sectionId: string) {
   document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
 }
 
-function HotspotIndicator({ anchor, hotspot, isActive, onHover }) {
+function HotspotIndicator({
+  anchor,
+  hotspot,
+  isActive,
+  onHover,
+}: {
+  anchor: THREE.Vector3Tuple
+  hotspot: Hotspot
+  isActive: boolean
+  onHover: HoverHandler
+}) {
   const start = useMemo(() => new THREE.Vector3(...anchor), [anchor])
   const end = useMemo(() => start.clone().add(new THREE.Vector3(...hotspot.offset)), [hotspot.offset, start])
   const lineGeometry = useMemo(() => {
@@ -75,12 +98,12 @@ function HotspotIndicator({ anchor, hotspot, isActive, onHover }) {
     return { length: direction.length(), midpoint, quaternion }
   }, [end, start])
 
-  const activate = (event) => {
+  const activate = (event: ThreeEvent<MouseEvent>) => {
     event.stopPropagation()
     navigateToSection(hotspot.interactionId)
   }
 
-  const activateHover = (event) => {
+  const activateHover = (event: ThreeEvent<PointerEvent>) => {
     event.stopPropagation()
     onHover(hotspot.interactionId)
   }
@@ -154,13 +177,23 @@ function HotspotIndicator({ anchor, hotspot, isActive, onHover }) {
   )
 }
 
-function InteractionHitbox({ interactionId, center, size, onHover }) {
-  const activate = (event) => {
+function InteractionHitbox({
+  interactionId,
+  center,
+  size,
+  onHover,
+}: {
+  interactionId: string
+  center: THREE.Vector3Tuple
+  size: THREE.Vector3Tuple
+  onHover: HoverHandler
+}) {
+  const activate = (event: ThreeEvent<MouseEvent>) => {
     event.stopPropagation()
     navigateToSection(interactionId)
   }
 
-  const activateHover = (event) => {
+  const activateHover = (event: ThreeEvent<PointerEvent>) => {
     if (event.intersections[0]?.object !== event.object) return
 
     event.stopPropagation()
@@ -186,7 +219,7 @@ function InteractionHitbox({ interactionId, center, size, onHover }) {
   )
 }
 
-function LoftModel({ hoveredId, onHover }) {
+function LoftModel({ hoveredId, onHover }: SceneProps) {
   const { scene } = useGLTF(MODEL_PATH)
 
   const hotspotAnchors = useMemo(() => {
@@ -204,7 +237,7 @@ function LoftModel({ hoveredId, onHover }) {
         hotspot,
         anchor: node.getWorldPosition(new THREE.Vector3()).toArray(),
       }
-    }).filter(Boolean)
+    }).filter((item) => item !== null)
   }, [scene])
 
   const interactiveObjects = useMemo(() => {
@@ -227,14 +260,14 @@ function LoftModel({ hoveredId, onHover }) {
         hitboxCenter: bounds.getCenter(new THREE.Vector3()).toArray(),
         hitboxSize: bounds.getSize(new THREE.Vector3()).toArray(),
       }
-    }).filter(Boolean)
+    }).filter((item) => item !== null)
   }, [scene])
 
   useEffect(() => {
     scene.traverse((object) => {
-      if (object.isLight) object.castShadow = false
+      if (object instanceof THREE.Light) object.castShadow = false
 
-      if (object.isMesh) {
+      if (object instanceof THREE.Mesh) {
         object.castShadow = false
         object.receiveShadow = true
       }
@@ -261,7 +294,7 @@ function LoftModel({ hoveredId, onHover }) {
     if (animationInProgress) invalidate()
   })
 
-  const handleObjectClick = (event) => {
+  const handleObjectClick = (event: ThreeEvent<MouseEvent>) => {
     const target = findInteractiveParent(event.object)
     if (!target || event.delta > 4) return
 
@@ -297,7 +330,7 @@ function LoftModel({ hoveredId, onHover }) {
   )
 }
 
-function NightScene({ hoveredId, onHover }) {
+function NightScene({ hoveredId, onHover }: SceneProps) {
   return (
     <>
       <ambientLight intensity={0.3} />
@@ -342,7 +375,7 @@ function NightScene({ hoveredId, onHover }) {
 }
 
 export default function LoftScene() {
-  const [hoveredId, setHoveredId] = useState(null)
+  const [hoveredId, setHoveredId] = useState<string | null>(null)
 
   return (
     <Canvas

@@ -4,7 +4,7 @@ import ContactLinks from './ContactLinks'
 const LINES = ['Jacky Su.', 'I build interactive web experiences.']
 const TOTAL = LINES.join('').length
 
-function TypedText({ index, count }) {
+function TypedText({ index, count }: { index: number; count: number }) {
   const start = LINES.slice(0, index).join('').length
   const length = Math.max(0, Math.min(LINES[index].length, count - start))
   const typing = count >= start && count < start + LINES[index].length
@@ -30,7 +30,7 @@ export default function Hero() {
   const [count, setCount] = useState(0)
   useEffect(() => {
     const preference = window.matchMedia('(prefers-reduced-motion: reduce)')
-    let timer
+    let timer: ReturnType<typeof setInterval> | undefined
     const finish = () => {
       clearInterval(timer)
       setCount(TOTAL)
