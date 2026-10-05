@@ -1,0 +1,71 @@
+{
+  "slug": "september-browser-baseline-anthropic-interviews",
+  "date": "2026-10-05",
+  "title": "Browser support catches up, while Anthropic asks users what they want",
+  "summary": "A look back at recent browser interoperability updates and an ongoing study of people’s experiences with AI.",
+  "tags": ["Browsers", "CSS", "AI", "Research"],
+  "image": "/images/tech-news-cover.svg",
+  "imageAlt": "An illustrated browser window connected to AI nodes",
+  "imageCaption": "Original site illustration, not a screenshot of the products discussed.",
+  "sections": [
+    {
+      "heading": "Less custom code for scrolling and images",
+      "paragraphs": [
+        "This October 5 edition looks back over the past week. In its October 2 browser roundup, web.dev reports that Safari 27 brings scroll anchoring and sizes=\"auto\" for lazy-loaded images to Baseline Newly available. The former helps keep reading positions steady when content above changes; the latter lets image selection follow the rendered width.",
+        "The same roundup highlights broader support for CSS alpha(), which changes a color’s transparency. These are compatibility milestones, not a reason to drop support for older browsers without checking your audience."
+      ]
+    },
+    {
+      "heading": "A study that can make the interviews public",
+      "paragraphs": [
+        "Anthropic’s September 29 announcement invites Claude users to discuss their experiences with AI in a study running through October 6. Participants can choose whether to publish their full interview. Publication omits account details but includes the associated country; personal stories can still reveal identity.",
+        "This is a study invitation, not a release of findings. Anthropic acknowledges that Claude users do not represent the general public, and people choosing publication form another self-selected group. Those limits matter when interpreting the eventual results."
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "label": "web.dev · September browser roundup · October 2, 2026",
+      "url": "https://web.dev/blog/web-platform-09-2026"
+    },
+    {
+      "label": "Anthropic · User interview study · September 29, 2026",
+      "url": "https://www.anthropic.com/research/your-thoughts-on-ai"
+    }
+  ],
+  "translations": {
+    "zh-TW": {
+      "title": "瀏覽器支援逐漸到位，Anthropic 則向使用者提問",
+      "summary": "回顧近期瀏覽器互通性更新，以及仍在進行中的 AI 使用經驗訪談研究。",
+      "tags": ["瀏覽器", "CSS", "AI", "研究"],
+      "imageAlt": "瀏覽器視窗連接 AI 節點的插畫",
+      "imageCaption": "本站原創插畫，並非文中產品的操作截圖。",
+      "sections": [
+        {
+          "heading": "捲動與圖片選擇，少一些自訂處理",
+          "paragraphs": [
+            "這篇 10 月 5 日的整理回顧近一週消息。web.dev 在 10 月 2 日的瀏覽器回顧指出，Safari 27 讓捲動錨定與延遲載入圖片的 sizes=\"auto\" 達到 Baseline Newly available。前者減少上方內容變動造成的閱讀位置跳動；後者讓圖片來源選擇依據實際呈現寬度。",
+            "回顧也列出 CSS alpha() 的跨瀏覽器支援進展，可用來調整顏色透明度。這些是相容性里程碑，不代表不必確認使用者環境，就能移除舊版瀏覽器的支援。"
+          ]
+        },
+        {
+          "heading": "這次訪談可以選擇公開",
+          "paragraphs": [
+            "Anthropic 在 9 月 29 日宣布邀請 Claude 使用者分享 AI 使用經驗，研究持續至 10 月 6 日。參與者可自行決定是否公開完整訪談；公開版本不包含帳號資料，但會附上對話關聯的國家，敘述中的個人細節仍可能暴露身分。",
+            "這是研究招募，並非研究結果發表。Anthropic 也承認，Claude 使用者不能代表整體大眾，願意公開訪談的人又是另一層自選樣本。閱讀未來結果時，需要保留這些限制。"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "label": "web.dev · 九月瀏覽器回顧 · 2026 年 10 月 2 日",
+          "url": "https://web.dev/blog/web-platform-09-2026"
+        },
+        {
+          "label": "Anthropic · 使用者訪談研究 · 2026 年 9 月 29 日",
+          "url": "https://www.anthropic.com/research/your-thoughts-on-ai"
+        }
+      ]
+    }
+  }
+}

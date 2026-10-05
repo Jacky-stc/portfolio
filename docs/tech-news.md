@@ -8,7 +8,9 @@
 
 ## Add an article
 
-Add an entry to `src/data/techNews.ts` with a unique URL-safe `slug`, publication `date` (`YYYY-MM-DD`), `title`, `summary`, `tags`, `sections` (heading and paragraphs), and `sources` (label and URL). Optional image fields: `image`, `imageAlt`, `imageCaption`. Store owned/licensed images in `public/images` and reference them with `/images/...`. Reading time is calculated from article text; English and Chinese are supported.
+Create `src/data/news/YYYY-MM-DD.json`, one article per Taiwan publication day, containing both languages in the same file. Use a unique URL-safe `slug`, publication `date` matching the filename, English `title`, `summary`, `tags`, `sections` (heading and paragraphs), and `sources` (label and URL), plus the complete Traditional Chinese content in `translations['zh-TW']`. Optional image fields: `image`, `imageAlt`, `imageCaption`. Store owned/licensed images in `public/images` and reference them with `/images/...`.
+
+Import and register the new JSON in `src/data/news/index.ts`. Explicit imports work in browser, SSG, Node tests, and the Vercel API without filesystem access in the browser or Vite-only glob APIs. `src/data/techNews.ts` contains only shared types, the newest-first catalog, and formatting/localization helpers; do not put article bodies there. Tests reject unregistered JSON files, duplicate publication dates, and filename/date mismatches. Daily news commits should include the new JSON, its index registration, and only necessary images.
 
 The first sourced bilingual digest was added on October 4, 2026, replacing the layout preview. The digest date is distinct from the original sources' publication dates, which must be stated in the article.
 

@@ -1,7 +1,30 @@
 import assert from 'node:assert/strict'
-import { existsSync } from 'node:fs'
+import { existsSync, readdirSync, readFileSync } from 'node:fs'
 import test from 'node:test'
 import { formatNewsDate, localizeArticle, readingMinutes, techNews } from '../src/data/techNews.ts'
+
+test('daily JSON files match the catalog and contain both languages', () => {
+  const directory = new URL('../src/data/news/', import.meta.url)
+  const files = readdirSync(directory).filter((file) => file.endsWith('.json'))
+  assert.equal(files.length, techNews.length, 'Register every daily JSON in news/index.ts')
+  assert.equal(new Set(techNews.map(({ date }) => date)).size, techNews.length)
+  for (const file of files) {
+    const article = JSON.parse(readFileSync(new URL(file, directory), 'utf8'))
+    assert.equal(file, `${article.date}.json`)
+    assert.ok(article.title && article.translations?.['zh-TW']?.title)
+    assert.deepEqual(
+      techNews.find(({ slug }) => slug === article.slug),
+      article
+    )
+  }
+  assert.deepEqual(
+    techNews.map(({ date }) => date),
+    techNews
+      .map(({ date }) => date)
+      .sort()
+      .reverse()
+  )
+})
 
 test('articles have unique routes, valid dates, images and complete translations', () => {
   assert.equal(new Set(techNews.map(({ slug }) => slug)).size, techNews.length)
