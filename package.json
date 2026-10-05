@@ -8,12 +8,13 @@
   },
   "packageManager": "pnpm@11.19.0",
   "scripts": {
-    "dev": "react-router dev",
+    "dev": "pnpm news:generate && react-router dev",
     "build": "pnpm typecheck && react-router build && tsx scripts/finalize-static.ts",
     "preview": "sirv build/client --host 127.0.0.1 --port 4197",
-    "typecheck": "tsc --noEmit",
-    "test": "tsx --test tests/metadata.test.ts tests/techNews.test.ts tests/views.test.ts",
-    "test:ssg": "tsx --test tests/ssg.test.ts",
+    "news:generate": "tsx scripts/generate-news-index.ts",
+    "typecheck": "pnpm news:generate && tsc --noEmit",
+    "test": "pnpm news:generate && tsx --test tests/metadata.test.ts tests/techNews.test.ts tests/views.test.ts",
+    "test:ssg": "pnpm news:generate && tsx --test tests/ssg.test.ts",
     "format": "prettier --write src",
     "format:check": "prettier --check src"
   },

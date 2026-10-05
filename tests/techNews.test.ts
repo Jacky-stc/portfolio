@@ -6,7 +6,7 @@ import { formatNewsDate, localizeArticle, readingMinutes, techNews } from '../sr
 test('daily JSON files match the catalog and contain both languages', () => {
   const directory = new URL('../src/data/news/', import.meta.url)
   const files = readdirSync(directory).filter((file) => file.endsWith('.json'))
-  assert.equal(files.length, techNews.length, 'Register every daily JSON in news/index.ts')
+  assert.equal(files.length, techNews.length, 'Generated index must include every daily JSON')
   assert.equal(new Set(techNews.map(({ date }) => date)).size, techNews.length)
   for (const file of files) {
     const article = JSON.parse(readFileSync(new URL(file, directory), 'utf8'))
