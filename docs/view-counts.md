@@ -6,13 +6,13 @@ Counts are cumulative daily browser visits, not unique natural people. One brows
 
 ## Production setup required
 
-Create and connect an Upstash Redis database to this Vercel project, then configure server-only environment variables:
+Create and connect an Upstash Redis database to this Vercel project. The Vercel integration provides these server-only environment variables:
 
-- `UPSTASH_REDIS_REST_URL`
-- `UPSTASH_REDIS_REST_TOKEN` (read/write token)
+- `KV_REST_API_URL`
+- `KV_REST_API_TOKEN` (read/write token; do not use `KV_REST_API_READ_ONLY_TOKEN`)
 - `SITE_URL` only if the canonical host differs from `https://www.jackysu.dev`
 
-Never prefix these secrets with `VITE_` or put them in frontend source. Redeploy after configuration. No database has been provisioned by this change. See [Upstash REST documentation](https://upstash.com/docs/redis/features/restapi) and [Vercel Node functions](https://vercel.com/docs/functions/runtimes/node-js).
+The API also accepts the older `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN` pair if the `KV_REST_API_*` pair is unavailable. `KV_URL` and `REDIS_URL` are not needed because the API uses the REST endpoint. Never prefix these secrets with `VITE_` or put them in frontend source. Redeploy after configuration. See [Upstash REST documentation](https://upstash.com/docs/redis/features/restapi) and [Vercel Node functions](https://vercel.com/docs/functions/runtimes/node-js).
 
 The static site remains in `build/client`; Vercel deploys `api/views.ts` as a separate function. `pnpm dev` and `pnpm preview` only serve the site and do not emulate that function. For end-to-end testing, use a Vercel preview deployment with a separate test database. A static-only host cannot persist these counts.
 

@@ -36,8 +36,10 @@ export default async function handler(req: CounterRequest, res: CounterResponse)
   if (slug !== undefined && (typeof slug !== 'string' || !slugs.has(slug))) {
     return res.status(404).json({ error: 'Article not found' })
   }
-  const url = process.env.UPSTASH_REDIS_REST_URL
-  const token = process.env.UPSTASH_REDIS_REST_TOKEN
+  const [url, token] =
+    process.env.KV_REST_API_URL && process.env.KV_REST_API_TOKEN
+      ? [process.env.KV_REST_API_URL, process.env.KV_REST_API_TOKEN]
+      : [process.env.UPSTASH_REDIS_REST_URL, process.env.UPSTASH_REDIS_REST_TOKEN]
   if (!url || !token) return res.status(503).json({ error: 'Counter not configured' })
   const key = `portfolio:views:${slug || 'site'}`
   let command: (string | number)[] = ['GET', key]
