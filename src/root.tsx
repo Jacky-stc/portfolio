@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/react'
 import { Links, Scripts, ScrollRestoration, useLocation } from 'react-router'
 import type { ReactNode } from 'react'
 import App from './App'
@@ -52,6 +53,7 @@ export function Layout({ children }: { children: ReactNode }) {
       </head>
       <body>
         {children}
+        <Analytics />
         <ScrollRestoration />
         <Scripts />
       </body>
