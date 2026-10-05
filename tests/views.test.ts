@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict'
+import { spawnSync } from 'node:child_process'
 import test from 'node:test'
 import handler from '../api/views.ts'
 import { techNews } from '../src/data/techNews.ts'
@@ -29,6 +30,19 @@ function response(): MockResponse {
     },
   }
 }
+
+test('counter module loads with native Node ESM', () => {
+  const moduleUrl = new URL('../api/views.ts', import.meta.url).href
+  const result = spawnSync(
+    process.execPath,
+    ['--experimental-strip-types', '--input-type=module', '-e', `await import(${JSON.stringify(moduleUrl)})`],
+    {
+      encoding: 'utf8',
+    }
+  )
+  assert.equal(result.status, 0, result.stderr)
+})
+
 test('counter validates requests and handles missing storage without fake counts', async () => {
   const cases: [CounterRequest, number][] = [
     [{ method: 'DELETE', headers: {} }, 405],
