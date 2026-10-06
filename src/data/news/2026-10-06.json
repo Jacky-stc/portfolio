@@ -1,0 +1,113 @@
+{
+  "slug": "chrome-email-verification-openai-textgrain",
+  "date": "2026-10-06",
+  "title": "Chrome expands its email verification trial as OpenAI introduces textGrain",
+  "summary": "October 5 updates from Chrome and OpenAI show two different approaches to verifying digital content—and the limits that still matter.",
+  "tags": ["Chrome", "Identity", "AI", "Content provenance"],
+  "image": "/images/tech-news-cover.svg",
+  "imageAlt": "An illustrated browser window connected to AI nodes",
+  "imageCaption": "Original site illustration, not a screenshot of either feature.",
+  "sections": [
+    {
+      "heading": "Email checks move further into the browser",
+      "paragraphs": [
+        "In an October 5 update, the Chrome team described changes to its Email Verification origin trial. The proposed flow lets a participating email provider issue a signed token through the browser while a person fills out a form, rather than requiring an inbox code or link. Chrome 154 extends the trial to Android and supports third-party origin-trial tokens for embedded identity scripts, provided the registered trial origin matches the issuer domain.",
+        "The feature is still experimental, not a generally available web standard. It also requires the person to be signed in to a participating provider in that browser. Chrome's implementation guide treats the token as a progressive enhancement: sites must keep their existing email-confirmation path when a browser or provider cannot supply a valid token."
+      ]
+    },
+    {
+      "heading": "Small protocol changes can break an integration",
+      "paragraphs": [
+        "For sites validating tokens, Chrome now advises handling an optional key identifier (`kid`): when it is absent, the server should check the issuer's published keys to find the matching signature. For providers issuing tokens, the `Sec-Fetch-Dest` value changes from `emailverification` in Chrome 153 to `email-verification` in Chrome 154 and later; Chrome recommends accepting both during the transition.",
+        "The distinction is practical. A signed token confirms an active session with the email provider, but it does not prove that a welcome or recovery message can reach the inbox. Teams evaluating the trial should separate account-control checks from email deliverability and avoid removing their fallback flow."
+      ]
+    },
+    {
+      "heading": "textGrain starts as an opt-in, not a universal label",
+      "paragraphs": [
+        "OpenAI announced textGrain on October 5 as an invisible statistical signal in generated word choices. API customers globally can opt in for select models, with watermarking off by default. OpenAI says eligible ChatGPT and Codex text in the European Union will receive the watermark over the coming weeks; that wider product rollout had not been announced as complete on October 5. Access to the text detector initially requires approval as a researcher or expert organization.",
+        "In OpenAI's own evaluation, at a target false-positive rate of 1%, the detector found the watermark in about 80% of 200-token psychology passages and about 95% of 400-token passages. Editing is a substantial limitation: replacing 10% of words with synonyms reduced detection in one 400-token test from roughly 92% to 66%. These are results under specified test conditions, not a guarantee for arbitrary text."
+      ]
+    },
+    {
+      "heading": "A signal is not a verdict about authorship",
+      "paragraphs": [
+        "OpenAI cautions that a watermark cannot identify a user, measure human contribution, establish ownership, or verify accuracy. A missing detection also cannot establish that a person wrote the text: short passages, editing, translation, unsupported models, and older outputs can all remove or lack the signal. The useful reading of the announcement is narrower than an all-purpose AI detector: provenance tools can add evidence, but their coverage and error rates still need context."
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "label": "Chrome for Developers · Email verification update · October 5, 2026",
+      "url": "https://developer.chrome.com/blog/email-verification-october-2026"
+    },
+    {
+      "label": "Chrome for Developers · Email Verification documentation · updated October 5, 2026",
+      "url": "https://developer.chrome.com/docs/identity/email-verification"
+    },
+    {
+      "label": "OpenAI · EU text provenance announcement · October 5, 2026",
+      "url": "https://openai.com/index/eu-text-provenance/"
+    },
+    {
+      "label": "OpenAI · textGrain technical report · October 5, 2026",
+      "url": "https://cdn.openai.com/pdf/e9508624-d767-41b6-a26d-e34ca798ada6/textgrain-entropy-calibrated-watermarking-for-language-model-text.pdf"
+    }
+  ],
+  "translations": {
+    "zh-TW": {
+      "title": "Chrome 擴大電子郵件驗證試驗，OpenAI 推出 textGrain 文字浮水印",
+      "summary": "Chrome 與 OpenAI 在 10 月 5 日各自更新驗證技術，也提醒我們這些訊號仍有適用範圍與限制。",
+      "tags": ["Chrome", "身分驗證", "AI", "內容來源"],
+      "imageAlt": "瀏覽器視窗連接 AI 節點的插畫",
+      "imageCaption": "本站原創插畫，並非文中功能的操作截圖。",
+      "sections": [
+        {
+          "heading": "電子郵件驗證進一步進入瀏覽器",
+          "paragraphs": [
+            "Chrome 團隊在 10 月 5 日說明電子郵件驗證 origin trial 的更新。這項提案讓參與的郵件服務商透過瀏覽器發出簽署權杖，使用者填表時不必再切換到信箱輸入驗證碼或點連結。Chrome 154 將試驗擴及 Android，並支援嵌入式身分驗證腳本使用第三方 origin-trial 權杖，但註冊試驗的來源必須符合權杖發行者的網域。",
+            "它仍是實驗功能，並非已普遍可用的網頁標準；使用者也必須在同一瀏覽器登入參與的郵件服務商。Chrome 的實作文件把權杖視為漸進增強：若瀏覽器或服務商無法提供有效權杖，網站仍須保留原有的電子郵件確認流程。"
+          ]
+        },
+        {
+          "heading": "協定細節會影響實際整合",
+          "paragraphs": [
+            "對驗證權杖的網站而言，Chrome 提醒金鑰識別碼 `kid` 可能不存在；此時伺服器應逐一檢查發行者公開的金鑰，找出可驗證簽章的那把。對發行權杖的服務商而言，`Sec-Fetch-Dest` 從 Chrome 153 的 `emailverification` 改成 Chrome 154 起的 `email-verification`；過渡期間建議同時接受兩種值。",
+            "簽署權杖確認的是使用者在郵件服務商有有效的登入工作階段，並不保證歡迎信或帳號復原郵件能送達。評估這項試驗時，仍應區分帳號控制權與郵件可送達性，也不要移除備援驗證流程。"
+          ]
+        },
+        {
+          "heading": "textGrain 先由選用開始",
+          "paragraphs": [
+            "OpenAI 在 10 月 5 日公布 textGrain：它透過生成文字時的用詞選擇加入不可見的統計訊號。全球 API 客戶可對部分模型選用，預設則維持關閉。OpenAI 表示，未來幾週會為歐盟地區符合條件的 ChatGPT 與 Codex 文字加入浮水印；10 月 5 日的公告並未表示這項產品層級的部署已完成。文字偵測工具初期僅開放通過審核的研究者及專業機構使用。",
+            "在 OpenAI 自行進行的評估中，當目標誤判率設為 1%，偵測器在心理學類題目的 200 token 段落中找到約 80% 的浮水印，在 400 token 段落中約為 95%。編輯會明顯削弱訊號：其中一項 400 token 測試把 10% 的字換成同義詞後，偵測率從約 92% 降到 66%。這些是特定條件下的測試結果，不能保證任意文字都能同樣偵測。"
+          ]
+        },
+        {
+          "heading": "訊號不能直接判定作者是誰",
+          "paragraphs": [
+            "OpenAI 也提醒，浮水印無法辨識使用者、衡量人類投入程度、確定所有權，或驗證內容正確性。沒偵測到訊號同樣不能證明文字由人撰寫：篇幅太短、經過編輯或翻譯、使用不支援的模型，或生成於浮水印推出之前，都可能沒有可辨識的訊號。因此，這項技術比較適合當成有條件的來源線索，而不是通用的 AI 文字判決工具。"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "label": "Chrome for Developers · 電子郵件驗證更新 · 2026 年 10 月 5 日",
+          "url": "https://developer.chrome.com/blog/email-verification-october-2026"
+        },
+        {
+          "label": "Chrome for Developers · 電子郵件驗證文件 · 2026 年 10 月 5 日更新",
+          "url": "https://developer.chrome.com/docs/identity/email-verification"
+        },
+        {
+          "label": "OpenAI · 歐盟文字來源公告 · 2026 年 10 月 5 日",
+          "url": "https://openai.com/index/eu-text-provenance/"
+        },
+        {
+          "label": "OpenAI · textGrain 技術報告 · 2026 年 10 月 5 日",
+          "url": "https://cdn.openai.com/pdf/e9508624-d767-41b6-a26d-e34ca798ada6/textgrain-entropy-calibrated-watermarking-for-language-model-text.pdf"
+        }
+      ]
+    }
+  }
+}
