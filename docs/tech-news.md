@@ -3,7 +3,7 @@
 - `/` renders the portfolio.
 - `/zh/tech-news` and `/en/tech-news` list articles newest first in Traditional Chinese and English.
 - `/zh/tech-news/:slug` and `/en/tech-news/:slug` render the same article in each language; unknown paths display a not-found page.
-- Legacy `/tech-news` and `/tech-news/:slug` redirect to the Chinese versions (permanent Vercel redirects, client-side replacement during local navigation).
+- Only language-prefixed news URLs are supported; paths without `/zh` or `/en` use the site's not-found behavior.
 - React Router Framework Mode uses a shared `App` layout with `Outlet`, preserving the Header and particle background. Internal links use `Link`; external links remain native anchors. `ScrollRestoration` handles back/forward positions, page resets and hash anchors. Direct visits receive prerendered HTML. Route definitions live in `src/routes.ts`; no custom history or click interception is used.
 
 ## Add an article
@@ -42,6 +42,6 @@ The user authorized news-only commits and normal pushes to origin/main. Stop whe
 
 Run `pnpm test`, `pnpm build`, then `pnpm test:ssg` before publishing. Build first runs `pnpm typecheck` in strict mode. Source components use `.tsx`; data, API, configuration, scripts, and tests use `.ts`. The `tsx` runner executes build scripts and tests. The SSG tests read generated HTML and verify actual body text, metadata, language, canonical links, and the 404 output. Use `pnpm dev` for development and `pnpm preview` to preview `build/client` locally. Development does not write the production HTML files.
 
-`vercel.json` explicitly sets a static build (`pnpm build`, output `build/client`) with legacy URL redirects and no SPA rewrites. Vercel should serve generated paths directly and missing paths with its static 404 behavior. The postbuild script copies the prerendered not-found page to `404.html`, generates `sitemap.xml` (excluding noindex/demo pages), and generates `robots.txt`. The generated SPA fallback is not configured as a catch-all, avoiding HTTP 200 responses for missing articles. A client-side 404 is only a rendered view; a direct missing request is handled by the host.
+`vercel.json` explicitly sets a static build (`pnpm build`, output `build/client`) with no redirects or SPA rewrites. Vercel should serve generated paths directly and missing paths with its static 404 behavior. The postbuild script copies the prerendered not-found page to `404.html`, generates `sitemap.xml` (excluding noindex/demo pages), and generates `robots.txt`. The generated SPA fallback is not configured as a catch-all, avoiding HTTP 200 responses for missing articles. A client-side 404 is only a rendered view; a direct missing request is handled by the host.
 
 Node 22.22+ is required by the installed React Router framework tooling; configure Vercel to use a compatible Node release. The Vercel Git integration must track `main` for pushes to trigger production deployments. No deployment credentials are stored in this repository. Generated `build/` and `.react-router/` directories are ignored by Git. This is build-time SSG, not a runtime SSR server; content changes require a rebuild/deployment.

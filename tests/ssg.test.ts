@@ -45,11 +45,13 @@ for (const path of prerenderPaths) {
   })
 }
 
-test('static 404 is noindex and Vercel does not rewrite articles to the homepage', async () => {
+test('static 404 is noindex and Vercel has no legacy redirects or homepage rewrite', async () => {
   assert.ok((await readFile('build/client/404.html', 'utf8')).includes('noindex, follow'))
   const config = JSON.parse(await readFile('vercel.json', 'utf8'))
   assert.equal(config.outputDirectory, 'build/client')
+  assert.equal(config.redirects, undefined)
   assert.equal(config.rewrites, undefined)
+  assert.ok(!prerenderPaths.some((path) => path.startsWith('/tech-news')))
   assert.ok((await readFile('build/client/sitemap.xml', 'utf8')).includes(`${SITE_URL}/en/tech-news`))
 })
 

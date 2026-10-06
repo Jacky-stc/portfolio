@@ -2,9 +2,5 @@
   "framework": null,
   "buildCommand": "pnpm build",
   "outputDirectory": "build/client",
-  "cleanUrls": true,
-  "redirects": [
-    { "source": "/tech-news", "destination": "/zh/tech-news", "permanent": true },
-    { "source": "/tech-news/:slug", "destination": "/zh/tech-news/:slug", "permanent": true }
-  ]
+  "cleanUrls": true
 }
