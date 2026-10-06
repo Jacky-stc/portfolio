@@ -14,5 +14,5 @@
     "skipLibCheck": true,
     "types": ["node", "vite/client"]
   },
-  "include": ["src", "api", "scripts", "tests", "jacky_loft_v1_bundle/lamp-controls.ts", "*.config.ts"]
+  "include": ["src", "api", "scripts", "tests", "*.config.ts"]
 }
