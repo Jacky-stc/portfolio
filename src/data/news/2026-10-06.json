@@ -4,9 +4,9 @@
   "title": "Chrome expands its email verification trial as OpenAI introduces textGrain",
   "summary": "October 5 updates from Chrome and OpenAI show two different approaches to verifying digital content—and the limits that still matter.",
   "tags": ["Chrome", "Identity", "AI", "Content provenance"],
-  "image": "/images/tech-news-cover.svg",
-  "imageAlt": "An illustrated browser window connected to AI nodes",
-  "imageCaption": "Original site illustration, not a screenshot of either feature.",
+  "image": "/images/email-verification-textgrain.svg",
+  "imageAlt": "Illustration of a verified email beside text with a subtle watermark",
+  "imageCaption": "Original illustration of email verification and text provenance; not a feature screenshot.",
   "sections": [
     {
       "heading": "Email checks move further into the browser",
@@ -59,8 +59,8 @@
       "title": "Chrome 擴大電子郵件驗證試驗，OpenAI 推出 textGrain 文字浮水印",
       "summary": "Chrome 與 OpenAI 在 10 月 5 日各自更新驗證技術，也提醒我們這些訊號仍有適用範圍與限制。",
       "tags": ["Chrome", "身分驗證", "AI", "內容來源"],
-      "imageAlt": "瀏覽器視窗連接 AI 節點的插畫",
-      "imageCaption": "本站原創插畫，並非文中功能的操作截圖。",
+      "imageAlt": "已驗證的電子郵件與帶有淡淡浮水印文字的插畫",
+      "imageCaption": "本站原創插畫，呈現電子郵件驗證與文字來源訊號，非功能截圖。",
       "sections": [
         {
           "heading": "電子郵件驗證進一步進入瀏覽器",

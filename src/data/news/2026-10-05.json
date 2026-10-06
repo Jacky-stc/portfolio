@@ -4,9 +4,9 @@
   "title": "Browser support catches up, while Anthropic asks users what they want",
   "summary": "A look back at recent browser interoperability updates and an ongoing study of people’s experiences with AI.",
   "tags": ["Browsers", "CSS", "AI", "Research"],
-  "image": "/images/tech-news-cover.svg",
-  "imageAlt": "An illustrated browser window connected to AI nodes",
-  "imageCaption": "Original site illustration, not a screenshot of the products discussed.",
+  "image": "/images/browser-baseline-interviews.svg",
+  "imageAlt": "Illustration of browser compatibility checks beside interview speech bubbles",
+  "imageCaption": "Original illustration of browser support and AI user interviews; not a product screenshot.",
   "sections": [
     {
       "heading": "Less custom code for scrolling and images",
@@ -38,8 +38,8 @@
       "title": "瀏覽器支援逐漸到位，Anthropic 則向使用者提問",
       "summary": "回顧近期瀏覽器互通性更新，以及仍在進行中的 AI 使用經驗訪談研究。",
       "tags": ["瀏覽器", "CSS", "AI", "研究"],
-      "imageAlt": "瀏覽器視窗連接 AI 節點的插畫",
-      "imageCaption": "本站原創插畫，並非文中產品的操作截圖。",
+      "imageAlt": "瀏覽器相容性標記與使用者訪談對話框的插畫",
+      "imageCaption": "本站原創插畫，呈現瀏覽器支援與 AI 使用者訪談，非產品截圖。",
       "sections": [
         {
           "heading": "捲動與圖片選擇，少一些自訂處理",

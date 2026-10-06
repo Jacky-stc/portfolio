@@ -4,9 +4,9 @@
   "title": "OpenAI DevDay highlights and GitHub’s move to CSS Modules",
   "summary": "A closer look at GPT-6.1 Sol, dots, and the September 29 developer updates, alongside GitHub’s account of removing CSS-in-JS.",
   "tags": ["Frontend", "AI", "CSS", "Developer Workflow"],
-  "image": "/images/tech-news-cover.svg",
-  "imageAlt": "Illustration of a browser window connected to a network of AI nodes",
-  "imageCaption": "Site illustration: frontend interfaces and AI systems, not a product screenshot.",
+  "image": "/images/openai-devday-css-modules.svg",
+  "imageAlt": "Illustration of a CSS code window linked to a network of AI nodes",
+  "imageCaption": "Original illustration of CSS Modules and AI developer tools; not a product screenshot.",
   "sections": [
     {
       "heading": "What changed at OpenAI DevDay",
@@ -62,8 +62,8 @@
       "title": "OpenAI DevDay 更新整理，以及 GitHub 告別 CSS-in-JS 的過程",
       "summary": "回顧 9 月 29 日的 GPT-6.1 Sol、dots 與開發工具更新，也看看 GitHub 為什麼將網站樣式改成 CSS Modules。",
       "tags": ["前端", "AI", "CSS", "開發流程"],
-      "imageAlt": "瀏覽器視窗連接 AI 節點網路的插畫",
-      "imageCaption": "本站插畫：前端介面與 AI 系統的連結，非產品截圖。",
+      "imageAlt": "CSS 程式碼視窗與 AI 節點網路相連的插畫",
+      "imageCaption": "本站原創插畫，呈現 CSS Modules 與 AI 開發工具，非產品截圖。",
       "sections": [
         {
           "heading": "OpenAI 在 DevDay 帶來了哪些更新",

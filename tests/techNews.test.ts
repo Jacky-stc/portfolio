@@ -28,11 +28,18 @@ test('daily JSON files match the catalog and contain both languages', () => {
 
 test('articles have unique routes, valid dates, images and complete translations', () => {
   assert.equal(new Set(techNews.map(({ slug }) => slug)).size, techNews.length)
+  const publishedArticles = techNews.filter(({ demo }) => !demo)
+  assert.equal(
+    new Set(publishedArticles.map(({ image }) => image)).size,
+    publishedArticles.length,
+    'Each published article needs its own cover'
+  )
   for (const article of techNews) {
     assert.match(article.slug, /^[a-z0-9]+(?:-[a-z0-9]+)*$/)
     assert.match(article.date, /^\d{4}-\d{2}-\d{2}$/)
     assert.equal(new Date(`${article.date}T00:00:00Z`).toISOString().slice(0, 10), article.date)
     assert.ok(article.translations?.['zh-TW'])
+    if (!article.demo) assert.match(article.image ?? '', /^\/images\/.+\.svg$/)
     if (article.image?.startsWith('/')) assert.ok(existsSync(new URL(`../public${article.image}`, import.meta.url)))
     for (const language of ['en', 'zh-TW'] as const) {
       const localized = localizeArticle(article, language)
