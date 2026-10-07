@@ -1,0 +1,13 @@
+diff --git a/dist/vite.js b/dist/vite.js
+index cd9bc980219bf76c38ec05778841b403c83639a4..9e642998ba870fac1ba157616f8f57834ec2050f 100644
+--- a/dist/vite.js
++++ b/dist/vite.js
+@@ -800,7 +800,7 @@ function prerender(options) {
+ 					await buildApp?.(builder);
+ 					const prerenderRequests = (typeof requests === "function" ? await requests() : requests).map(normalizePrerenderRequest);
+ 					if (prerenderRequests.length === 0) return;
+-					const { buildDirectory = viteConfig.environments.client.build.outDir, concurrency = 1, retryCount = 0, retryDelay = 500, maxRedirects = 0, timeout = 1e4 } = (typeof config === "function" ? await config() : config) ?? {};
++					const { buildDirectory = viteConfig.environments.client.build.outDir, concurrency = 1, retryCount = 1, retryDelay = 500, maxRedirects = 0, timeout = 3e4 } = (typeof config === "function" ? await config() : config) ?? {};
+ 					let ogIsBuildRequest = process.env.IS_RR_BUILD_REQUEST;
+ 					process.env.IS_RR_BUILD_REQUEST = "yes";
+ 					try {

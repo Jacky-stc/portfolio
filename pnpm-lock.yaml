@@ -4,6 +4,9 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+patchedDependencies:
+  '@react-router/dev@8.4.0': fc8462e1ae7669b746443c1faa57c6a7a79543d4c64c717d5783abeb6003632e
+
 importers:
 
   .:
@@ -32,7 +35,7 @@ importers:
     devDependencies:
       '@react-router/dev':
         specifier: 8.4.0
-        version: 8.4.0(react-router@8.4.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(typescript@7.0.2)(vite@7.3.6(@types/node@22.20.5)(tsx@4.23.15))
+        version: 8.4.0(patch_hash=fc8462e1ae7669b746443c1faa57c6a7a79543d4c64c717d5783abeb6003632e)(react-router@8.4.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(typescript@7.0.2)(vite@7.3.6(@types/node@22.20.5)(tsx@4.23.15))
       '@types/node':
         specifier: ^22.20.5
         version: 22.20.5
@@ -1303,7 +1306,7 @@ snapshots:
 
   '@polka/url@1.0.0-next.29': {}
 
-  '@react-router/dev@8.4.0(react-router@8.4.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(typescript@7.0.2)(vite@7.3.6(@types/node@22.20.5)(tsx@4.23.15))':
+  '@react-router/dev@8.4.0(patch_hash=fc8462e1ae7669b746443c1faa57c6a7a79543d4c64c717d5783abeb6003632e)(react-router@8.4.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(typescript@7.0.2)(vite@7.3.6(@types/node@22.20.5)(tsx@4.23.15))':
     dependencies:
       '@babel/core': 7.29.7
       '@babel/generator': 7.29.8
