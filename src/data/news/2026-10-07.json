@@ -1,0 +1,107 @@
+{
+  "slug": "nextjs-cache-components-openai-decisions-api",
+  "date": "2026-10-07",
+  "title": "Next.js 16.4 makes caching more explicit as OpenAI launches Decisions API",
+  "summary": "Two October 6 releases give developers more control over what gets rendered ahead of time and what an AI endpoint is allowed to return.",
+  "tags": ["Next.js", "Caching", "OpenAI", "Developer APIs"],
+  "image": "/images/nextjs-cache-components-openai-decisions.svg",
+  "imageAlt": "Illustration of a cached browser page connected to three bounded decision paths",
+  "imageCaption": "Original illustration of static page rendering and typed AI decisions; not a product screenshot.",
+  "sections": [
+    {
+      "heading": "Cache Components become the starting point for new Next.js apps",
+      "paragraphs": [
+        "Next.js 16.4, announced October 6, enables Cache Components by default in newly created `create-next-app` projects. The model lets developers mark parts of a component tree with `'use cache'` while other parts can still render for a request. The Next.js team now recommends this approach for new apps, but says it is planned to become the framework-wide default in Next.js 17—not in every existing 16.4 app.",
+        "Existing projects must choose to adopt it. The release post shows both `cacheComponents: true` and `partialPrefetching: true` in the configuration. An upgrade alone does not silently convert an application's rendering and caching behavior."
+      ]
+    },
+    {
+      "heading": "Static routes can fail early instead of becoming dynamic by accident",
+      "paragraphs": [
+        "The new `ensureStatic` setting can require a route's shell, prefetch, or full navigation to stay static. At its strictest `navigation` level, adding request-time content makes the build fail. This is useful for pages whose deployment cost or response time depends on avoiding unexpected server rendering; it does not make a dynamic page static automatically.",
+        "Next.js 16.4 also adds `navigation()` and `prefetch()` controls for deciding which cached work waits until a real visit or an explicit prefetch. Those choices let teams avoid fetching every part of a page merely because a link became visible. They still need to decide which content is worth loading early for their own users."
+      ]
+    },
+    {
+      "heading": "OpenAI gives classification a narrower endpoint",
+      "paragraphs": [
+        "OpenAI's October 6 API changelog introduced the Decisions API in public beta. It accepts text, images, or both through `POST /v1/decisions`, currently using only `gpt-6-luna`. Rather than generating an open-ended reply, a question requests one of three typed results: an estimated probability for a condition, a choice from supplied options, or a score against ordered levels.",
+        "The official guide positions these answers for tasks such as classifying content, routing requests, and prioritizing work. Independent questions can share a request; if a later decision depends on an earlier answer, it needs a separate request. This makes the endpoint a focused option for bounded application decisions, not a replacement for every generative workflow."
+      ]
+    },
+    {
+      "heading": "A faster answer still needs a review threshold",
+      "paragraphs": [
+        "OpenAI describes typed Decisions answers as about ten times faster than its Responses API. That is the company's comparison, not a performance guarantee for every application. The API remains a beta with one supported model, and an individual question can return a refusal instead of the requested result.",
+        "For routing or review, the guide recommends setting thresholds with labeled examples and weighing the costs of false positives and false negatives. Teams evaluating image inputs should also note a current integration limit: images must be supplied as inline base64 data URLs, not hosted image links or file IDs."
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "label": "Next.js · Next.js 16.4 release · October 6, 2026",
+      "url": "https://nextjs.org/blog/next-16-4"
+    },
+    {
+      "label": "OpenAI API · Changelog · October 6, 2026",
+      "url": "https://developers.openai.com/api/docs/changelog"
+    },
+    {
+      "label": "OpenAI API · Decisions guide · accessed October 7, 2026",
+      "url": "https://developers.openai.com/api/docs/guides/decisions"
+    }
+  ],
+  "translations": {
+    "zh-TW": {
+      "title": "Next.js 16.4 明確控管快取，OpenAI 推出 Decisions API",
+      "summary": "10 月 6 日的兩項更新，分別讓開發者更清楚地決定頁面何時渲染，以及 AI 端點能回傳哪一種答案。",
+      "tags": ["Next.js", "快取", "OpenAI", "開發者 API"],
+      "imageAlt": "已快取的瀏覽器頁面連接三條限定決策路徑的插畫",
+      "imageCaption": "本站原創插畫，呈現靜態頁面渲染與結構化 AI 決策，非產品截圖。",
+      "sections": [
+        {
+          "heading": "新建 Next.js 專案預設使用 Cache Components",
+          "paragraphs": [
+            "Next.js 在 10 月 6 日發布 16.4 版；從這個版本起，新建立的 `create-next-app` 專案會預設啟用 Cache Components。開發者可用 `'use cache'` 指定元件樹中哪些部分適合快取，其餘內容仍可依請求即時渲染。團隊現在建議新專案採用這套模式，但表示要到 Next.js 17 才計畫讓它成為整體框架的預設；並不是所有升級到 16.4 的既有網站都會自動切換。",
+            "既有專案需要自行選用。官方公告的設定範例同時開啟 `cacheComponents: true` 與 `partialPrefetching: true`。單純升級套件，不會默默改寫現有應用的渲染與快取行為。"
+          ]
+        },
+        {
+          "heading": "意外變成動態頁面時，可以提早讓建置失敗",
+          "paragraphs": [
+            "新版的 `ensureStatic` 可以要求路由的 shell、預取內容或完整導覽維持靜態。在最嚴格的 `navigation` 設定下，若加入必須在請求時渲染的內容，建置就會失敗。對仰賴靜態輸出控制伺服器成本或回應時間的頁面，這是明確的保護；它不會自動把原本的動態頁面轉成靜態。",
+            "16.4 也加入 `navigation()` 與 `prefetch()`，讓開發者選擇哪些快取工作延後到真正進入頁面、或明確預取時才執行。這可避免連結一出現在畫面上，就先載入目標頁面的所有內容；哪些資料值得提前載入，仍需依網站的使用情境決定。"
+          ]
+        },
+        {
+          "heading": "OpenAI 為分類工作提供範圍更明確的端點",
+          "paragraphs": [
+            "OpenAI 在 10 月 6 日的 API 更新紀錄中推出 Decisions API 公開測試版。它透過 `POST /v1/decisions` 接收文字、圖片或兩者組合，目前僅支援 `gpt-6-luna`。問題不要求自由生成一段文字，而是指定三種結構化結果之一：條件成立的估計機率、從提供的選項中擇一，或依序列等級給出分數。",
+            "官方指南將它定位在內容分類、請求分流與工作排序等任務。彼此獨立的問題可放在同一個請求中；若下一步決策要依賴前一步答案，就必須另送請求。因此，它比較適合範圍明確的應用程式判斷，並不能取代所有生成式工作流程。"
+          ]
+        },
+        {
+          "heading": "回應再快，也需要訂出人工審查門檻",
+          "paragraphs": [
+            "OpenAI 表示，Decisions API 的結構化答案比 Responses API 約快十倍。這是廠商自己的比較，不能當成每個應用場景都會達到的效能保證。此功能仍在公開測試，只有一個支援模型；單一問題也可能回傳拒絕，而不是預期的答案。",
+            "若要用它分流或決定是否送人工審查，官方建議先用已標記的範例設定門檻，並衡量誤判為真與誤判為假的成本。評估圖片輸入時還有一項整合限制：目前必須提供內嵌的 base64 data URL，不能直接傳入託管圖片連結或檔案 ID。"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "label": "Next.js · 16.4 版本公告 · 2026 年 10 月 6 日",
+          "url": "https://nextjs.org/blog/next-16-4"
+        },
+        {
+          "label": "OpenAI API · 更新紀錄 · 2026 年 10 月 6 日",
+          "url": "https://developers.openai.com/api/docs/changelog"
+        },
+        {
+          "label": "OpenAI API · Decisions 指南 · 2026 年 10 月 7 日查閱",
+          "url": "https://developers.openai.com/api/docs/guides/decisions"
+        }
+      ]
+    }
+  }
+}

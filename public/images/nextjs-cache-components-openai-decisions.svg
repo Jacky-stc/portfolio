@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400" fill="none">
+  <rect width="640" height="400" rx="24" fill="#242326"/>
+  <path d="M42 336h556" stroke="#FFCB2F" stroke-opacity=".14" stroke-width="2"/>
+  <rect x="52" y="83" width="294" height="234" rx="18" fill="#2D2B2D" stroke="#FFCB2F" stroke-opacity=".76" stroke-width="2"/>
+  <path d="M52 125h294" stroke="#FFCB2F" stroke-opacity=".45" stroke-width="2"/>
+  <g fill="#FFCB2F" fill-opacity=".76">
+    <circle cx="76" cy="104" r="4"/>
+    <circle cx="92" cy="104" r="4"/>
+    <circle cx="108" cy="104" r="4"/>
+  </g>
+  <g stroke="#FFCB2F" stroke-width="2">
+    <rect x="81" y="151" width="116" height="113" rx="12" stroke-opacity=".35"/>
+    <rect x="105" y="174" width="116" height="113" rx="12" fill="#2D2B2D" stroke-opacity=".76"/>
+    <path d="M129 201h68m-68 22h50m-50 22h61" stroke-opacity=".55" stroke-linecap="round"/>
+    <path d="M239 184h68m-68 20h51m-51 20h66" stroke-opacity=".34" stroke-linecap="round"/>
+  </g>
+  <circle cx="289" cy="263" r="28" fill="#242326" stroke="#FFCB2F" stroke-opacity=".76" stroke-width="2"/>
+  <path d="m277 263 8 8 17-18" stroke="#FFCB2F" stroke-opacity=".76" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M346 201h37" stroke="#FFCB2F" stroke-opacity=".46" stroke-width="2" stroke-dasharray="5 7"/>
+  <rect x="383" y="83" width="205" height="234" rx="18" fill="#2D2B2D" stroke="#FFCB2F" stroke-opacity=".76" stroke-width="2"/>
+  <circle cx="416" cy="200" r="15" stroke="#FFCB2F" stroke-opacity=".76" stroke-width="2"/>
+  <path d="M431 200h28m0 0v-63m0 63v63m0-126h21m-21 63h21m-21 63h21" stroke="#FFCB2F" stroke-opacity=".55" stroke-width="2" stroke-linecap="round"/>
+  <g stroke="#FFCB2F" stroke-opacity=".76" stroke-width="2">
+    <rect x="480" y="117" width="76" height="40" rx="10"/>
+    <rect x="480" y="180" width="76" height="40" rx="10"/>
+    <rect x="480" y="243" width="76" height="40" rx="10"/>
+  </g>
+  <g fill="#FFCB2F" fill-opacity=".76">
+    <circle cx="499" cy="137" r="5"/>
+    <circle cx="499" cy="200" r="5"/>
+    <circle cx="499" cy="263" r="5"/>
+  </g>
+  <path d="M513 137h25m-25 63h25m-25 63h25" stroke="#FFCB2F" stroke-opacity=".48" stroke-width="2" stroke-linecap="round"/>
+</svg>
