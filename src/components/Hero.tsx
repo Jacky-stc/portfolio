@@ -78,8 +78,8 @@ export default function Hero() {
           />
         </p>
         <p className="hero-description">
-          I’m a frontend developer working with React and Next.js. I turn ideas into responsive interfaces, with a focus on thoughtful
-          interactions and smooth performance.
+          I’m a software engineer focused on frontend development. Currently opening to new opportunities and collaborations—feel free to
+          get in touch.
         </p>
         <ContactLinks />
       </div>
