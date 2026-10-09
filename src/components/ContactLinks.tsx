@@ -5,7 +5,6 @@ const CONTACTS = [
   { name: 'Email', icon: 'email', href: 'mailto:stzuchieh@gmail.com' },
   { name: 'LinkedIn', icon: 'linkedin', href: 'https://www.linkedin.com/in/tzu-chieh-su-a68969248/' },
   { name: 'Facebook', icon: 'facebook', href: 'https://www.facebook.com/su.zi.jie.88255' },
-  { name: 'Instagram', icon: 'instagram', href: null },
 ]
 
 export default function ContactLinks() {
