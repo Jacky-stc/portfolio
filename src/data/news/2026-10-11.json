@@ -1,0 +1,115 @@
+{
+  "slug": "bootstrap-6-alpha-cloudflare-mcp-skills-gemini-code-assist",
+  "date": "2026-10-11",
+  "title": "Bootstrap 6 alpha and Cloudflare MCP skills arrive as Google halts new Code Assist subscriptions",
+  "summary": "Bootstrap's first v6 alpha introduces CSS-first customization and a higher browser floor. Cloudflare now serves agent skills through MCP, while Google has stopped selling new Gemini Code Assist Standard and Enterprise subscriptions.",
+  "tags": ["Bootstrap", "CSS", "MCP", "Agent skills", "Gemini Code Assist"],
+  "image": "/images/bootstrap-6-mcp-skills-code-assist.svg",
+  "imageAlt": "Three linked line-art panels show a browser style palette, a reusable agent skill file, and a subscription calendar",
+  "imageCaption": "Original illustration of separate frontend, agent-tooling, and subscription updates; not a product screenshot.",
+  "sections": [
+    {
+      "heading": "Bootstrap 6 tests a CSS-first customization model",
+      "paragraphs": [
+        "Bootstrap released version 6.0.0-alpha.1 on October 8. Its Sass source now uses the @use and @forward module system, while token maps generate CSS custom properties for visual settings. That shifts many changes, including component colors and spacing, from build-time Sass overrides to values that can also be updated in the browser. The alpha also leans on native features such as CSS layers, container queries, <dialog>, and <details> rather than recreating every interaction in JavaScript.",
+        "The project has added text-oriented documentation and skill files for coding agents, but that does not make the CSS work an AI feature. It is a separate documentation choice within the same preview. Bootstrap's maintainers say more alphas will follow and behavior may change before beta; teams should treat this release as an opportunity to test, not a silent upgrade of production sites."
+      ]
+    },
+    {
+      "heading": "A v5-to-v6 trial needs a browser and markup audit",
+      "paragraphs": [
+        "The new support floor is Chrome and Edge 130, Firefox 132, and Safari 18. Bootstrap says v6 does not include fallbacks, prefixes, or polyfills for older browsers below that floor. Responsive utility syntax also changes position: for example, .d-md-none becomes .md:d-none. JavaScript plugins are ESM-only, so a direct script tag needs type=module and code relying on CommonJS imports or the old window.bootstrap global needs review.",
+        "Those are announced alpha changes, not a requirement to migrate immediately. Bootstrap 5 remains available and supported, and the maintainers plan a v5.4 release before announcing its end-of-life date. An application considering v6 can check its real browser audience and test templates, custom Sass, and plugin loading against the alpha before making a rollout plan."
+      ]
+    },
+    {
+      "heading": "Cloudflare makes its agent skills discoverable through MCP",
+      "paragraphs": [
+        "Cloudflare said on October 10 that its API MCP server now serves Cloudflare skills using the Skills over MCP extension. A client that supports the extension can list available skills with skills/list and read skill files at skill://<name>/<path> after connecting to Cloudflare's MCP endpoint. This packages reusable instructions alongside the service they describe; it is not the launch of a new model or a claim that an agent can use every skill automatically.",
+        "The compatibility condition matters: Cloudflare's announcement specifically requires a client that supports the extension, and the MCP specification says host and SDK support is still being implemented. For an agent workflow, the practical question is whether the chosen client exposes and loads these resources with the expected review and permission controls. That is an implementation consideration drawn from the announcement and specification, not a guarantee of universal client support."
+      ]
+    },
+    {
+      "heading": "Gemini Code Assist stops selling new Standard and Enterprise subscriptions",
+      "paragraphs": [
+        "Google Cloud's October 9 notice says new Gemini Code Assist Standard and Enterprise subscriptions can no longer be purchased. Existing subscriptions remain supported through their contractual term; this is not an immediate shutdown of the tool. Existing customers can add licenses through January 31, 2027. Annual plans can auto-renew until that date, while monthly plans can auto-renew until December 31, 2027.",
+        "Google points customers seeking future agentic coding assistance toward Antigravity through Gemini Enterprise editions. Affected teams should compare their contract end date and renewal type before planning a transition. The notice is about the named paid subscription tiers; it does not announce that the Gemini API or all Google AI products are ending."
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "label": "Bootstrap · Bootstrap 6 Alpha · October 8, 2026",
+      "url": "https://blog.getbootstrap.com/2026/10/08/bootstrap-6-alpha/"
+    },
+    {
+      "label": "Cloudflare Developers · Cloudflare API MCP server serves Cloudflare skills · October 10, 2026",
+      "url": "https://developers.cloudflare.com/changelog/post/2026-10-10-cloudflare-mcp-skills/"
+    },
+    {
+      "label": "Model Context Protocol · Skills extension overview · accessed October 11, 2026",
+      "url": "https://modelcontextprotocol.io/extensions/skills/overview"
+    },
+    {
+      "label": "Google Cloud · Gemini Code Assist subscriptions · updated October 9, 2026",
+      "url": "https://docs.cloud.google.com/gemini/docs/codeassist/sunset"
+    }
+  ],
+  "translations": {
+    "zh-TW": {
+      "title": "Bootstrap 6 推出 alpha 版，Cloudflare 加入 MCP 技能，Google 停售 Code Assist 新訂閱",
+      "summary": "Bootstrap 首個 v6 alpha 版改用以 CSS 為核心的客製方式，並提高瀏覽器支援門檻；Cloudflare 開始透過 MCP 提供代理技能，Google 則停售 Gemini Code Assist Standard 與 Enterprise 的新訂閱。",
+      "tags": ["Bootstrap", "CSS", "MCP", "代理技能", "Gemini Code Assist"],
+      "imageAlt": "三個相連的線條插畫區塊，分別呈現瀏覽器樣式調色板、可重用的代理技能檔案與訂閱日曆",
+      "imageCaption": "本站原創插畫，呈現彼此獨立的前端、代理工具與訂閱更新，非產品截圖。",
+      "sections": [
+        {
+          "heading": "Bootstrap 6 測試以 CSS 為核心的客製方式",
+          "paragraphs": [
+            "Bootstrap 在 10 月 8 日推出 6.0.0-alpha.1。其 Sass 原始碼改用 @use、@forward 模組系統，並以 token maps 產生控制視覺設定的 CSS 自訂屬性。許多元件色彩與間距不再只能在建置時覆寫 Sass，也能在瀏覽器中更新。這個 alpha 版還更多採用 CSS layers、container queries、<dialog>、<details> 等原生功能，而非每項互動都自行以 JavaScript 實作。",
+            "專案也加入方便程式代理閱讀的純文字文件與技能檔案，但這不表示 CSS 改動本身是 AI 功能；那是同一預覽版中的另一項文件設計。Bootstrap 維護者表示，進入 beta 前還會有更多 alpha 版本，功能也可能變動。現階段適合試用與回饋，不應直接把正式網站當成已完成無痛升級。"
+          ]
+        },
+        {
+          "heading": "從 v5 試用 v6，需重新檢查瀏覽器與標記",
+          "paragraphs": [
+            "新版最低支援 Chrome、Edge 130、Firefox 132 與 Safari 18。Bootstrap 表示，v6 不再為低於此門檻的瀏覽器提供備援、前綴或 polyfill。響應式 utility 的寫法也調整，例如 .d-md-none 變成 .md:d-none。JavaScript 外掛僅提供 ESM；直接引用的 script 標籤需要 type=module，依賴 CommonJS 匯入或舊版 window.bootstrap 全域物件的程式也應檢查。",
+            "這些是 alpha 版公告的變更，不代表現有專案必須立刻遷移。Bootstrap 5 仍可使用且持續受到支援，維護者計畫在宣布其停止維護日期前先發布 v5.4。打算升級的團隊可先檢查實際使用者的瀏覽器版本，並以預覽版測試頁面標記、自訂 Sass 和外掛載入。"
+          ]
+        },
+        {
+          "heading": "Cloudflare 讓代理技能可透過 MCP 被發現",
+          "paragraphs": [
+            "Cloudflare 在 10 月 10 日表示，其 API MCP 伺服器現在會透過 Skills over MCP 擴充規格提供 Cloudflare 技能。支援該擴充規格的客戶端連接 Cloudflare 的 MCP 端點後，可以用 skills/list 列出技能，並在 skill://<name>/<path> 讀取檔案。這讓可重用的操作說明能與所描述的服務一起提供；它不是新模型發布，也不表示代理會自動使用所有技能。",
+            "相容性是關鍵前提：Cloudflare 公告明確要求客戶端支援這項擴充規格，MCP 規格頁也指出主機與 SDK 的支援仍在開發中。實際導入代理工作流程前，應確認所用客戶端如何呈現與載入資源，以及是否保留預期的審查和權限控制。這是根據公告與規格提出的實作考量，不是所有客戶端皆可使用的保證。"
+          ]
+        },
+        {
+          "heading": "Gemini Code Assist 停售 Standard 與 Enterprise 新訂閱",
+          "paragraphs": [
+            "Google Cloud 在 10 月 9 日公告，Gemini Code Assist Standard 與 Enterprise 已無法購買新訂閱。既有訂閱仍依合約期限持續提供服務與支援，並不是工具立即關閉。現有客戶可在 2027 年 1 月 31 日前增加授權數；年繳方案可自動續約至同一天，月繳方案則可自動續約至 2027 年 12 月 31 日。",
+            "Google 建議未來需要代理式程式開發輔助的客戶，評估 Gemini Enterprise 版本中的 Antigravity。受影響的團隊應先比對合約到期日與續約方式，再規劃轉換。這則公告針對指定的付費訂閱方案，並未表示 Gemini API 或所有 Google AI 產品都將停止服務。"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "label": "Bootstrap · Bootstrap 6 Alpha · 2026 年 10 月 8 日",
+          "url": "https://blog.getbootstrap.com/2026/10/08/bootstrap-6-alpha/"
+        },
+        {
+          "label": "Cloudflare Developers · API MCP 伺服器提供技能 · 2026 年 10 月 10 日",
+          "url": "https://developers.cloudflare.com/changelog/post/2026-10-10-cloudflare-mcp-skills/"
+        },
+        {
+          "label": "Model Context Protocol · 技能擴充規格 · 2026 年 10 月 11 日查閱",
+          "url": "https://modelcontextprotocol.io/extensions/skills/overview"
+        },
+        {
+          "label": "Google Cloud · Gemini Code Assist 訂閱說明 · 2026 年 10 月 9 日更新",
+          "url": "https://docs.cloud.google.com/gemini/docs/codeassist/sunset"
+        }
+      ]
+    }
+  }
+}
