@@ -1,0 +1,107 @@
+{
+  "slug": "safari-size-transitions-google-aqua-agent-quality",
+  "date": "2026-10-12",
+  "title": "Safari previews content-sized CSS transitions as Google opens AQuA agent diagnostics",
+  "summary": "Safari Technology Preview 254 adds CSS tools for animating intrinsic sizes, while Google's open AQuA reference implementation examines production agent traces for recurring failures. Both announcements were published October 8.",
+  "tags": ["Safari Technology Preview", "CSS", "AQuA", "AI agents"],
+  "image": "/images/safari-size-transitions-aqua-agent-quality.svg",
+  "imageAlt": "Line-art browser panel expands beside a separate network of agent traces and a magnifying glass",
+  "imageCaption": "Original illustration of a CSS size transition and agent-trace review; not a product screenshot.",
+  "sections": [
+    {
+      "heading": "Safari Technology Preview tests transitions to intrinsic sizes",
+      "paragraphs": [
+        "WebKit's October 8 release notes for Safari Technology Preview 254 list support for CSS interpolate-size and calc-size(). The first lets an author opt in to transitions between a length or percentage and an intrinsic size such as auto or fit-content. The second allows calculations involving intrinsic sizes. An expanding panel whose final height depends on its content is one possible use; that example is an application of the CSS capabilities, not a feature announced for a particular website.",
+        "The opt-in matters. According to MDN, interpolate-size defaults to numeric-only; allow-keywords enables interpolation, but not between two intrinsic-size keywords. One endpoint still has to be a length or percentage. calc-size() can also enable interpolation when the size needs calculation. WebKit's notes additionally list a fix for CSS Grid relayout cost that grew quadratically with distinct order values, showing that this preview includes layout maintenance as well as new syntax."
+      ]
+    },
+    {
+      "heading": "A preview is a testing target, not a browser-wide launch",
+      "paragraphs": [
+        "Technology Preview is a separate Safari preview build; this release note does not say the features have shipped in stable Safari. MDN currently marks interpolate-size as experimental and not Baseline because it is unavailable in some widely used browsers. Production interfaces should therefore keep an understandable non-animated state where support is absent, and test the transition in the browsers their users actually run.",
+        "This is a practical adoption recommendation based on the preview status and compatibility note, not a claim that a fallback is built into the new property. Teams can experiment with content-driven accordions or disclosure panels now without treating the preview's behavior as a cross-browser guarantee."
+      ]
+    },
+    {
+      "heading": "Google publishes AQuA for finding silent agent failures",
+      "paragraphs": [
+        "Google's October 8 developer post released AQuA, an Ambient Quality Agent reference implementation, as open building blocks. It runs beside an application agent in the team's Google Cloud project, outside the user request path. A sweep can sample up to 1,000 recent sessions from Cloud Trace, Cloud Logging, or BigQuery, review them against a checklist and optional developer goal, cluster similar failures, then verify candidate clusters against full transcripts before tracking recurring issues.",
+        "AQuA can also compare a failing trajectory with the source snapshot captured at deployment and suggest a line-anchored change when the defect appears to be in the repository. Google's post says it never applies an edit or opens a pull request on its own. The distinction is important: it helps people investigate cases where HTTP status and latency look healthy even though the agent skipped a tool call or lost a user constraint; it is not an autonomous repair service."
+      ]
+    },
+    {
+      "heading": "Trace-based findings still need human judgment",
+      "paragraphs": [
+        "Google describes a 32-session travel-agent walkthrough built from scripted journey replays. Its reviewer produced candidate findings and a second model rejected some false-positive clusters before presenting the remaining issues. Those numbers illustrate the reference workflow, not independently measured production accuracy. Google also notes that checking only a sample can miss rare failures, and model judges still need calibration against domain experts.",
+        "For a team evaluating the approach, the useful question is whether evidence-linked traces and deployed-code snapshots shorten investigation enough to justify the telemetry, review process, and model cost. That is an operational inference from the published design, not a promised outcome. As with the Safari preview, the sensible next step is a bounded trial against real requirements rather than assuming general availability or reliability."
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "label": "WebKit · Safari Technology Preview 254 release notes · October 8, 2026",
+      "url": "https://webkit.org/blog/18420/release-notes-for-safari-technology-preview-254/"
+    },
+    {
+      "label": "MDN · interpolate-size CSS property · accessed October 12, 2026",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/interpolate-size"
+    },
+    {
+      "label": "Google Developers Blog · The Outer Loop, Insights First · October 8, 2026",
+      "url": "https://developers.googleblog.com/en/the-outer-loop-insights-first-an-ambient-quality-agent-that-diagnoses-your-production-agent/"
+    }
+  ],
+  "translations": {
+    "zh-TW": {
+      "title": "Safari 預覽內容尺寸轉場，Google 開放 AQuA 代理品質診斷工具",
+      "summary": "Safari Technology Preview 254 加入內容尺寸動畫相關 CSS 功能；Google 則開放 AQuA 參考實作，從正式環境的代理執行紀錄找出反覆出現的問題。兩則公告皆發布於 10 月 8 日。",
+      "tags": ["Safari Technology Preview", "CSS", "AQuA", "AI 代理"],
+      "imageAlt": "線條插畫中的瀏覽器面板正在展開，旁邊是與放大鏡相連的代理執行軌跡網絡",
+      "imageCaption": "本站原創插畫，呈現 CSS 尺寸轉場與代理執行紀錄檢查，非產品截圖。",
+      "sections": [
+        {
+          "heading": "Safari Technology Preview 試驗內容尺寸轉場",
+          "paragraphs": [
+            "WebKit 在 10 月 8 日發布的 Safari Technology Preview 254 更新紀錄中，列出對 CSS interpolate-size 與 calc-size() 的支援。前者讓開發者選擇啟用固定長度或百分比與 auto、fit-content 等內容尺寸之間的轉場；後者則允許對內容尺寸進行計算。依內容決定最終高度的展開面板，是這些 CSS 功能的一種可能用途，並非公告提到的特定網站功能。",
+            "選擇啟用是關鍵。依據 MDN，interpolate-size 預設為 numeric-only；設定 allow-keywords 才能啟用插值，但兩個端點不能都是內容尺寸關鍵字，其中一端仍須為長度或百分比。需要計算尺寸時，calc-size() 也能啟用相關插值。WebKit 的更新紀錄另外提到，修正了 CSS Grid 中具有不同 order 值的項目數量增加時，重新排版成本呈平方成長的問題；這個預覽版除了新語法，也包含既有排版的維護。"
+          ]
+        },
+        {
+          "heading": "預覽版可供測試，不等於所有瀏覽器已推出",
+          "paragraphs": [
+            "Technology Preview 是獨立的 Safari 預覽版本；這份更新紀錄沒有宣稱功能已進入正式版 Safari。MDN 目前將 interpolate-size 標記為實驗性、尚未達到 Baseline，因為部分廣泛使用的瀏覽器仍不支援。因此，正式網站應在功能不可用時保留可理解的非動畫狀態，並在實際使用者所用的瀏覽器上測試。",
+            "這是根據預覽版狀態與相容性資料提出的導入建議，不表示新屬性本身會自動提供備援。團隊現在可以試作依內容展開的摺疊區塊或資訊面板，但不應把預覽版的表現當作跨瀏覽器保證。"
+          ]
+        },
+        {
+          "heading": "Google 公開 AQuA，協助找出代理的隱性故障",
+          "paragraphs": [
+            "Google 在 10 月 8 日的開發者文章中，將 Ambient Quality Agent（AQuA）參考實作以開放的組件形式發布。它在團隊的 Google Cloud 專案中與應用代理並行運作，不介入使用者請求路徑。每次掃描可從 Cloud Trace、Cloud Logging 或 BigQuery 抽樣最多 1,000 筆近期工作階段，依檢查清單與可選的開發者目標審查、歸類相似故障，再對照完整對話驗證候選問題，追蹤反覆發生的情況。",
+            "AQuA 也能將出錯的執行軌跡與部署時保留的原始碼快照比對；若缺陷似乎位於儲存庫中，就提出附有行號的修改建議。Google 表示，它不會自行套用修改或建立 pull request。這項區別很重要：當 HTTP 狀態和延遲看似正常，代理卻漏掉工具呼叫或遺失使用者限制時，它可協助人員調查，但不是自動修復服務。"
+          ]
+        },
+        {
+          "heading": "執行紀錄的判讀仍需要人為判斷",
+          "paragraphs": [
+            "Google 介紹了由腳本旅程重播組成的 32 個旅遊代理工作階段案例。審查模型產生候選發現，第二個模型再排除部分誤判的問題群組。這些數據說明參考流程，不能視為獨立驗證過的正式環境準確率。Google 也指出，抽樣可能漏掉少見故障，而模型評審仍須與領域專家校準。",
+            "對評估這種方法的團隊而言，真正值得衡量的是：具證據連結的執行軌跡與部署程式碼快照，是否足以縮短調查時間，並抵得上遙測資料、人工審查流程及模型成本。這是根據公開設計提出的實務推論，不是保證的成果。與 Safari 預覽功能一樣，較妥當的下一步是依自身需求進行有範圍的試驗，而非預設它已普遍可用或可靠。"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "label": "WebKit · Safari Technology Preview 254 更新紀錄 · 2026 年 10 月 8 日",
+          "url": "https://webkit.org/blog/18420/release-notes-for-safari-technology-preview-254/"
+        },
+        {
+          "label": "MDN · interpolate-size CSS 屬性 · 2026 年 10 月 12 日查閱",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/interpolate-size"
+        },
+        {
+          "label": "Google Developers Blog · The Outer Loop, Insights First · 2026 年 10 月 8 日",
+          "url": "https://developers.googleblog.com/en/the-outer-loop-insights-first-an-ambient-quality-agent-that-diagnoses-your-production-agent/"
+        }
+      ]
+    }
+  }
+}
