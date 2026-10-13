@@ -1,0 +1,107 @@
+{
+  "slug": "bun-typecheck-aimock-model-failure-tests",
+  "date": "2026-10-13",
+  "title": "Bun adds TypeScript checking as aimock makes broken model output testable",
+  "summary": "Bun 1.4.3 introduces a built-in checker for TypeScript projects. CopilotKit's aimock can now feed malformed model responses into tests so applications can verify how they recover. The announcements were published October 10 and 12, respectively.",
+  "tags": ["Bun", "TypeScript", "aimock", "AI testing"],
+  "image": "/images/bun-typecheck-aimock-failure-tests.svg",
+  "imageAlt": "Two line-art test panels show a TypeScript error being detected and a malformed AI tool call being contained",
+  "imageCaption": "Original illustration of two developer-testing workflows; not a screenshot of Bun or aimock.",
+  "sections": [
+    {
+      "heading": "Bun brings type checking into its command line",
+      "paragraphs": [
+        "Bun released version 1.4.3 on October 10 with bun check, a built-in TypeScript type checker. Bun says it reads a project's tsconfig.json and reports type errors without requiring the TypeScript package to be installed. Developers can also use bun run --check to stop a script when checking fails, or add --check to Bun's test and build commands. For frontend teams already using Bun to run scripts, this puts an additional check in the same toolchain.",
+        "This is not a replacement for every TypeScript tool. Bun says bun check only checks types: it does not emit JavaScript or declaration files and does not provide a language server. Editors therefore continue to use their TypeScript integration. The checker is a port of typescript-go; Bun reports full conformance with the TypeScript 7.0.2 test suite, but project-specific behavior still deserves a trial before a team changes its CI checks."
+      ]
+    },
+    {
+      "heading": "The speed figures belong to Bun's own benchmark",
+      "paragraphs": [
+        "Bun measured bun check at roughly three to six times the speed of tsc 7.0.2 across several repositories on a 16-core Apple silicon Mac, with lower memory use in those runs. Those are vendor measurements under specified conditions, not a promise for every codebase or machine. The release also documents cases where its comparison against tsc is not yet identical.",
+        "A useful adoption path is to run both checkers on the same repository and compare diagnostics before changing the required build gate. That recommendation follows from Bun's published limitations and test results; it is not an instruction from the release to remove tsc immediately."
+      ]
+    },
+    {
+      "heading": "aimock can supply the model output an app hopes never to see",
+      "paragraphs": [
+        "CopilotKit announced on October 12 that its open-source aimock server can inject nine kinds of model-output faults into otherwise valid API responses. The catalog includes malformed tool arguments, schema violations, unknown tool names, duplicate tool-call IDs, empty answers, and refusals. A test can choose a fault for one response, then send a normal response on the next request to check whether an application's parser and retry logic behave as intended.",
+        "For example, a deliberately broken argument string should not cause the application to execute the named tool. The test can then check that any retry is bounded, the conversation remains usable, and the tool runs only after acceptable arguments arrive. aimock supplies the faulty response; the application still has to implement its own validation, recovery, and assertions."
+      ]
+    },
+    {
+      "heading": "A local failure test is evidence of behavior, not provider frequency",
+      "paragraphs": [
+        "aimock records which fault it prepared so a test can confirm that the intended case was exercised. Its documentation also says support varies by API format and streaming mode, and some modeled outputs have not been observed in a native provider response. A seeded configuration can reproduce rate decisions for a fixed request order, but concurrent scheduling can change that order.",
+        "These boundaries matter when interpreting a passing test: it shows how an application handles the simulated response, not how often a real model will produce it or whether every provider formats it identically. Bun and aimock address different failure points in a web application's development cycle—static code errors and unpredictable model responses—without either tool removing the need for application-specific checks."
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "label": "Bun · Bun v1.4.3 · October 10, 2026",
+      "url": "https://bun.sh/blog/bun-v1.4.3"
+    },
+    {
+      "label": "CopilotKit · HTTP 200. Broken tool call · October 12, 2026",
+      "url": "https://www.copilotkit.ai/blog/aimock-model-misbehavior"
+    },
+    {
+      "label": "aimock documentation · Model Misbehavior · accessed October 13, 2026",
+      "url": "https://aimock.copilotkit.dev/model-misbehavior/"
+    }
+  ],
+  "translations": {
+    "zh-TW": {
+      "title": "Bun 加入 TypeScript 型別檢查，aimock 讓模型錯誤輸出可被測試",
+      "summary": "Bun 1.4.3 加入內建 TypeScript 型別檢查；CopilotKit 的 aimock 則能在測試中提供格式錯誤的模型回應，確認應用程式如何復原。兩項公告分別發布於 10 月 10 日與 12 日。",
+      "tags": ["Bun", "TypeScript", "aimock", "AI 測試"],
+      "imageAlt": "兩個線條插畫測試面板，分別呈現偵測 TypeScript 錯誤與阻止格式錯誤的 AI 工具呼叫",
+      "imageCaption": "本站原創插畫，呈現兩種開發測試流程，非 Bun 或 aimock 的產品截圖。",
+      "sections": [
+        {
+          "heading": "Bun 在命令列加入型別檢查",
+          "paragraphs": [
+            "Bun 在 10 月 10 日推出 1.4.3 版，加入內建 TypeScript 型別檢查指令 bun check。Bun 表示，這項功能會讀取專案的 tsconfig.json，且不必安裝 TypeScript 套件就能回報型別錯誤。開發者也可以使用 bun run --check，在檢查失敗時停止執行程式，或在 Bun 的測試與建置指令加上 --check。對已經用 Bun 執行指令的前端團隊而言，這讓額外的檢查能留在同一套工具流程中。",
+            "這並不能取代所有 TypeScript 工具。Bun 說明，bun check 只檢查型別，不輸出 JavaScript 或宣告檔，也不提供語言伺服器；編輯器仍使用原本的 TypeScript 整合。這個檢查器移植自 typescript-go。Bun 表示它通過 TypeScript 7.0.2 的完整一致性測試，但團隊在調整 CI 檢查前，仍應先試用並確認專案本身的結果。"
+          ]
+        },
+        {
+          "heading": "速度數字來自 Bun 自行測試",
+          "paragraphs": [
+            "Bun 在配備 16 核心 Apple 晶片的 Mac 上，以數個儲存庫比較 bun check 與 tsc 7.0.2，測得約三至六倍的速度，並在這些測試中使用較少記憶體。這是特定環境下的廠商測試數字，不保證所有程式庫或電腦都有相同表現。發布說明也記錄了它與 tsc 的比較尚未完全一致的案例。",
+            "較穩妥的導入方式，是先在同一個儲存庫執行兩種檢查器並比對診斷結果，再決定是否更動建置時的必要檢查。這是根據 Bun 公開的限制與測試結果提出的建議，不表示發布公告要求團隊立刻移除 tsc。"
+          ]
+        },
+        {
+          "heading": "aimock 可提供應用程式最不希望收到的模型輸出",
+          "paragraphs": [
+            "CopilotKit 在 10 月 12 日宣布，其開源 aimock 伺服器可在仍然有效的 API 回應中注入九類模型輸出錯誤，包括格式不正確的工具參數、違反 schema、未知工具名稱、重複的工具呼叫 ID、空回覆與拒絕回覆。測試可以指定第一次回應發生錯誤、下一次回到正常內容，藉此確認應用程式的解析和重試邏輯是否符合預期。",
+            "例如，故意破損的參數字串不應讓應用程式直接執行對應工具。測試接著可以確認重試次數受到限制、對話仍可繼續使用，且只有在收到有效參數後才執行工具。aimock 提供出錯回應；驗證、復原與斷言仍須由應用程式自行實作。"
+          ]
+        },
+        {
+          "heading": "本機故障測試證明處理方式，不代表錯誤發生機率",
+          "paragraphs": [
+            "aimock 會記錄它準備了哪一種錯誤，讓測試確認預定情境確實被執行。文件也指出，各種 API 格式及串流模式的支援範圍不同，部分模擬輸出尚未在原生服務商回應中觀察到。設定固定種子可以在請求順序一致時重現抽樣決策，但並行請求可能改變順序。",
+            "因此，測試通過只能說明應用程式如何處理模擬回應，不能推論真實模型出錯的頻率，也不能保證每家服務商的輸出形式完全相同。Bun 與 aimock 分別處理網頁應用開發流程中的不同問題：靜態程式碼錯誤與難以預期的模型回應；兩者都無法取代針對自家應用程式需求所做的檢查。"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "label": "Bun · Bun v1.4.3 · 2026 年 10 月 10 日",
+          "url": "https://bun.sh/blog/bun-v1.4.3"
+        },
+        {
+          "label": "CopilotKit · HTTP 200. Broken tool call · 2026 年 10 月 12 日",
+          "url": "https://www.copilotkit.ai/blog/aimock-model-misbehavior"
+        },
+        {
+          "label": "aimock 文件 · Model Misbehavior · 2026 年 10 月 13 日查閱",
+          "url": "https://aimock.copilotkit.dev/model-misbehavior/"
+        }
+      ]
+    }
+  }
+}
