@@ -1,4 +1,3 @@
-import { Menu, X } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
 import { Link, useLocation } from 'react-router'
 import { newsPath, parseNewsPath } from '../routing/newsPaths'
@@ -18,7 +17,18 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false)
   const [active, setActive] = useState('home')
   const [open, setOpen] = useState(false)
+  const [mobile, setMobile] = useState(false)
   const buttonRef = useRef<HTMLButtonElement>(null)
+  useEffect(() => {
+    const query = window.matchMedia('(max-width: 46rem)')
+    const update = () => {
+      setMobile(query.matches)
+      setOpen(false)
+    }
+    update()
+    query.addEventListener('change', update)
+    return () => query.removeEventListener('change', update)
+  }, [])
   useEffect(() => {
     setOpen(false)
   }, [pathname])
@@ -93,23 +103,41 @@ export default function Header() {
           aria-controls="main-navigation"
           onClick={() => setOpen((value) => !value)}
         >
-          {open ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
+          <span
+            className="header-menu-icon"
+            aria-hidden="true"
+          >
+            <span />
+            <span />
+            <span />
+          </span>
         </button>
         <nav
           id="main-navigation"
           className={['header-nav', open ? 'is-open' : ''].filter(Boolean).join(' ')}
           aria-label="Main navigation"
+          inert={mobile && !open}
         >
-          {links.map(({ id, label, href }) => (
-            <Link
-              key={id}
-              to={href}
-              aria-current={!isHome && id === 'tech-news' && newsRoute ? 'page' : isHome && active === id ? 'location' : undefined}
-              onClick={() => setOpen(false)}
-            >
-              {label}
-            </Link>
-          ))}
+          <div className="header-nav-content">
+            <div className="header-nav-links">
+              {links.map(({ id, label, href }) => (
+                <Link
+                  key={id}
+                  to={href}
+                  aria-current={!isHome && id === 'tech-news' && newsRoute ? 'page' : isHome && active === id ? 'location' : undefined}
+                  onClick={() => setOpen(false)}
+                >
+                  {label}
+                </Link>
+              ))}
+              <a
+                href="https://notes.jackysu.dev/"
+                onClick={() => setOpen(false)}
+              >
+                Personal Notes
+              </a>
+            </div>
+          </div>
         </nav>
       </div>
     </header>
