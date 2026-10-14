@@ -1,0 +1,71 @@
+{
+  "slug": "firefox-158-css-arithmetic-claude-haiku-5-5",
+  "date": "2026-10-14",
+  "title": "Firefox 158 adds CSS typed arithmetic; a look back at Claude Haiku 5.5",
+  "summary": "Firefox’s October 13 release expands CSS calculations and Android accessibility. Also revisited: Anthropic’s October 7 launch of a smaller model with adjustable effort.",
+  "tags": ["Firefox", "CSS", "Claude"],
+  "image": "/images/firefox-css-haiku-effort.svg",
+  "imageAlt": "A browser layout with proportional blocks beside a model chip with an effort slider",
+  "imageCaption": "Original illustration of proportional layout and adjustable model effort, not a product screenshot.",
+  "sections": [
+    {
+      "heading": "CSS can calculate ratios between lengths",
+      "paragraphs": [
+        "Firefox 158, released October 13, supports CSS typed arithmetic: dividing compatible values can produce a unitless ratio for further calculations. The release also brings aria-busy support to Firefox for Android, helping assistive technology wait for content updates to finish.",
+        "For interfaces that refresh several elements together, this is a useful accessibility detail to test. Layout calculations still need fallbacks for older browsers; a new Firefox release alone does not establish support across an application’s entire browser matrix."
+      ]
+    },
+    {
+      "heading": "Haiku gets an effort setting",
+      "paragraphs": [
+        "In a seven-day lookback, Anthropic’s October 7 announcement introduced Claude Haiku 5.5 with adjustable effort. The company positions it for narrower, frequent tasks such as summarization and classification, while recommending larger models for complex agentic coding.",
+        "For application teams, the useful question is whether a smaller model meets a specific task’s quality target. Compare completion quality, latency and total cost on representative requests before switching; the announcement’s performance claims are vendor results, not a guarantee for every workload."
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "label": "MDN — Firefox 158 developer release notes (October 13, 2026 release)",
+      "url": "https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Releases/158"
+    },
+    {
+      "label": "Anthropic — Claude Haiku 5.5 (October 7, 2026)",
+      "url": "https://www.anthropic.com/claude-haiku-5-5"
+    }
+  ],
+  "translations": {
+    "zh-TW": {
+      "title": "Firefox 158 支援 CSS 型別運算，回顧 Claude Haiku 5.5 的運算投入設定",
+      "summary": "Firefox 10 月 13 日的更新擴充 CSS 計算與 Android 無障礙支援；同時回顧 Anthropic 10 月 7 日推出、可調整運算投入程度的小型模型。",
+      "tags": ["Firefox", "CSS", "Claude"],
+      "imageAlt": "以比例區塊組成的瀏覽器版面，旁邊是附有運算投入滑桿的模型晶片",
+      "imageCaption": "以比例版面與模型運算投入為題的原創插畫，並非產品截圖。",
+      "sections": [
+        {
+          "heading": "CSS 可以直接計算長度之間的比例",
+          "paragraphs": [
+            "10 月 13 日發布的 Firefox 158 支援 CSS 型別運算，讓相容的數值相除後產生無單位比例，再用於其他計算。這次也在 Android 版加入 aria-busy 支援，讓輔助科技能等待內容更新完成後再通知使用者。",
+            "對會同時更新多個元素的介面，這是值得實測的無障礙細節。至於新版面計算，仍應替舊瀏覽器保留替代寫法；Firefox 的單次更新，不代表應用程式需要支援的所有瀏覽器都已具備相同能力。"
+          ]
+        },
+        {
+          "heading": "Haiku 也能調整運算投入程度",
+          "paragraphs": [
+            "回顧最近七天，Anthropic 在 10 月 7 日發布 Claude Haiku 5.5，加入可調整的 effort 設定。官方將它定位於摘要、分類等範圍明確且頻繁執行的任務，複雜的代理式程式開發則仍建議使用較大的模型。",
+            "對應用程式團隊，更值得問的是：小型模型是否已達到特定任務的品質門檻？建議先用具代表性的請求比較完成品質、延遲與總成本，再決定是否切換。公告中的效能主張來自廠商評估，並不保證所有工作負載都有同樣結果。"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "label": "MDN — Firefox 158 開發者發布說明（2026 年 10 月 13 日版本）",
+          "url": "https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Releases/158"
+        },
+        {
+          "label": "Anthropic — Claude Haiku 5.5（2026 年 10 月 7 日）",
+          "url": "https://www.anthropic.com/claude-haiku-5-5"
+        }
+      ]
+    }
+  }
+}

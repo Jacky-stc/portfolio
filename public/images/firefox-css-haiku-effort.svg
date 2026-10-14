@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400" fill="none">
+  <rect width="640" height="400" rx="24" fill="#242326"/>
+  <circle cx="176" cy="200" r="140" fill="#FFCB2F" fill-opacity=".025"/>
+  <circle cx="476" cy="200" r="130" fill="#FFCB2F" fill-opacity=".025"/>
+  <g stroke="#FFCB2F" stroke-opacity=".76" stroke-width=".125rem" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="46" y="82" width="260" height="230" rx="16" fill="#2D2B2D"/>
+    <path d="M46 120h260" stroke-opacity=".35"/>
+    <path d="M70 101h4m12 0h4m12 0h4"/>
+    <rect x="70" y="146" width="64" height="108" rx="8" fill="#FFCB2F" fill-opacity=".08"/>
+    <rect x="148" y="146" width="134" height="108" rx="8" fill="#FFCB2F" fill-opacity=".14"/>
+    <path d="M70 282h212m-212-7v14m64-14v14m14-14v14m134-14v14" stroke-opacity=".5"/>
+    <path d="M320 199h30m-9-8 9 8-9 8" stroke-dasharray="4 5"/>
+    <rect x="393" y="106" width="160" height="152" rx="20" fill="#2D2B2D"/>
+    <path d="M416 94v12m28-12v12m28-12v12m28-12v12m28-12v12M416 258v12m28-12v12m28-12v12m28-12v12m28-12v12M381 132h12m-12 28h12m-12 28h12m-12 28h12m160-84h12m-12 28h12m-12 28h12m-12 28h12" stroke-opacity=".45"/>
+    <circle cx="436" cy="156" r="8"/><circle cx="510" cy="156" r="8"/>
+    <circle cx="473" cy="210" r="11"/>
+    <path d="m441 163 26 38m38-38-26 38M444 156h58"/>
+    <path d="M387 308h172" stroke-opacity=".35" stroke-width=".25rem"/>
+    <path d="M387 308h74" stroke-width=".25rem"/>
+    <circle cx="461" cy="308" r="11" fill="#242326"/>
+  </g>
+</svg>
