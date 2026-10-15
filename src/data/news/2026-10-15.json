@@ -1,0 +1,71 @@
+{
+  "slug": "wordpress-responsive-block-controls-nemotron-lightning-gateway",
+  "date": "2026-10-15",
+  "title": "WordPress opens responsive block controls; Nemotron Lightning reaches AI Gateway",
+  "summary": "Two October 14 updates: WordPress highlights public helpers for breakpoint-specific controls, while Vercel offers a free Nemotron endpoint with an important data-retention caveat.",
+  "tags": ["WordPress", "Gutenberg", "AI Gateway"],
+  "image": "/images/wordpress-responsive-nemotron-gateway.svg",
+  "imageAlt": "Desktop and mobile block layouts connected to a gateway with a lightning symbol and a privacy shield",
+  "imageCaption": "Original illustration of responsive editing and model access; not a product screenshot.",
+  "sections": [
+    {
+      "heading": "Custom blocks get breakpoint-aware controls",
+      "paragraphs": [
+        "WordPress’s October 14 developer roundup highlights Gutenberg 24.1’s public style-state helpers. Custom blocks can use getStyleForState() and setStyleForState() to build controls for individual viewports, rather than leaving that capability to Core blocks.",
+        "For theme developers, the practical next step is to check how custom controls preserve styles across breakpoints. The roundup also lists October 20 as the planned WordPress 7.2 Beta 1 date; it is a testing milestone, not a stable release."
+      ]
+    },
+    {
+      "heading": "A free model endpoint still needs a data review",
+      "paragraphs": [
+        "Vercel announced on October 14 that NVIDIA’s Nemotron 3.5 Lightning is available free through AI Gateway as nvidia/nemotron-3.5-lightning-free. The announcement lists tool calling and structured outputs, with access through the AI SDK and supported API formats.",
+        "Vercel also warns that the provider may retain prompts for model improvement. That makes synthetic or non-sensitive requests a more cautious starting point for evaluation. Free access is an integration opportunity, not evidence that a workload’s privacy or reliability requirements are automatically satisfied."
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "label": "WordPress Developer Blog — October 14, 2026 roundup",
+      "url": "https://developer.wordpress.org/news/2026/10/whats-new-for-developers-october-2026/"
+    },
+    {
+      "label": "Vercel — Nemotron 3.5 Lightning on AI Gateway (October 14, 2026)",
+      "url": "https://vercel.com/changelog/nemotron-3-5-lightning-now-available-on-ai-gateway-for-free"
+    }
+  ],
+  "translations": {
+    "zh-TW": {
+      "title": "WordPress 開放響應式區塊控制，Nemotron Lightning 加入 AI Gateway",
+      "summary": "兩則 10 月 14 日更新：WordPress 整理可依斷點設定樣式的公開工具；Vercel 則提供免費 Nemotron 端點，但須留意提示內容的保存政策。",
+      "tags": ["WordPress", "Gutenberg", "AI Gateway"],
+      "imageAlt": "桌面與手機的區塊版面連接至閘道，旁邊有閃電及隱私盾牌符號",
+      "imageCaption": "以響應式編輯與模型存取為題的原創插畫，並非產品截圖。",
+      "sections": [
+        {
+          "heading": "自訂區塊也能提供斷點控制",
+          "paragraphs": [
+            "WordPress 在 10 月 14 日的開發者月報中，介紹 Gutenberg 24.1 公開的樣式狀態工具。自訂區塊可以透過 getStyleForState() 與 setStyleForState()，建立依不同視窗尺寸設定的控制項，不再只有核心區塊能使用這項能力。",
+            "對佈景主題開發者，接下來值得檢查的是自訂控制項如何保留各斷點的樣式。月報也列出 WordPress 7.2 Beta 1 預定於 10 月 20 日推出；那是測試里程碑，並非穩定版本發布。"
+          ]
+        },
+        {
+          "heading": "免費模型端點仍要檢查資料政策",
+          "paragraphs": [
+            "Vercel 於 10 月 14 日宣布，AI Gateway 可免費呼叫 NVIDIA 的 Nemotron 3.5 Lightning，模型識別名稱為 nvidia/nemotron-3.5-lightning-free。公告列出工具呼叫、結構化輸出，以及 AI SDK 與支援的 API 格式等整合方式。",
+            "Vercel 同時提醒，供應商可能保留提示內容以改善模型。因此，評估時先使用合成或非敏感資料，是較審慎的起點。免費存取提供了整合機會，卻不代表特定工作負載的隱私與可靠性要求已經自動獲得滿足。"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "label": "WordPress 開發者月報（2026 年 10 月 14 日）",
+          "url": "https://developer.wordpress.org/news/2026/10/whats-new-for-developers-october-2026/"
+        },
+        {
+          "label": "Vercel — Nemotron 3.5 Lightning 加入 AI Gateway（2026 年 10 月 14 日）",
+          "url": "https://vercel.com/changelog/nemotron-3-5-lightning-now-available-on-ai-gateway-for-free"
+        }
+      ]
+    }
+  }
+}
