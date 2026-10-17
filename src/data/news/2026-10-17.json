@@ -1,0 +1,87 @@
+{
+  "slug": "chrome-unload-deprecation-reflection-beam-release",
+  "date": "2026-10-17",
+  "title": "Chrome completes unload deprecation as Reflection releases Beam",
+  "summary": "Chrome 155 no longer fires unload handlers by default, while Reflection made Beam's weights available on October 16. Both changes affect how developers test lifecycle behavior and AI deployments.",
+  "tags": ["Chrome", "Web Platform", "Beam"],
+  "image": "/images/chrome-unload-reflection-beam.svg",
+  "imageAlt": "A browser tab transitioning to a hidden state beside an open model chip and connection nodes",
+  "imageCaption": "Original line illustration of a page lifecycle transition and an open model release; not a product screenshot.",
+  "sections": [
+    {
+      "heading": "The end of an unreliable page exit signal",
+      "paragraphs": [
+        "Chrome's October 16 update says the unload event deprecation is complete as of Chrome 155. By default, unload handlers no longer fire in Chrome. The team phased in the change over several releases because sites had used the event to save state, clean up resources, or send analytics when a page closed.",
+        "The browser team notes that mobile pages may disappear without a final callback and that unload handlers interfere with the back/forward cache. Its page lifecycle guidance recommends treating the transition to hidden, observed through visibilitychange, as the last reliable opportunity to save state or send pending analytics. Sites should audit unload dependencies and test navigation and restoration paths. Chrome still has limited policy opt-outs; Chrome on iOS uses WebKit and may behave differently."
+      ]
+    },
+    {
+      "heading": "Beam's weights move from announcement to availability",
+      "paragraphs": [
+        "Reflection AI announced on October 16 that Beam's model weights are available under Apache 2.0, alongside a model card and safety report. The company positions Beam for coding, reasoning, and longer agent workflows, and says developers can self-host or use partner endpoints. Its earlier model introduction was on October 5; this week's event is the release of the weights.",
+        "Vercel also lists Beam on AI Gateway with a launch-period free offer. The standard reflection/beam name may switch to paid pricing after that period, while reflection/beam-free is described as stopping when the offer ends. Teams evaluating it should check the current route and pricing before relying on a free tier, and compare quality and latency on their own tasks rather than treating vendor benchmarks as a guarantee."
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "label": "Chrome for Developers — Unload event deprecated in Chrome (October 16, 2026)",
+      "url": "https://developer.chrome.com/blog/unload-deprecated-in-chrome"
+    },
+    {
+      "label": "Chrome for Developers — Page Lifecycle API guidance",
+      "url": "https://developer.chrome.com/docs/web-platform/page-lifecycle-api"
+    },
+    {
+      "label": "Reflection AI — Beam is now available (October 16, 2026)",
+      "url": "https://reflection.ai/blog/beam-is-available"
+    },
+    {
+      "label": "Vercel — Reflection AI's Beam on AI Gateway (October 16, 2026)",
+      "url": "https://vercel.com/changelog/reflection-ai-beam-now-available-on-ai-gateway-for-free"
+    }
+  ],
+  "translations": {
+    "zh-TW": {
+      "title": "Chrome 完成 unload 退場，Reflection 開放 Beam 模型權重",
+      "summary": "Chrome 155 預設不再觸發 unload；Reflection 則於 10 月 16 日開放 Beam 模型權重。兩項變動分別影響頁面生命週期處理與 AI 模型部署評估。",
+      "tags": ["Chrome", "網頁平台", "Beam"],
+      "imageAlt": "瀏覽器分頁切換為隱藏狀態，旁邊是開放權重的模型晶片與連線節點",
+      "imageCaption": "以頁面生命週期與開放模型為題的原創線條插畫，並非產品截圖。",
+      "sections": [
+        {
+          "heading": "網頁離開時，不再依賴不可靠的訊號",
+          "paragraphs": [
+            "Chrome 在 10 月 16 日說明，Chrome 155 已完成 unload 事件的淘汰流程，預設不再觸發相關處理函式。由於部分網站原本在頁面關閉時用它儲存狀態、清理資源或傳送分析資料，Chrome 先前採分階段推進。",
+            "Chrome 團隊指出，手機上的頁面可能在沒有最後回呼的情況下消失，而 unload 也會妨礙往返快取。其頁面生命週期指南建議觀察 visibilitychange，將頁面進入隱藏狀態視為儲存資料或送出待傳分析事件的最後可靠時機。網站應盤點對 unload 的依賴，測試頁面切換與返回時的行為。Chrome 仍提供有限的政策例外；iOS 版 Chrome 使用 WebKit，行為可能不同。"
+          ]
+        },
+        {
+          "heading": "Beam 從預告走向權重發布",
+          "paragraphs": [
+            "Reflection AI 於 10 月 16 日宣布，以 Apache 2.0 授權開放 Beam 模型權重，並提供模型卡與安全報告。官方將 Beam 定位於程式開發、推理與較長的代理任務；開發者可自行部署或使用合作夥伴的端點。Reflection 在 10 月 5 日曾介紹模型，本週的新進展是權重正式可用。",
+            "Vercel 同時將 Beam 加入 AI Gateway，推出有期限的免費使用方案。官方表示，標準名稱 reflection/beam 在免費期結束後可能轉為付費；reflection/beam-free 則會在優惠結束後停止服務。評估時應確認當下的路由與價格，並以自己的任務比較品質與延遲，而非將廠商測試數字當作效能保證。"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "label": "Chrome 開發者文件 — unload 事件退場（2026 年 10 月 16 日）",
+          "url": "https://developer.chrome.com/blog/unload-deprecated-in-chrome"
+        },
+        {
+          "label": "Chrome 開發者文件 — 頁面生命週期指南",
+          "url": "https://developer.chrome.com/docs/web-platform/page-lifecycle-api"
+        },
+        {
+          "label": "Reflection AI — Beam 正式開放（2026 年 10 月 16 日）",
+          "url": "https://reflection.ai/blog/beam-is-available"
+        },
+        {
+          "label": "Vercel — Beam 加入 AI Gateway（2026 年 10 月 16 日）",
+          "url": "https://vercel.com/changelog/reflection-ai-beam-now-available-on-ai-gateway-for-free"
+        }
+      ]
+    }
+  }
+}
