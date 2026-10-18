@@ -1,0 +1,71 @@
+{
+  "slug": "github-actions-workflow-lockfiles-vercel-ai-sessions",
+  "date": "2026-10-18",
+  "title": "GitHub Actions adds workflow lockfiles as Vercel exposes AI sessions",
+  "summary": "GitHub's October 14 preview pins workflow dependencies to specific commits. Vercel's October 17 Sessions view makes AI Gateway routing, cache use, and cost easier to inspect.",
+  "tags": ["GitHub Actions", "Frontend CI", "AI Gateway"],
+  "image": "/images/actions-lockfiles-ai-gateway-sessions.svg",
+  "imageAlt": "A browser build workflow secured by a lock beside a branching AI session path",
+  "imageCaption": "Original illustration of pinned build dependencies and model session routing; not a product screenshot.",
+  "sections": [
+    {
+      "heading": "Frontend builds gain a dependency lockfile",
+      "paragraphs": [
+        "On October 14, GitHub opened a public preview of workflow dependency lockfiles for Actions. A workflow can keep a readable tag or branch reference while the lockfile records the exact commit that will run. The preview covers action dependencies, their transitive dependencies, and reusable workflows.",
+        "For a frontend build pipeline, this means a reviewed workflow is less likely to execute different action code after a tag moves. GitHub's gh actions-lock extension generates the file, and workflows can be onboarded individually. The lockfile still needs review: pinning a compromised dependency would only make that same dependency run consistently. GitHub lists Free, Team, and Enterprise Cloud plans in the preview."
+      ]
+    },
+    {
+      "heading": "AI sessions show where requests went",
+      "paragraphs": [
+        "Vercel announced on October 17 that AI Gateway logs now include a Sessions view. It groups turns and shows the model, provider, timing, cost, and input cache use, including how session affinity routed each request. A developer can inspect a session's path to see whether turns remained with one provider or moved to another.",
+        "Session affinity is on by default for text and chat requests. Applications can pass a consistent sessionId or x-session-id to group a conversation explicitly; otherwise Vercel describes fingerprint-based grouping. The view offers evidence for investigating cache and routing behavior, but it does not itself establish that model answers are accurate. This is an operational observation, not a benchmark of model quality."
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "label": "GitHub Changelog — Actions workflow lockfiles preview (October 14, 2026)",
+      "url": "https://github.blog/changelog/2026-10-14-github-actions-workflow-lockfiles-in-public-preview/"
+    },
+    {
+      "label": "Vercel Changelog — AI Gateway session affinity logs (October 17, 2026)",
+      "url": "https://vercel.com/changelog/ai-gateway-logs-now-show-session-affinity"
+    }
+  ],
+  "translations": {
+    "zh-TW": {
+      "title": "GitHub Actions 加入 workflow lockfile，Vercel 顯示 AI 請求歷程",
+      "summary": "GitHub 10 月 14 日開放 workflow lockfile 預覽，可將建置依賴固定至特定 commit；Vercel 10 月 17 日推出 Sessions 檢視，方便查看 AI Gateway 的路由、快取與費用。",
+      "tags": ["GitHub Actions", "前端 CI", "AI Gateway"],
+      "imageAlt": "前端建置流程旁有鎖定符號，另一側顯示 AI 請求在供應商之間的路徑",
+      "imageCaption": "以固定建置依賴與模型請求路由為題的原創插畫，並非產品截圖。",
+      "sections": [
+        {
+          "heading": "前端建置流程可以鎖定依賴版本",
+          "paragraphs": [
+            "GitHub 於 10 月 14 日開放 Actions workflow 依賴鎖定檔的公開預覽。workflow 仍可保留易讀的標籤或分支名稱，鎖定檔則記錄實際執行的 commit。預覽範圍涵蓋 action、其間接依賴及可重用的 workflow。",
+            "對前端建置流程而言，這能降低標籤移動後，已檢視過的流程執行不同程式碼的風險。GitHub 提供 gh actions-lock 擴充功能產生檔案，也允許逐一導入 workflow。不過仍要審查被鎖定的依賴；固定一個已受侵害的版本，只會讓它穩定地重複執行。GitHub 表示 Free、Team 與 Enterprise Cloud 方案可參與預覽。"
+          ]
+        },
+        {
+          "heading": "AI 請求現在能按對話追蹤",
+          "paragraphs": [
+            "Vercel 於 10 月 17 日宣布，AI Gateway 日誌新增 Sessions 檢視。它會依對話整合多次請求，列出模型、供應商、耗時、費用與輸入快取使用情況，也顯示 session affinity 如何路由每次請求。開發者可查看請求是否持續由同一供應商處理，或在過程中切換。",
+            "文字與聊天請求預設啟用 session affinity。應用程式可以傳入一致的 sessionId 或 x-session-id，明確將同一段對話分組；若未提供，Vercel 說明會使用指紋方式歸類。這些資訊有助於排查快取與路由，但無法單靠日誌證明模型回答正確。它提供的是執行過程的觀察資料，並非模型品質評測。"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "label": "GitHub 更新紀錄 — Actions workflow lockfile 預覽（2026 年 10 月 14 日）",
+          "url": "https://github.blog/changelog/2026-10-14-github-actions-workflow-lockfiles-in-public-preview/"
+        },
+        {
+          "label": "Vercel 更新紀錄 — AI Gateway Sessions（2026 年 10 月 17 日）",
+          "url": "https://vercel.com/changelog/ai-gateway-logs-now-show-session-affinity"
+        }
+      ]
+    }
+  }
+}
