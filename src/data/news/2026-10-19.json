@@ -1,0 +1,87 @@
+{
+  "slug": "chrome-157-css-timing-deepseek-search-fetch-api",
+  "date": "2026-10-19",
+  "title": "Chrome 157 beta adds CSS and timing tools as DeepSeek opens search APIs",
+  "summary": "Chrome's October 15 beta previews native underline spacing and more detailed animation-frame timing. DeepSeek's October 17 Search and Fetch APIs give applications structured access to live web content.",
+  "tags": ["Chrome 157", "CSS", "DeepSeek API"],
+  "image": "/images/chrome-157-deepseek-search-fetch.svg",
+  "imageAlt": "A browser panel with an underlined text line and timing bars connected to a search lens and document",
+  "imageCaption": "Original illustration of browser styling and timing tools alongside web search and retrieval; not a product screenshot.",
+  "sections": [
+    {
+      "heading": "An underline control and clearer frame diagnostics",
+      "paragraphs": [
+        "The Chrome 157 beta, announced on October 15, includes CSS text-decoration-inset. It controls where an underline, overline, or line-through begins and ends relative to the text, including length and percentage values. For interface work, that offers a native way to tune a decoration or create a reveal effect without an extra element or background-gradient workaround.",
+        "The beta also adds styleDuration and forcedStyleDuration to Long Animation Frame entries, helping developers separate style and layout time while investigating slow frames. These are beta-channel features, not a claim of broad browser support: Chrome Status currently schedules the stable release for November 3. Check support and keep fallbacks before using either in production."
+      ]
+    },
+    {
+      "heading": "Search and retrieval become separate AI building blocks",
+      "paragraphs": [
+        "On October 17, DeepSeek opened its Search and Fetch APIs. Search returns structured web results for a query; Fetch retrieves one page as Markdown. Both are standalone JSON endpoints authenticated with a DeepSeek API key, so an application can retrieve sources before passing selected material to a model rather than treating the model's memory as current web evidence.",
+        "DeepSeek says a request is billable only when it returns HTTP 200 with a nonempty result or page content. Its documentation lists separate rate limits and notes that Fetch can fail when a target site's availability or access policy blocks retrieval. For a browser-facing AI feature, keep the API key on the server, review retrieved pages and their dates, and test answer quality independently; the provider's search-quality claims are not a guarantee that every result is reliable."
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "label": "Chrome for Developers — Chrome 157 beta (October 15, 2026)",
+      "url": "https://developer.chrome.com/blog/chrome-157-beta?hl=en"
+    },
+    {
+      "label": "Chrome Platform Status — Chrome 157 release notes",
+      "url": "https://chromestatus.com/release-notes/157"
+    },
+    {
+      "label": "DeepSeek API — October 17, 2026 change log",
+      "url": "https://api-docs.deepseek.com/updates/"
+    },
+    {
+      "label": "DeepSeek API — Search and Fetch guide",
+      "url": "https://api-docs.deepseek.com/guides/search/"
+    }
+  ],
+  "translations": {
+    "zh-TW": {
+      "title": "Chrome 157 beta 加入 CSS 與效能工具，DeepSeek 開放搜尋 API",
+      "summary": "Chrome 10 月 15 日的 beta 預覽更細緻的文字裝飾位置與影格耗時資訊；DeepSeek 10 月 17 日開放 Search 和 Fetch API，讓應用程式能取得即時網頁內容。",
+      "tags": ["Chrome 157", "CSS", "DeepSeek API"],
+      "imageAlt": "瀏覽器面板中的底線文字與效能時間條，連接到搜尋放大鏡和文件",
+      "imageCaption": "以瀏覽器樣式、效能分析與網頁搜尋擷取為題的原創插畫，並非產品截圖。",
+      "sections": [
+        {
+          "heading": "底線位置更好控制，慢影格也更容易拆解",
+          "paragraphs": [
+            "Chrome 於 10 月 15 日推出的 157 beta 包含 CSS text-decoration-inset，可調整底線、頂線與刪除線相對於文字起迄位置的內縮或外延，支援長度與百分比。對介面開發而言，這提供了不必增加元素或借用背景漸層，就能微調文字裝飾與揭露效果的原生方式。",
+            "這次 beta 也為 Long Animation Frame 紀錄加入 styleDuration 與 forcedStyleDuration，協助開發者在追查慢影格時區分樣式與版面計算耗時。這些仍屬 beta 功能，不代表已獲所有瀏覽器支援；Chrome Status 目前將穩定版排定於 11 月 3 日。正式採用前仍應確認支援情況並保留替代方案。"
+          ]
+        },
+        {
+          "heading": "搜尋與擷取成為可獨立使用的 AI 元件",
+          "paragraphs": [
+            "DeepSeek 於 10 月 17 日開放 Search 與 Fetch API。Search 對查詢回傳結構化網頁結果，Fetch 則將單一頁面擷取為 Markdown；兩者都是使用 DeepSeek API 金鑰驗證的獨立 JSON 端點。應用程式可以先取得來源，再把選定內容交給模型，而不必把模型記憶當成即時網路證據。",
+            "DeepSeek 文件指出，只有 HTTP 200 且確實取得結果或頁面內容的請求才計費；兩個 API 各有限速，Fetch 也可能因目標網站的可用性或存取規則而失敗。若要做給瀏覽器使用的 AI 功能，應把金鑰留在伺服器端、檢查來源與日期，並自行測試回答品質；供應商對搜尋品質的宣稱，不等於每筆結果都可靠。"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "label": "Chrome 開發者部落格 — Chrome 157 beta（2026 年 10 月 15 日）",
+          "url": "https://developer.chrome.com/blog/chrome-157-beta?hl=en"
+        },
+        {
+          "label": "Chrome Platform Status — Chrome 157 發行說明",
+          "url": "https://chromestatus.com/release-notes/157"
+        },
+        {
+          "label": "DeepSeek API — 2026 年 10 月 17 日更新紀錄",
+          "url": "https://api-docs.deepseek.com/updates/"
+        },
+        {
+          "label": "DeepSeek API — Search 與 Fetch 指南",
+          "url": "https://api-docs.deepseek.com/guides/search/"
+        }
+      ]
+    }
+  }
+}
