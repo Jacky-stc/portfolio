@@ -1,0 +1,79 @@
+{
+  "slug": "webkit-identity-resolution-copilot-model-policy-api",
+  "date": "2026-10-20",
+  "title": "WebKit targets email-based tracking as GitHub opens Copilot model controls",
+  "summary": "WebKit described a Safari safeguard against third-party identity resolution on October 19. The same day, GitHub made REST endpoints for enterprise Copilot model policies generally available.",
+  "tags": ["WebKit", "Privacy", "GitHub Copilot"],
+  "image": "/images/webkit-identity-copilot-policy.svg",
+  "imageAlt": "A shield interrupts a network path between a web form and identity nodes, beside a panel of AI model controls",
+  "imageCaption": "Original illustration of WebKit's identity-resolution protection and GitHub's Copilot policy controls; not a product screenshot.",
+  "sections": [
+    {
+      "heading": "A new boundary around email-based tracking",
+      "paragraphs": [
+        "In an October 19 post, WebKit described identity resolution: third-party infrastructure can receive an email address entered on a site, link it to an opaque identifier, and use that identifier to connect activity across sites or devices. Blocking third-party cookies alone does not stop this path when the address is sent directly in a network request.",
+        "WebKit says Safari and WebKit in the iOS, iPadOS, macOS, and visionOS 27 releases block network access to identity-resolution infrastructure at the domain level. The post distinguishes this third-party tracking from first-party personalization. For frontend teams, the practical implication is to audit scripts and requests around login, signup, and newsletter forms: a form that works in one browser may depend on a third-party endpoint another browser blocks. That is an implementation consideration, not evidence that every analytics or authentication service is affected."
+      ]
+    },
+    {
+      "heading": "Copilot model access becomes programmable",
+      "paragraphs": [
+        "Also on October 19, GitHub announced generally available GET and PATCH REST endpoints for Copilot model policies. The four scopes are enterprises, enterprise teams, enterprise apps, and organizations. GitHub says enterprise settings can delegate model control to organizations or, in enterprise-teams mode, to teams and apps.",
+        "This gives administrators a way to inspect and update model availability through existing management workflows rather than only through a settings screen. It does not change the models by itself or imply that every user can access every model: availability still depends on policy and account context. GitHub separately retired several Copilot models on October 19, so teams with pinned model choices should review their configured alternatives before assuming an old selection remains usable."
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "label": "WebKit — Blocking Identity Resolution Infrastructure (October 19, 2026)",
+      "url": "https://webkit.org/blog/18438/blocking-identity-resolution-infrastructure/"
+    },
+    {
+      "label": "GitHub Changelog — Copilot model policy API (October 19, 2026)",
+      "url": "https://github.blog/changelog/2026-10-19-copilot-model-policy-api-for-enterprise-orgs-and-teams/"
+    },
+    {
+      "label": "GitHub Changelog — Copilot models deprecated (October 19, 2026)",
+      "url": "https://github.blog/changelog/2026-10-19-github-copilot-models-deprecated-on-october-19-2026/"
+    }
+  ],
+  "translations": {
+    "zh-TW": {
+      "title": "WebKit 防堵以 Email 跨站追蹤，GitHub 開放 Copilot 模型政策 API",
+      "summary": "WebKit 於 10 月 19 日說明 Safari 對第三方身分比對服務的新防護；同日 GitHub 將企業用 Copilot 模型政策 REST API 推向正式版。",
+      "tags": ["WebKit", "隱私", "GitHub Copilot"],
+      "imageAlt": "盾牌阻斷網頁表單與身分節點間的網路連線，旁邊是 AI 模型控制面板",
+      "imageCaption": "以 WebKit 身分比對防護與 GitHub Copilot 政策控制為題的原創插畫，並非產品截圖。",
+      "sections": [
+        {
+          "heading": "Email 跨站追蹤多了一道防線",
+          "paragraphs": [
+            "WebKit 在 10 月 19 日的文章中說明「身分比對」：第三方服務可能取得使用者在網站輸入的 Email，將其連結到不透明識別碼，再藉此關聯不同網站或裝置上的活動。若網站直接透過網路請求傳送地址，單靠封鎖第三方 Cookie 無法阻止這條路徑。",
+            "WebKit 表示，iOS、iPadOS、macOS 與 visionOS 27 版本中的 Safari 和 WebKit，會在網域層級阻擋連向身分比對基礎設施的請求。文章也區分這類第三方追蹤與第一方個人化。對前端團隊而言，登入、註冊與電子報表單周邊的腳本及請求值得盤點：某個瀏覽器中正常運作的表單，可能依賴另一個瀏覽器會封鎖的第三方端點。這是實作上需要檢查的風險，並不代表所有分析或驗證服務都會受影響。"
+          ]
+        },
+        {
+          "heading": "Copilot 模型權限可以透過 API 管理",
+          "paragraphs": [
+            "GitHub 同樣在 10 月 19 日宣布，查詢與更新 Copilot 模型政策的 GET、PATCH REST 端點正式推出，涵蓋企業、企業團隊、企業應用程式及組織四個層級。GitHub 表示，企業政策可將模型控制權委派給組織，或在企業團隊模式下交由團隊與應用程式管理。",
+            "管理員因此可以把模型可用性納入既有的管理流程，不必只靠設定頁面操作。API 本身不會自動改變模型，也不表示每位使用者都能使用所有模型；實際可用性仍取決於政策與帳號。GitHub 另於 10 月 19 日停用數個 Copilot 模型，團隊若固定使用特定模型，應檢查替代選項，避免假設舊設定仍可用。"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "label": "WebKit — 阻擋身分比對基礎設施（2026 年 10 月 19 日）",
+          "url": "https://webkit.org/blog/18438/blocking-identity-resolution-infrastructure/"
+        },
+        {
+          "label": "GitHub 更新紀錄 — Copilot 模型政策 API（2026 年 10 月 19 日）",
+          "url": "https://github.blog/changelog/2026-10-19-copilot-model-policy-api-for-enterprise-orgs-and-teams/"
+        },
+        {
+          "label": "GitHub 更新紀錄 — Copilot 模型停用（2026 年 10 月 19 日）",
+          "url": "https://github.blog/changelog/2026-10-19-github-copilot-models-deprecated-on-october-19-2026/"
+        }
+      ]
+    }
+  }
+}
