@@ -1,0 +1,79 @@
+{
+  "slug": "chrome-devtools-css-inspection-vercel-websockets",
+  "date": "2026-10-21",
+  "title": "Chrome DevTools adds agent CSS inspection as Vercel WebSockets go GA",
+  "summary": "Chrome's October 20 DevTools update gives coding agents a structured way to inspect page styles. Vercel made WebSockets in Functions generally available the same day, opening another route for realtime AI interfaces.",
+  "tags": ["Chrome DevTools", "CSS", "WebSockets", "Vercel"],
+  "image": "/images/chrome-devtools-css-vercel-websockets.svg",
+  "imageAlt": "A browser styles panel and CSS rule blocks connected to a realtime waveform inside a server panel",
+  "imageCaption": "Original illustration of CSS inspection and a bidirectional WebSocket connection; not a product screenshot.",
+  "sections": [
+    {
+      "heading": "A closer look at CSS for coding agents",
+      "paragraphs": [
+        "On October 20, Chrome published its November DevTools roundup covering features from Chrome 155 and 156. The Chrome DevTools MCP server now includes get_css_styles, a tool that returns computed and matching styles for an element. Its paginated output can include inherited rules, pseudo-elements, keyframes and CSS at-rules, giving a coding agent more concrete evidence than a screenshot alone when diagnosing a layout.",
+        "The same roundup describes a visual position-area editor for CSS anchor positioning in the Elements panel, plus improvements to inactive @starting-style rules and inherited-style inspection. These are debugging and authoring aids, not new guarantees that an agent's suggested CSS is correct. Developers should still check the rendered result, responsive states and browser support before shipping a change."
+      ]
+    },
+    {
+      "heading": "Realtime connections reach Vercel Functions",
+      "paragraphs": [
+        "Also on October 20, Vercel announced general availability of WebSocket support in Vercel Functions. A client can keep a bidirectional connection with a Function for interactive chat, collaborative features or realtime AI responses. Vercel says WebSockets also power the realtime models on its AI Gateway; the announcement is about the transport and hosting capability, not a new AI model.",
+        "Vercel's documentation says a connection stays on one Function instance, but a reconnect may land on another. It recommends external storage for durable state and client-side reconnection because connections close at the Function's maximum duration. WebSockets require Fluid compute and follow Function limits and pricing, including transfer charges. Teams considering a live AI interface should test those lifecycle and cost constraints rather than assuming a persistent connection is unlimited or that in-memory session state will survive deployment."
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "label": "Chrome for Developers — New in DevTools, November 2026 (published October 20)",
+      "url": "https://developer.chrome.com/blog/new-in-devtools-november-2026?hl=en"
+    },
+    {
+      "label": "Vercel Changelog — WebSocket support is now generally available (October 20, 2026)",
+      "url": "https://vercel.com/changelog/websocket-support-is-now-generally-available"
+    },
+    {
+      "label": "Vercel Docs — WebSockets",
+      "url": "https://vercel.com/docs/functions/websockets"
+    }
+  ],
+  "translations": {
+    "zh-TW": {
+      "title": "Chrome DevTools 讓代理檢查 CSS，Vercel WebSocket 正式推出",
+      "summary": "Chrome 10 月 20 日的 DevTools 更新，讓程式代理能以結構化資料檢查頁面樣式；同日 Vercel Functions 的 WebSocket 支援正式推出，為即時 AI 介面提供另一種連線方式。",
+      "tags": ["Chrome DevTools", "CSS", "WebSocket", "Vercel"],
+      "imageAlt": "瀏覽器樣式面板與 CSS 規則區塊，連接到伺服器面板內的即時訊號波形",
+      "imageCaption": "以 CSS 檢查與雙向 WebSocket 連線為題的原創插畫，並非產品截圖。",
+      "sections": [
+        {
+          "heading": "程式代理能更具體地檢查 CSS",
+          "paragraphs": [
+            "Chrome 於 10 月 20 日發布 11 月份的 DevTools 整理，涵蓋 Chrome 155 與 156 帶來的功能。Chrome DevTools MCP server 新增 get_css_styles，可回傳元素的計算後樣式及符合的規則；分頁輸出還可包含繼承規則、偽元素、關鍵影格與 CSS at-rules。程式代理在診斷版面時，因此能取得比單張截圖更具體的依據。",
+            "同一篇整理也介紹 Elements 面板中用於 CSS anchor positioning 的視覺化 position-area 編輯器，以及對未啟用的 @starting-style 規則和繼承樣式的檢查改進。這些是除錯與撰寫工具，並不保證代理提出的 CSS 一定正確；正式發布前仍應檢查畫面結果、響應式狀態及瀏覽器支援。"
+          ]
+        },
+        {
+          "heading": "Vercel Functions 支援即時雙向連線",
+          "paragraphs": [
+            "Vercel 同樣在 10 月 20 日宣布，Vercel Functions 的 WebSocket 支援正式推出。客戶端可與 Function 保持雙向連線，用於互動聊天、協作功能或即時 AI 回應。Vercel 也表示其 AI Gateway 的即時模型使用 WebSocket；這次公告的主角是傳輸與託管能力，不是新的 AI 模型。",
+            "Vercel 文件指出，單一連線會固定在一個 Function 實例，但重新連線可能落到另一個實例。由於連線會在 Function 達到最長執行時間時關閉，官方建議客戶端處理重連，並把需要保存的狀態放在外部資料儲存。WebSocket 需要啟用 Fluid compute，並遵循 Function 的限制與計費方式，包括資料傳輸費用。評估即時 AI 介面時，應實測連線生命週期與成本，而不是假設連線可以無限維持，或記憶體內的狀態能跨部署保存。"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "label": "Chrome 開發者部落格 — 2026 年 11 月 DevTools 更新（10 月 20 日發布）",
+          "url": "https://developer.chrome.com/blog/new-in-devtools-november-2026?hl=en"
+        },
+        {
+          "label": "Vercel 更新紀錄 — WebSocket 支援正式推出（2026 年 10 月 20 日）",
+          "url": "https://vercel.com/changelog/websocket-support-is-now-generally-available"
+        },
+        {
+          "label": "Vercel 文件 — WebSockets",
+          "url": "https://vercel.com/docs/functions/websockets"
+        }
+      ]
+    }
+  }
+}
