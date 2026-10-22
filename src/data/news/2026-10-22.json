@@ -1,0 +1,79 @@
+{
+  "slug": "github-npm-package-firewall-ai-php-security-patches",
+  "date": "2026-10-22",
+  "title": "GitHub previews an npm package firewall as AI-assisted PHP fixes ship",
+  "summary": "GitHub's October 20 preview adds policy checks before npm packages reach development and CI environments. On October 21, PHP maintainers released critical security fixes after a coordinated response that included AI-assisted research.",
+  "tags": ["npm", "GitHub", "PHP", "Security"],
+  "image": "/images/github-npm-firewall-php-security.svg",
+  "imageAlt": "A package passing through a shield on its way to a web app, beside a PHP security patch panel",
+  "imageCaption": "Original illustration of package-install screening and PHP security updates; not a product screenshot.",
+  "sections": [
+    {
+      "heading": "A checkpoint before JavaScript packages are installed",
+      "paragraphs": [
+        "On October 20, GitHub opened a public preview of its package firewall for GitHub Enterprise Cloud customers. It sits between configured endpoints, such as CI runners or coding agents, and upstream package registries. Administrators can apply a cooldown period and checks against GitHub's advisory data or attestation changes; both metadata requests and downloads are evaluated before a package reaches the endpoint.",
+        "The preview currently supports npm packages only, and endpoints must be configured to use the firewall. It is not an automatic protection for every JavaScript project, nor a substitute for reviewing dependencies and keeping a lockfile. For frontend teams whose builds install many third-party packages, the release adds a possible control at install time, including the period before imported code ever runs in the app."
+      ]
+    },
+    {
+      "heading": "PHP maintainers release critical fixes after coordinated research",
+      "paragraphs": [
+        "On October 21, the PHP project released versions 8.5.12, 8.4.27, 8.3.36 and 8.2.35 to address two critical vulnerabilities that can permit unauthenticated remote code execution. Its advisory says web-serving PHP installations are at risk and that updating is the only complete fix; providers may supply backported packages for older supported distributions. Operators should check the PHP project's advisory and their own vendor guidance rather than relying on a generic workaround.",
+        "OpenAI says an AI-assisted researcher found one flaw during its Patch the Planet initiative, while Wiz independently reported both. PHP maintainers led the fixes and release, with researchers and providers coordinating validation and deployment. The distinction matters: AI helped surface a finding, but human maintainers and security teams assessed, patched and shipped the response. Together with the npm firewall preview, this is a reminder that software security spans both the packages installed to build a web interface and the runtime that serves it."
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "label": "GitHub Changelog — Package firewall public preview (October 20, 2026)",
+      "url": "https://github.blog/changelog/2026-10-20-github-package-firewall-in-public-preview/"
+    },
+    {
+      "label": "PHP project — 2026 security advisory and releases (October 21, 2026)",
+      "url": "https://www.php.net/archive/2026.php"
+    },
+    {
+      "label": "OpenAI — Coordinated disclosure of critical PHP vulnerabilities (October 21, 2026)",
+      "url": "https://openai.com/index/coordinated-disclosure-of-critical-vulnerabilities/"
+    }
+  ],
+  "translations": {
+    "zh-TW": {
+      "title": "GitHub 預覽 npm 套件防火牆，PHP 推出 AI 輔助研究後的安全修補",
+      "summary": "GitHub 10 月 20 日推出預覽功能，在 npm 套件進入開發與 CI 環境前套用政策檢查。PHP 維護團隊則於 10 月 21 日，在包含 AI 輔助研究的協作應變後發布重大安全修補。",
+      "tags": ["npm", "GitHub", "PHP", "安全性"],
+      "imageAlt": "套件穿過盾牌後進入網頁應用程式，旁邊是 PHP 安全修補面板",
+      "imageCaption": "以安裝套件前的檢查與 PHP 安全更新為題的原創插畫，並非產品截圖。",
+      "sections": [
+        {
+          "heading": "JavaScript 套件安裝前多一道檢查",
+          "paragraphs": [
+            "GitHub 於 10 月 20 日向 GitHub Enterprise Cloud 客戶開放套件防火牆的公開預覽。它位於 CI runner、程式代理等已設定的端點與上游套件庫之間。管理員可設定冷卻期，並利用 GitHub 安全公告資料或軟體供應鏈證明的變化進行檢查；套件中繼資料請求與實際下載都會經過政策評估。",
+            "目前預覽版只支援 npm 套件，端點也必須另行設定才能使用。它不是所有 JavaScript 專案自動享有的防護，更不能取代檢視依賴與維護 lockfile。對建置時會安裝大量第三方套件的前端團隊來說，這提供了一個安裝階段的控制點，防護時機甚至早於套件程式碼在應用程式中執行。"
+          ]
+        },
+        {
+          "heading": "協作研究後，PHP 維護團隊發布重大修補",
+          "paragraphs": [
+            "PHP 專案於 10 月 21 日發布 8.5.12、8.4.27、8.3.36 與 8.2.35，修正兩項可能允許未登入遠端執行程式碼的重大漏洞。官方公告指出，提供網頁請求服務的 PHP 安裝環境有風險，而更新是唯一完整的修復方式；部分發行版供應商可能提供回移植套件。維運人員應核對 PHP 官方公告及自身供應商指引，不宜只依靠通用的暫時措施。",
+            "OpenAI 表示，其 Patch the Planet 計畫中的研究人員借助 AI 找到其中一項漏洞，而 Wiz 也獨立通報了兩項。修補與發布由 PHP 維護團隊主導，研究人員及服務供應商協助驗證與部署。這項分工值得看清：AI 協助發現問題，但仍由人類維護者與安全團隊評估、修補並完成應變。連同 npm 套件防火牆預覽，這些更新提醒我們，網站安全同時涵蓋建置介面時安裝的套件，以及實際提供服務的執行環境。"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "label": "GitHub 更新紀錄 — 套件防火牆公開預覽（2026 年 10 月 20 日）",
+          "url": "https://github.blog/changelog/2026-10-20-github-package-firewall-in-public-preview/"
+        },
+        {
+          "label": "PHP 專案 — 2026 年安全公告與版本發布（10 月 21 日）",
+          "url": "https://www.php.net/archive/2026.php"
+        },
+        {
+          "label": "OpenAI — PHP 重大漏洞的協調揭露（2026 年 10 月 21 日）",
+          "url": "https://openai.com/index/coordinated-disclosure-of-critical-vulnerabilities/"
+        }
+      ]
+    }
+  }
+}
