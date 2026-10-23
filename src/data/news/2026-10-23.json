@@ -1,0 +1,71 @@
+{
+  "slug": "vercel-python-routing-openai-decisions-general-availability",
+  "date": "2026-10-23",
+  "title": "Vercel adds Python routing middleware as OpenAI's Decisions API reaches general availability",
+  "summary": "Vercel's October 21 update brings Python into its pre-request routing layer. On October 22, OpenAI moved its bounded-answer Decisions API from public beta to general availability, with new live-voice and caching integrations.",
+  "tags": ["Vercel", "Routing", "Python", "OpenAI"],
+  "image": "/images/vercel-python-routing-openai-decisions-ga.svg",
+  "imageAlt": "A web request passing through a routing panel and into a card with three bounded decision paths",
+  "imageCaption": "Original illustration of request routing and bounded AI decisions; not a product screenshot.",
+  "sections": [
+    {
+      "heading": "Python can now handle requests before they reach a Vercel app",
+      "paragraphs": [
+        "On October 21, Vercel announced Python support for Routing Middleware. The middleware runs before a request reaches an application and can redirect, rewrite, answer, or pass it through. Vercel describes support for Python frameworks including FastAPI, Flask, and Django, configured through a proxy entrypoint in vercel.toml. This is a change to the request-routing layer, not a requirement to rewrite an existing frontend in Python.",
+        "The middleware runs separately from the main app and has its own dependency group. Vercel's example uses vercel-proxy to redirect an old blog URL and to add a header before forwarding API requests; unmatched routes continue to the app. For teams serving a web interface alongside Python services, the update offers a way to keep routing rules close to the Python stack. Whether it simplifies a particular deployment depends on its existing framework and routing setup."
+      ]
+    },
+    {
+      "heading": "Decisions API moves beyond its October public beta",
+      "paragraphs": [
+        "OpenAI announced on October 22 that its Decisions API is generally available. We covered its public beta on October 7; the news here is the production release and the additions since beta: native GPT-Live integration, prompt caching for reused context, US and EU inference residency, native JSON inputs, images in question instructions, and up to 400 questions per request. The endpoint still targets bounded answers such as a probability, a choice from predefined options, or a score, rather than open-ended text generation.",
+        "OpenAI says the API can make such decisions up to ten times faster than GPT-6 Luna through its Responses API. That is a vendor comparison, not a guaranteed result for every workload. Its live-voice example uses transcript events to choose an avatar expression; an application still has to interpret the decision and update the interface. For product teams, the practical test is whether a narrowly specified decision reduces interaction delay without making mistakes harder to catch."
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "label": "Vercel Changelog — Routing Middleware now supports Python (October 21, 2026)",
+      "url": "https://vercel.com/changelog/routing-middleware-now-supports-python"
+    },
+    {
+      "label": "OpenAI — Build more responsive apps with the Decisions API (October 22, 2026)",
+      "url": "https://openai.com/index/decisions-api/"
+    }
+  ],
+  "translations": {
+    "zh-TW": {
+      "title": "Vercel 路由中介層支援 Python，OpenAI Decisions API 正式推出",
+      "summary": "Vercel 10 月 21 日讓 Python 能處理進入應用程式前的路由請求。OpenAI 則於 10 月 22 日將限定答案的 Decisions API 從公開測試推進至正式版，並加入即時語音與快取整合。",
+      "tags": ["Vercel", "路由", "Python", "OpenAI"],
+      "imageAlt": "網頁請求穿過路由面板，進入具有三條限定決策路徑的卡片",
+      "imageCaption": "呈現請求路由與限定範圍 AI 決策的原創插畫，並非產品截圖。",
+      "sections": [
+        {
+          "heading": "Python 現在能在請求進入 Vercel 應用前處理路由",
+          "paragraphs": [
+            "Vercel 於 10 月 21 日宣布 Routing Middleware 支援 Python。中介層會在請求到達應用程式前執行，可重新導向、改寫、直接回應或放行請求。官方指出，FastAPI、Flask、Django 等 Python 框架都可使用，並透過 vercel.toml 的 proxy 進入點設定。這是請求路由層的更新，不表示既有前端必須改寫成 Python。",
+            "中介層與主要應用分開執行，也有自己的依賴套件群組。Vercel 的範例使用 vercel-proxy 將舊部落格網址重新導向，並在轉送 API 請求前加入標頭；未符合規則的路由則照常進入應用。對同時提供網頁介面與 Python 服務的團隊，這讓路由規則有機會留在 Python 技術堆疊中；是否能簡化部署，仍取決於既有框架及路由設計。"
+          ]
+        },
+        {
+          "heading": "Decisions API 從 10 月公開測試進入正式版",
+          "paragraphs": [
+            "OpenAI 於 10 月 22 日宣布 Decisions API 正式推出。本站 10 月 7 日已介紹過公開測試版；這次的新進展是正式發布，以及測試期間新增的原生 GPT-Live 整合、重複情境的提示快取、美國與歐盟推論資料駐留、原生 JSON 輸入、問題指示中的圖片，以及每次請求最多 400 個問題。這個端點仍聚焦於有界答案，例如估計機率、從預設選項中擇一，或給出分數，而非自由生成文字。",
+            "OpenAI 表示，這類決策最多可比透過 Responses API 使用 GPT-6 Luna 快十倍。這是廠商的比較數據，不保證每種工作負載都能達到。其即時語音範例根據逐字稿事件選擇虛擬角色的表情；應用程式仍需自行解讀結果並更新介面。對產品團隊來說，值得驗證的是：定義明確的小型決策能否縮短互動延遲，同時讓錯誤仍可被發現與處理。"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "label": "Vercel 更新紀錄 — Routing Middleware 支援 Python（2026 年 10 月 21 日）",
+          "url": "https://vercel.com/changelog/routing-middleware-now-supports-python"
+        },
+        {
+          "label": "OpenAI — 使用 Decisions API 建立反應更即時的應用（2026 年 10 月 22 日）",
+          "url": "https://openai.com/index/decisions-api/"
+        }
+      ]
+    }
+  }
+}
