@@ -1,0 +1,71 @@
+{
+  "slug": "chrome-digital-credential-issuance-openai-legacy-model-shutdown",
+  "date": "2026-10-24",
+  "title": "Chrome enables digital credential issuance as OpenAI retires legacy API models",
+  "summary": "Chrome's October 23 update enables wallet credential issuance by default in version 155. The same day, OpenAI shut down access to a previously announced group of older API model snapshots, making migration checks timely for teams maintaining AI features.",
+  "tags": ["Chrome", "Digital Credentials", "OpenAI", "API Migration"],
+  "image": "/images/chrome-digital-credentials-openai-model-shutdown.svg",
+  "imageAlt": "A digital credential moving from a browser into a phone wallet beside a model migration panel",
+  "imageCaption": "Original illustration of browser wallet issuance and API model migration; not a product screenshot.",
+  "sections": [
+    {
+      "heading": "Chrome 155 turns on credential issuance without a trial token",
+      "paragraphs": [
+        "Google's October 23 developer update says the issuance side of the Digital Credentials API is enabled by default in Chrome 155 and later. An issuer's website can call navigator.credentials.create() with a digital request, letting the browser hand the flow to the operating system and a compatible wallet app. This extends the API's earlier presentation flow, which lets a person share selected credential data with a verifier; issuance is the separate step of adding a credential to a wallet.",
+        "Chrome describes a same-device flow on Android and a desktop flow that displays a QR code for completion on an Android phone. The call must follow a user gesture, and developers should check protocol support and provide another route when issuance is unavailable. The browser API transports the request; a protocol such as OpenID4VCI defines the credential data and issuance exchange. The release therefore does not mean every browser, operating system, or wallet suddenly supports a given credential."
+      ]
+    },
+    {
+      "heading": "Older OpenAI model snapshots reach their shutdown date",
+      "paragraphs": [
+        "OpenAI's deprecation list says access to a group of older API model snapshots ended on October 23. The company originally announced this retirement on April 22, so this is the shutdown date rather than a newly announced deprecation. The affected list includes examples such as gpt-4o-2024-05-13, o3-mini-2025-01-31, o4-mini-2025-04-16, and gpt-image-1, as well as several fine-tuned model versions. The official table gives a suggested substitute for each entry, not one universal drop-in replacement.",
+        "Applications that select a retired snapshot by name need to review their API configuration and test a supported replacement against their own prompts, output handling, latency, and cost expectations. This is an operational inference from the shutdown, not a claim that every AI integration is affected: teams already using other supported models have no migration implied by this specific list. Both updates make a similar point for web products—new browser capabilities still need compatibility paths, while dependent API features need explicit lifecycle checks."
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "label": "Chrome for Developers — Digital Credentials API issuance ships in Chrome 155 (October 23, 2026)",
+      "url": "https://developer.chrome.com/blog/digital-credentials-api-issuance"
+    },
+    {
+      "label": "OpenAI API — Deprecations: legacy model snapshots (announced April 22; shutdown October 23, 2026)",
+      "url": "https://developers.openai.com/api/docs/deprecations"
+    }
+  ],
+  "translations": {
+    "zh-TW": {
+      "title": "Chrome 開放數位憑證核發，OpenAI 舊版 API 模型停止服務",
+      "summary": "Chrome 10 月 23 日宣布，第 155 版預設啟用將憑證加入錢包的功能。同一天，OpenAI 依先前公告停止提供一批舊版 API 模型快照；維護 AI 功能的團隊值得檢查遷移狀態。",
+      "tags": ["Chrome", "數位憑證", "OpenAI", "API 遷移"],
+      "imageAlt": "數位憑證從瀏覽器移入手機錢包，旁邊是模型遷移面板",
+      "imageCaption": "以瀏覽器錢包憑證核發與 API 模型遷移為題的原創插畫，並非產品截圖。",
+      "sections": [
+        {
+          "heading": "Chrome 155 不再需要測試權杖即可核發數位憑證",
+          "paragraphs": [
+            "Google 於 10 月 23 日的開發者公告指出，Chrome 155 及後續版本預設啟用 Digital Credentials API 的憑證核發功能。核發機構的網站可透過含有 digital 請求的 navigator.credentials.create()，讓瀏覽器將流程交給作業系統與相容的錢包應用程式。這擴充了先前的憑證出示流程；出示是讓使用者選擇性分享憑證資料給驗證方，核發則是把憑證加入錢包，兩者不是同一步驟。",
+            "Chrome 說明了 Android 裝置內直接完成的流程，以及由桌面瀏覽器顯示 QR code、再用 Android 手機完成的跨裝置流程。呼叫必須由使用者操作觸發，開發者也應檢查協定支援情況，並在不可用時提供替代方式。瀏覽器 API 負責傳送請求；OpenID4VCI 等協定才定義憑證資料與核發交換。因此，這次更新不代表所有瀏覽器、作業系統或錢包突然都支援任一特定憑證。"
+          ]
+        },
+        {
+          "heading": "部分舊版 OpenAI 模型快照已到停止服務日期",
+          "paragraphs": [
+            "OpenAI 的淘汰清單指出，一批舊版 API 模型快照已於 10 月 23 日停止提供。公司早在 4 月 22 日便宣布這項安排，因此今天值得注意的是停止服務，而不是新發布的淘汰公告。受影響的例子包含 gpt-4o-2024-05-13、o3-mini-2025-01-31、o4-mini-2025-04-16 與 gpt-image-1，也包括數個微調模型版本。官方表格逐項列出建議替代模型，並非所有項目都能換成同一款模型。",
+            "若應用程式仍指定已退休的快照名稱，團隊需要檢查 API 設定，並用自己的提示、輸出處理、延遲及成本條件測試受支援的替代模型。這是根據停止服務所作的維運推論，不表示每個 AI 整合都受影響；已使用其他受支援模型的服務，不會因這份特定清單而必然需要遷移。兩項更新也提醒網站團隊：新瀏覽器功能需要相容性替代路徑，依賴外部 API 的功能則需要追蹤服務生命週期。"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "label": "Chrome 開發者網站 — Chrome 155 推出 Digital Credentials API 核發功能（2026 年 10 月 23 日）",
+          "url": "https://developer.chrome.com/blog/digital-credentials-api-issuance"
+        },
+        {
+          "label": "OpenAI API — 舊版模型快照淘汰清單（4 月 22 日公告；2026 年 10 月 23 日停止服務）",
+          "url": "https://developers.openai.com/api/docs/deprecations"
+        }
+      ]
+    }
+  }
+}
