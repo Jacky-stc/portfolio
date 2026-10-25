@@ -1,0 +1,79 @@
+{
+  "slug": "vercel-build-cache-visibility-openai-agents-scheduled-automations",
+  "date": "2026-10-26",
+  "title": "Vercel exposes build-cache size as OpenAI adds scheduled agent runs",
+  "summary": "In October 23 updates, Vercel made saved build-cache size visible in deployment details, while OpenAI introduced scheduled automations for Agents API sessions. Both changes make recurring development work easier to inspect, but scheduling a task is not the same as confirming it finished.",
+  "tags": ["Vercel", "Build Cache", "Agents API", "Automation"],
+  "image": "/images/vercel-build-cache-openai-agent-schedules.svg",
+  "imageAlt": "A web build cache panel beside a clock sending scheduled work to an agent session",
+  "imageCaption": "Original illustration of build-cache inspection and scheduled agent sessions; not a product screenshot.",
+  "sections": [
+    {
+      "heading": "Build-cache size is now visible on Vercel deployments",
+      "paragraphs": [
+        "Vercel said on October 23 that deployment summaries now show how much build cache a deployment saved and how close that amount is to the build machine's limit. The figures are also available through `vercel inspect` in CLI version 65.1.0 or newer and through the get-deployment REST API. The display is enabled by default on all plans for deployments built on or after October 21.",
+        "The distinction matters for frontend projects with large dependency trees or generated assets: Vercel says uploading cache consumes billable build time, while a cache above the machine limit is discarded and the next build starts without it. Seeing the saved size helps a team diagnose unexpectedly slow builds; the new display does not itself shrink dependencies or improve cache reuse."
+      ]
+    },
+    {
+      "heading": "Agents API sessions can start from a saved schedule",
+      "paragraphs": [
+        "An October 23 OpenAI developer-community announcement introduced scheduled automations for the Agents API. Developers can set a recurring cron expression with a time zone or choose a one-time future timestamp. Each run can start a new session for independent work or send instructions to an existing session that retains earlier context. An agent can also create or manage schedules in its own session when the `automations` tool is enabled.",
+        "OpenAI's guide separates schedule delivery from task completion: an invocation records an attempt to send work to a session, and a completed delivery only means the session accepted it. Applications still need to follow session events to learn whether the work succeeded and decide how to notify users. A recurring frontend audit or content workflow therefore needs both a schedule and a way to check outcomes; neither the schedule nor a green delivery status is proof that the requested result was produced."
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "label": "Vercel Changelog — Deployments now show build cache size (October 23, 2026)",
+      "url": "https://vercel.com/changelog/deployments-now-show-build-cache-size"
+    },
+    {
+      "label": "OpenAI Developer Community — Introducing Scheduled Automations to the Agents API (October 23, 2026)",
+      "url": "https://community.openai.com/t/introducing-scheduled-automations-to-the-agents-api/1409223"
+    },
+    {
+      "label": "OpenAI API — Scheduled automations developer guide (accessed October 26, 2026)",
+      "url": "https://developers.openai.com/api/docs/guides/agents-api/sessions/automations"
+    }
+  ],
+  "translations": {
+    "zh-TW": {
+      "title": "Vercel 顯示建置快取大小，OpenAI Agents API 加入排程執行",
+      "summary": "10 月 23 日的更新中，Vercel 讓部署頁面顯示已儲存的建置快取大小；OpenAI 則為 Agents API 工作階段加入排程自動化。兩項功能讓例行開發工作更容易追蹤，但排程送出任務不等於任務已完成。",
+      "tags": ["Vercel", "建置快取", "Agents API", "自動化"],
+      "imageAlt": "網頁建置快取面板旁的時鐘，將排程工作送到代理工作階段",
+      "imageCaption": "呈現建置快取檢查與代理排程執行的原創插畫，並非產品截圖。",
+      "sections": [
+        {
+          "heading": "Vercel 部署頁面現在看得到建置快取大小",
+          "paragraphs": [
+            "Vercel 在 10 月 23 日表示，部署摘要現在會顯示該次部署儲存了多少建置快取，以及距離建置機器的上限還有多遠。使用 65.1.0 或更新版本的 CLI，也能透過 `vercel inspect` 查看；取得部署資料的 REST API 同樣提供這些資訊。這項顯示功能預設適用於所有方案，涵蓋 10 月 21 日起建立的部署。",
+            "對依賴套件眾多或會產生大量資產的前端專案，這個差別值得留意：Vercel 說明，快取上傳時間會計入收費的建置時間；若快取超過機器上限，則會被捨棄，下次建置便無法使用它。看到儲存量有助於調查建置為何突然變慢，但顯示數字本身不會縮小依賴或改善快取重用率。"
+          ]
+        },
+        {
+          "heading": "Agents API 工作階段可依儲存的排程啟動",
+          "paragraphs": [
+            "OpenAI 開發者社群於 10 月 23 日公告，Agents API 加入排程自動化。開發者可用 cron 表達式與時區設定週期任務，也可指定未來時間只執行一次。每次觸發能建立新的工作階段，處理彼此獨立的工作；也能把指示送進保留先前脈絡的既有工作階段。若啟用 `automations` 工具，代理也可以在自己的工作階段建立或管理排程。",
+            "OpenAI 指南明確區分任務送達與真正完成：invocation 只記錄將工作送往工作階段的嘗試，顯示送達完成也僅代表工作階段接受了任務。應用程式仍需追蹤工作階段事件，才能知道工作是否成功並決定如何通知使用者。因此，週期性的前端稽核或內容流程除了排程，也需要檢查結果的機制；排程設定與成功送達狀態都不能單獨證明產出已完成。"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "label": "Vercel 更新紀錄 — 部署頁面顯示建置快取大小（2026 年 10 月 23 日）",
+          "url": "https://vercel.com/changelog/deployments-now-show-build-cache-size"
+        },
+        {
+          "label": "OpenAI 開發者社群 — Agents API 加入排程自動化（2026 年 10 月 23 日）",
+          "url": "https://community.openai.com/t/introducing-scheduled-automations-to-the-agents-api/1409223"
+        },
+        {
+          "label": "OpenAI API — 排程自動化開發指南（2026 年 10 月 26 日查閱）",
+          "url": "https://developers.openai.com/api/docs/guides/agents-api/sessions/automations"
+        }
+      ]
+    }
+  }
+}
