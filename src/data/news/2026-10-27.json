@@ -1,0 +1,71 @@
+{
+  "slug": "vercel-custom-monitors-agentenv-sandbox-evaluations",
+  "date": "2026-10-27",
+  "title": "Vercel adds custom monitoring and isolated AgentEnv evaluations",
+  "summary": "Two October 26 releases address different parts of running web products: custom Observability monitors can watch signals such as Core Web Vitals, while AgentEnv evaluations can run agents and task environments in separate Vercel Sandboxes.",
+  "tags": ["Vercel", "Observability", "Core Web Vitals", "Agent Evaluation"],
+  "image": "/images/vercel-monitors-agentenv-sandboxes.svg",
+  "imageAlt": "A web performance chart with an alert marker next to two separate sandboxes for an agent evaluation",
+  "imageCaption": "Original illustration of custom performance monitoring and isolated agent evaluations; not a product screenshot.",
+  "sections": [
+    {
+      "heading": "Custom monitors can watch the metrics behind a web experience",
+      "paragraphs": [
+        "On October 26, Vercel introduced custom monitors based on Observability query results. Its examples include Core Web Vitals, other performance metrics, AI Gateway costs, external API failure rates, and Sandbox CPU time. A monitor can follow one metric or a ratio of two metrics, with a fixed threshold or statistical anomaly detection. Teams can also set a detection window, filters, and grouping.",
+        "For a frontend team, a Core Web Vitals monitor could turn a performance trend into an alert instead of requiring someone to notice it on a dashboard. That is a possible use of the feature, not a claim that it automatically fixes slow pages or identifies their cause. Vercel says monitors can be created from the dashboard or a JSON definition through its CLI. Custom monitors require Pro or Enterprise with Observability Plus and incur a data-scanning charge."
+      ]
+    },
+    {
+      "heading": "AgentEnv evaluations get separate execution spaces",
+      "paragraphs": [
+        "In another October 26 announcement, Vercel said Scale AI's AgentEnv can run on Vercel Sandbox starting with the Vercel provider in AgentEnv 0.9.1334. AgentEnv tests agents against tasks and scores their results; this integration places the agent and the task environment in separate Sandboxes. Vercel provides an example that can be run with an existing Vercel CLI login and lets developers inspect the task score and recorded agent actions.",
+        "The separation gives an evaluation a clearer boundary between the system being tested and the environment it acts on. It is an execution arrangement, not evidence that an agent performs better or that every evaluation is reproducible. Teams building AI features into web products still need representative tasks and their own criteria for deciding whether a score reflects a useful user experience."
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "label": "Vercel Changelog — Create custom monitors in Vercel Observability (October 26, 2026)",
+      "url": "https://vercel.com/changelog/create-custom-monitors-in-vercel-observability"
+    },
+    {
+      "label": "Vercel Changelog — Run Scale AI's AgentEnv evals on Vercel Sandbox (October 26, 2026)",
+      "url": "https://vercel.com/changelog/run-scale-ais-agentenv-evals-on-vercel-sandbox"
+    }
+  ],
+  "translations": {
+    "zh-TW": {
+      "title": "Vercel 加入自訂監控，AgentEnv 評測可在隔離的 Sandbox 執行",
+      "summary": "Vercel 於 10 月 26 日發布兩項更新：Observability 的自訂監控可追蹤 Core Web Vitals 等網站指標；AgentEnv 評測則可將代理與任務環境放在不同的 Vercel Sandbox 執行。",
+      "tags": ["Vercel", "可觀測性", "Core Web Vitals", "代理評測"],
+      "imageAlt": "帶有警示標記的網站效能圖表，旁邊是分開執行代理評測的兩個 Sandbox",
+      "imageCaption": "呈現自訂效能監控與隔離式代理評測的原創插畫，並非產品截圖。",
+      "sections": [
+        {
+          "heading": "自訂監控能追蹤影響網站體驗的指標",
+          "paragraphs": [
+            "Vercel 於 10 月 26 日推出依據 Observability 查詢結果建立的自訂監控。官方列舉的訊號包含 Core Web Vitals、其他效能指標、AI Gateway 成本、外部 API 失敗率及 Sandbox CPU 使用時間。單一監控可追蹤一項指標，或兩項指標的比值；觸發條件可選固定門檻或統計異常偵測，並設定觀察時間範圍、篩選及分組方式。",
+            "對前端團隊而言，Core Web Vitals 監控可以把效能趨勢轉成警示，減少仰賴人工查看儀表板；這是功能的可能用法，不代表它會自動修好緩慢頁面或找出原因。Vercel 表示可從儀表板建立監控，也可透過 CLI 讀取 JSON 定義。自訂監控適用於啟用 Observability Plus 的 Pro 或 Enterprise 方案，並依掃描資料量計費。"
+          ]
+        },
+        {
+          "heading": "AgentEnv 評測將代理與任務環境分開執行",
+          "paragraphs": [
+            "Vercel 同日也宣布，Scale AI 的 AgentEnv 從包含 Vercel provider 的 0.9.1334 版起可在 Vercel Sandbox 執行。AgentEnv 會讓代理完成指定任務並為結果評分；此整合將代理和任務環境放在不同的 Sandbox。Vercel 提供可使用現有 CLI 登入狀態執行的範例，完成後能查看任務分數與記錄下來的代理動作。",
+            "將兩者分開，能使受測系統與它操作的環境有較清楚的邊界；這是一種執行安排，並不能證明代理表現一定更好，或每次評測都能完全重現。將 AI 功能放進網站的團隊，仍須設計具代表性的任務，並自行判斷分數是否反映有用的使用者體驗。"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "label": "Vercel 更新紀錄 — Observability 加入自訂監控（2026 年 10 月 26 日）",
+          "url": "https://vercel.com/changelog/create-custom-monitors-in-vercel-observability"
+        },
+        {
+          "label": "Vercel 更新紀錄 — AgentEnv 評測可在 Vercel Sandbox 執行（2026 年 10 月 26 日）",
+          "url": "https://vercel.com/changelog/run-scale-ais-agentenv-evals-on-vercel-sandbox"
+        }
+      ]
+    }
+  }
+}

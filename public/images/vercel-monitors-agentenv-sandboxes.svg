@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400" role="img" aria-labelledby="title description">
+  <title id="title">Custom monitoring and isolated agent evaluation</title>
+  <desc id="description">A performance chart with an alert marker connects to two distinct sandboxes holding an agent and its task environment.</desc>
+  <rect width="640" height="400" fill="#242326"/>
+  <g fill="none" stroke="#ffcb2f" stroke-width=".125rem" stroke-linejoin="round" stroke-linecap="round">
+    <rect x="52" y="82" width="242" height="224" rx="18"/>
+    <path d="M76 122h194M76 261h194" opacity=".45"/>
+    <path d="M78 230l44-34 41 15 41-74 42 37 25-14"/>
+    <circle cx="204" cy="137" r="8" fill="#ffcb2f"/>
+    <path d="M204 121v-23M188 137h-19" opacity=".7"/>
+    <path d="M294 196h49M326 185l17 11-17 11"/>
+    <rect x="350" y="92" width="108" height="204" rx="16"/>
+    <rect x="476" y="92" width="108" height="204" rx="16"/>
+    <circle cx="404" cy="159" r="21"/>
+    <path d="M371 226c8-27 58-27 66 0M390 157h28M404 138v42"/>
+    <rect x="500" y="139" width="60" height="44" rx="6"/>
+    <path d="M510 202h40M510 217h29M510 232h36"/>
+    <path d="M458 194h18" stroke-dasharray="4 7"/>
+  </g>
+  <g fill="#ffcb2f" font-family="Inter,ui-sans-serif,system-ui,sans-serif" font-size=".8125rem" letter-spacing=".08em">
+    <text x="77" y="109">MONITOR</text>
+    <text x="369" y="120">AGENT</text>
+    <text x="495" y="120">TASK</text>
+    <text x="77" y="286">WEB VITALS</text>
+  </g>
+</svg>
