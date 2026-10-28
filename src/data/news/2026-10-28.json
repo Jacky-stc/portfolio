@@ -1,0 +1,71 @@
+{
+  "slug": "firefox-159-scroll-animations-vercel-ai-traffic-insights",
+  "date": "2026-10-28",
+  "title": "Firefox 159 enables scroll-driven CSS animations as Vercel exposes AI traffic",
+  "summary": "Firefox 159 now enables scroll-driven animations by default, giving web teams a browser-native way to link animation progress to scrolling. Vercel's new AI traffic view shows which verified AI bots request a site and which pages they crawl or retrieve.",
+  "tags": ["Firefox", "CSS", "Scroll Animations", "AI Traffic"],
+  "image": "/images/firefox-scroll-animations-vercel-ai-traffic.svg",
+  "imageAlt": "A scrolling web page drives an animation timeline beside a chart of AI bot requests",
+  "imageCaption": "Original illustration of scroll-driven animation and AI traffic metrics; not a browser or dashboard screenshot.",
+  "sections": [
+    {
+      "heading": "Scrolling becomes an animation timeline in Firefox 159",
+      "paragraphs": [
+        "Mozilla's Firefox 159 developer notes, published for the October 27 release, say scroll-driven CSS animations are now enabled by default. Their progress can follow the position of a scroll container instead of elapsed time. This makes effects such as a reading-progress indicator or a section reveal possible without tying every animation frame to a JavaScript scroll handler.",
+        "The release notes also say Firefox 159 supports scoped custom element registries, which let separate shadow trees define web components without name collisions. For existing sites, the practical step is to test new animation behavior in the browsers a project supports and retain a usable layout when an animation is unavailable. Browser support alone does not ensure that motion is appropriate for every visitor."
+      ]
+    },
+    {
+      "heading": "Vercel shows how AI bots reach a site",
+      "paragraphs": [
+        "In an October 27 changelog entry, Vercel introduced AI traffic insights in Observability. The view reports requests by verified AI bot, the pages crawled most often, assistant retrievals triggered by user actions or searches, Markdown requests, and pages where those requests return errors. The dashboard entry is under Observability > AI Traffic; querying the metrics with `vercel metrics` requires Observability Plus.",
+        "For a site publishing articles, the new view can show whether a page is being fetched by an AI crawler and whether those requests fail. That is a visibility tool, not proof that an assistant quoted the page, that readers saw it, or that the crawler indexed it. Teams should interpret bot requests alongside their ordinary search and visitor analytics rather than treating all of these measures as the same audience."
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "label": "Mozilla Developer Network — Firefox 159 release notes for developers (October 27, 2026)",
+      "url": "https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Releases/159"
+    },
+    {
+      "label": "Vercel Changelog — AI traffic insights now available in Vercel Observability (October 27, 2026)",
+      "url": "https://vercel.com/changelog/ai-traffic-insights-now-available-in-vercel-observability"
+    }
+  ],
+  "translations": {
+    "zh-TW": {
+      "title": "Firefox 159 預設啟用捲動驅動動畫，Vercel 開放查看 AI 流量",
+      "summary": "Firefox 159 預設啟用捲動驅動動畫，讓網站可直接依捲動進度控制 CSS 動畫。Vercel 新增的 AI 流量檢視，則能看到已驗證 AI 機器人對網站的請求，以及它們爬取或擷取的頁面。",
+      "tags": ["Firefox", "CSS", "捲動動畫", "AI 流量"],
+      "imageAlt": "網頁捲動帶動動畫時間軸，旁邊呈現 AI 機器人請求的圖表",
+      "imageCaption": "呈現捲動驅動動畫與 AI 流量指標的原創插畫，並非瀏覽器或儀表板截圖。",
+      "sections": [
+        {
+          "heading": "Firefox 159 讓捲動位置成為動畫時間軸",
+          "paragraphs": [
+            "Mozilla 針對 10 月 27 日發布的 Firefox 159 說明，捲動驅動的 CSS 動畫現在預設啟用。動畫進度可以跟隨捲動容器的位置，而非單純依照經過的時間推進。閱讀進度指示或區塊顯現等效果，因此有機會直接用瀏覽器功能實作，不必為每一個動畫影格綁定 JavaScript 捲動事件。",
+            "更新說明也指出，Firefox 159 支援限定範圍的自訂元素登錄表，讓不同的 shadow tree 各自定義元件，避免名稱衝突。對現有網站而言，仍應在專案支援的瀏覽器測試新動畫，並確保動畫不可用時版面仍可使用。瀏覽器支援某項動態效果，也不代表它適合所有訪客。"
+          ]
+        },
+        {
+          "heading": "Vercel 顯示 AI 機器人如何造訪網站",
+          "paragraphs": [
+            "Vercel 在 10 月 27 日的更新紀錄中宣布，Observability 加入 AI 流量洞察。檢視內容包含各已驗證 AI 機器人的請求數、最常被爬取的頁面、因使用者操作或搜尋而觸發的助理擷取、Markdown 格式請求，以及 AI 機器人收到錯誤回應的頁面。儀表板入口位於 Observability > AI Traffic；若要用 `vercel metrics` 查詢這些指標，則需要 Observability Plus。",
+            "對持續發表文章的網站來說，這項功能可以看出 AI 爬蟲是否抓取某個頁面，以及請求是否失敗。不過，看到請求不等於文章已被助理引用、讀者實際看過，或爬蟲已將它編入索引。解讀這些數字時，仍應與一般搜尋和訪客分析分開看待。"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "label": "Mozilla 開發者文件 — Firefox 159 更新說明（2026 年 10 月 27 日）",
+          "url": "https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Releases/159"
+        },
+        {
+          "label": "Vercel 更新紀錄 — Observability 加入 AI 流量洞察（2026 年 10 月 27 日）",
+          "url": "https://vercel.com/changelog/ai-traffic-insights-now-available-in-vercel-observability"
+        }
+      ]
+    }
+  }
+}

@@ -21,6 +21,7 @@ import article20261023 from './2026-10-23.json' with { type: 'json' }
 import article20261024 from './2026-10-24.json' with { type: 'json' }
 import article20261026 from './2026-10-26.json' with { type: 'json' }
 import article20261027 from './2026-10-27.json' with { type: 'json' }
+import article20261028 from './2026-10-28.json' with { type: 'json' }
 import type { NewsArticle } from '../techNews'
 
 export const newsArticles: NewsArticle[] = [
@@ -46,4 +47,5 @@ export const newsArticles: NewsArticle[] = [
   article20261024,
   article20261026,
   article20261027,
+  article20261028,
 ]

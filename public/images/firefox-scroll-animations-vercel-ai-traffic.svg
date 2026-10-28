@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400" role="img" aria-labelledby="title description">
+  <title id="title">Scroll animation and AI traffic</title>
+  <desc id="description">A scrolling web page advances a dotted animation path while a second panel charts AI bot requests.</desc>
+  <rect width="640" height="400" fill="#242326"/>
+  <g fill="none" stroke="#ffcb2f" stroke-width=".125rem" stroke-linejoin="round" stroke-linecap="round">
+    <rect x="50" y="70" width="240" height="260" rx="16"/>
+    <path d="M50 110h240M78 90h8M96 90h8M114 90h8"/>
+    <path d="M81 145h155M81 161h117M81 237h155M81 253h127" opacity=".55"/>
+    <rect x="81" y="184" width="146" height="35" rx="7"/>
+    <path d="M248 136v144M242 144l6-8 6 8M242 272l6 8 6-8"/>
+    <path d="M290 200h58M331 189l17 11-17 11"/>
+    <rect x="352" y="70" width="238" height="260" rx="16"/>
+    <path d="M352 110h238"/>
+    <circle cx="386" cy="157" r="12"/>
+    <circle cx="442" cy="157" r="12"/>
+    <circle cx="498" cy="157" r="12"/>
+    <path d="M398 157h32M454 157h32M386 169v34M442 169v18M498 169v51" stroke-dasharray="4 7"/>
+    <path d="M383 280l42-47 37 21 35-57 53 31"/>
+    <path d="M383 295h170" opacity=".5"/>
+  </g>
+  <g fill="#ffcb2f" font-family="Inter,ui-sans-serif,system-ui,sans-serif" font-size=".8125rem" letter-spacing=".08em">
+    <text x="80" y="313">SCROLL</text>
+    <text x="382" y="91">AI TRAFFIC</text>
+  </g>
+</svg>
