@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400" role="img" aria-labelledby="title description">
+  <title id="title">Design-system guided interface prototype</title>
+  <desc id="description">Reusable UI components connect to a larger prototype screen beside a conversation panel.</desc>
+  <rect width="640" height="400" fill="#242326"/>
+  <g fill="none" stroke="#ffcb2f" stroke-width=".125rem" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="50" y="69" width="155" height="262" rx="15"/>
+    <path d="M50 111h155"/>
+    <rect x="72" y="137" width="111" height="35" rx="7"/>
+    <path d="M90 153h71"/>
+    <rect x="72" y="191" width="48" height="48" rx="8"/>
+    <rect x="135" y="191" width="48" height="48" rx="8"/>
+    <path d="M72 266h111M72 279h78" opacity=".6"/>
+    <path d="M205 199h58M247 188l16 11-16 11"/>
+    <rect x="267" y="69" width="193" height="262" rx="15"/>
+    <path d="M267 111h193M290 91h9M307 91h9"/>
+    <rect x="290" y="135" width="147" height="79" rx="8"/>
+    <path d="M307 185l30-28 25 19 25-29 33 38"/>
+    <path d="M290 237h145M290 251h118" opacity=".6"/>
+    <rect x="290" y="273" width="77" height="31" rx="7"/>
+    <path d="M460 199h25" stroke-dasharray="4 7"/>
+    <rect x="489" y="111" width="104" height="176" rx="14"/>
+    <path d="M510 147h62M510 160h48M510 212h62M510 225h41" opacity=".65"/>
+    <circle cx="516" cy="192" r="8"/>
+  </g>
+  <g fill="#ffcb2f" font-family="Inter,ui-sans-serif,system-ui,sans-serif" font-size=".75rem" letter-spacing=".06em">
+    <text x="71" y="95">COMPONENTS</text>
+    <text x="291" y="95">PROTOTYPE</text>
+    <text x="508" y="132">IDEA</text>
+  </g>
+</svg>

@@ -1,0 +1,71 @@
+{
+  "slug": "github-replica-ai-design-system-prototypes",
+  "date": "2026-10-29",
+  "title": "GitHub opens Replica for AI-assisted interface prototyping",
+  "summary": "GitHub has released Replica, an open-source tool that uses a team's components and design guidance to shape interactive prototypes made through the Copilot app. It can run locally, with an optional self-hosted Hub for sharing and feedback.",
+  "tags": ["GitHub", "Replica", "Design Systems", "AI Prototyping"],
+  "image": "/images/github-replica-design-system-prototypes.svg",
+  "imageAlt": "Reusable interface components flow into an interactive prototype beside a conversation panel",
+  "imageCaption": "Original illustration of design-system components guiding an interactive prototype; not a Replica screenshot.",
+  "sections": [
+    {
+      "heading": "The design system becomes part of the prompt's context",
+      "paragraphs": [
+        "On October 28, GitHub open-sourced Replica, an AI-assisted prototyping tool created by GitHub Design. Designers can provide components, patterns, documentation, and approved guidance; teammates then describe an interface in natural language in the GitHub Copilot app and refine the resulting interactive prototype beside the conversation. The project is available under the MIT license.",
+        "The notable frontend choice is to start from a team's existing UI language rather than a blank collection of generated screens. That can make a prototype more useful for testing a product idea with familiar controls. It does not remove the need to review interaction details, accessibility, and implementation quality before treating a prototype as production code."
+      ]
+    },
+    {
+      "heading": "Local prototypes do not require the sharing server",
+      "paragraphs": [
+        "Replica's repository says a team can start locally without a server or domain. Its Copilot plugin shows a running prototype alongside the conversation. For collaboration, an optional, self-hosted Replica Hub lets teammates open published prototypes and leave comments; a separate GitHub build action prepares prototypes for that Hub.",
+        "The documented local setup currently calls for the GitHub Copilot app, Git, and Node.js with npm on macOS or Linux. Hub publishing adds hosting, domain, HTTPS, and GitHub permission requirements. These are distinct paths: a designer or engineer can first test whether their components and guidance produce useful interfaces, then decide whether shared hosting is worth setting up."
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "label": "GitHub Changelog — Introducing Replica, an open-source AI prototyping tool (October 28, 2026)",
+      "url": "https://github.blog/changelog/2026-10-28-introducing-replica-an-open-source-ai-prototyping-tool/"
+    },
+    {
+      "label": "GitHub — Replica repository and setup documentation (accessed October 29, 2026)",
+      "url": "https://github.com/github/replica"
+    }
+  ],
+  "translations": {
+    "zh-TW": {
+      "title": "GitHub 開源 Replica，讓 AI 依設計系統製作互動原型",
+      "summary": "GitHub 發布開源工具 Replica，讓團隊以既有元件與設計指引，透過 Copilot app 製作互動原型。原型可先在本機執行；若要分享與收集回饋，也能選擇自行架設 Hub。",
+      "tags": ["GitHub", "Replica", "設計系統", "AI 原型設計"],
+      "imageAlt": "可重用的介面元件流向互動原型，旁邊是對話面板",
+      "imageCaption": "呈現設計系統元件如何引導互動原型的原創插畫，並非 Replica 截圖。",
+      "sections": [
+        {
+          "heading": "設計系統成為生成介面的參考依據",
+          "paragraphs": [
+            "GitHub 於 10 月 28 日開源由 GitHub Design 製作的 AI 輔助原型工具 Replica。設計師可提供元件、設計模式、文件與經審核的指引；團隊成員再於 GitHub Copilot app 用自然語言描述介面，並在對話旁查看、調整產生的互動原型。此專案採 MIT 授權。",
+            "對前端工作而言，值得注意的是它從團隊現有的介面語言出發，而不是任意生成一組新畫面。這可能讓原型更適合用熟悉的操作方式驗證產品想法。不過，在將原型視為正式產品程式碼之前，仍需檢查互動細節、無障礙體驗與實作品質。"
+          ]
+        },
+        {
+          "heading": "本機製作原型不必先架設分享服務",
+          "paragraphs": [
+            "Replica 專案文件表示，團隊可以先在本機使用，不需要伺服器或網域。它的 Copilot 外掛會在對話旁顯示執行中的原型。需要協作時，可選擇自行架設 Replica Hub，讓同事開啟已發布的原型並留言；另有 GitHub build action 負責為 Hub 準備原型。",
+            "目前文件記載的本機環境需要 macOS 或 Linux、GitHub Copilot app、Git，以及搭配 npm 的 Node.js。若要透過 Hub 發布與留言，還需要主機、網域、HTTPS 及 GitHub 權限。這兩條使用路徑可以分開評估：先確認元件和指引能否產生有用的介面，再決定是否值得架設團隊分享環境。"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "label": "GitHub 更新紀錄 — 開源 AI 原型工具 Replica（2026 年 10 月 28 日）",
+          "url": "https://github.blog/changelog/2026-10-28-introducing-replica-an-open-source-ai-prototyping-tool/"
+        },
+        {
+          "label": "GitHub — Replica 專案及安裝文件（2026 年 10 月 29 日查閱）",
+          "url": "https://github.com/github/replica"
+        }
+      ]
+    }
+  }
+}
