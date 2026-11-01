@@ -1,0 +1,71 @@
+{
+  "slug": "vercel-runtime-cache-migration-ling-3-1-flash",
+  "date": "2026-11-01",
+  "title": "Vercel unifies runtime caching as Ling 3.1 Flash arrives on AI Gateway",
+  "summary": "Vercel is moving Next.js Data Cache workloads into Runtime Cache, with more storage and a change to usage billing. Its AI Gateway also added Ling 3.1 Flash 1019, available at no charge through November 3.",
+  "tags": ["Vercel", "Next.js", "Runtime Cache", "AI Gateway", "Ling 3.1 Flash"],
+  "image": "/images/vercel-runtime-cache-ling-flash.svg",
+  "imageAlt": "A web page and cache symbol connect to an AI model panel labeled Ling 3.1",
+  "imageCaption": "Original illustration of Vercel's cache consolidation and a model available through AI Gateway; not a product screenshot.",
+  "sections": [
+    {
+      "heading": "Next.js data caching moves under Runtime Cache",
+      "paragraphs": [
+        "In an October 30 announcement, Vercel said Data Cache is leaving beta and moving into Runtime Cache. Next.js `fetch` caching and `unstable_cache` will move without code changes, joining the existing `getCache` and `use cache: remote` paths under one product. New Vercel teams use Runtime Cache by default; existing Hobby teams are scheduled for migration on November 29, while Pro and Enterprise teams will receive migration details separately.",
+        "Vercel says Pro projects and environments will each receive a storage allocation eight times the size of the former team-wide Data Cache pool, while Enterprise projects will receive ten times their previous Data Cache storage. The operational change deserves attention even if application code stays the same: previously unbilled Data Cache reads and writes will follow Runtime Cache pricing after migration. Teams with data-heavy pages should inspect cache usage and unnecessary reads or writes before their migration date."
+      ]
+    },
+    {
+      "heading": "Ling 3.1 Flash 1019 joins AI Gateway for a short free period",
+      "paragraphs": [
+        "Also on October 30, Vercel added InclusionAI's Ling 3.1 Flash 1019 to AI Gateway under the model ID `inclusionai/ling-3.1-flash-1019`. Vercel describes it as a model for coding, multi-step reasoning, and tool-using agents, with a one-million-token context window. Requests are free through November 3, 2026, then begin charging at the published rate; traces and spend records remain available during the free period.",
+        "For teams building an AI feature into a web product, the temporary offer provides a low-cost window to run task-specific comparisons. The context-window figure and intended workloads come from Vercel's announcement, not an independent quality test. Before switching a production workflow, teams should measure the model on their own prompts, latency targets, and output checks, and account for the price change after November 3."
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "label": "Vercel Changelog — Data Cache is moving to Runtime Cache (October 30, 2026)",
+      "url": "https://vercel.com/changelog/data-cache-is-moving-to-runtime-cache"
+    },
+    {
+      "label": "Vercel Changelog — Ling 3.1 Flash 1019 now available on AI Gateway for free (October 30, 2026)",
+      "url": "https://vercel.com/changelog/ling-3-1-flash-1019-now-available-on-ai-gateway-for-free"
+    }
+  ],
+  "translations": {
+    "zh-TW": {
+      "title": "Vercel 整合 Runtime Cache，AI Gateway 加入 Ling 3.1 Flash",
+      "summary": "Vercel 將 Next.js 的 Data Cache 併入 Runtime Cache，擴大儲存空間，也調整使用量計費方式。AI Gateway 同時加入 Ling 3.1 Flash 1019，至 11 月 3 日前可免費使用。",
+      "tags": ["Vercel", "Next.js", "Runtime Cache", "AI Gateway", "Ling 3.1 Flash"],
+      "imageAlt": "網頁與快取符號連向標示 Ling 3.1 的 AI 模型面板",
+      "imageCaption": "呈現 Vercel 快取整合及 AI Gateway 模型的原創插畫，並非產品截圖。",
+      "sections": [
+        {
+          "heading": "Next.js 資料快取將整合至 Runtime Cache",
+          "paragraphs": [
+            "Vercel 於 10 月 30 日宣布，Data Cache 將結束測試階段並併入 Runtime Cache。Next.js 的 `fetch` 快取與 `unstable_cache` 不需修改程式碼，即會移至 Runtime Cache，與現有的 `getCache` 和 `use cache: remote` 共用同一項服務。新建立的 Vercel 團隊預設使用 Runtime Cache；既有 Hobby 團隊預計於 11 月 29 日遷移，Pro 與 Enterprise 團隊則會另外收到遷移資訊。",
+            "依 Vercel 公告，Pro 專案的各個環境將有獨立儲存額度，容量為過去整個團隊共用 Data Cache 額度的八倍；Enterprise 專案則是過去 Data Cache 額度的十倍。即使應用程式碼不必調整，營運面仍需留意：遷移後，原本未計費的 Data Cache 讀寫會依 Runtime Cache 費率計費。大量使用資料快取的網站，適合在遷移前先檢查用量與不必要的讀寫。"
+          ]
+        },
+        {
+          "heading": "Ling 3.1 Flash 1019 加入 AI Gateway，限時免費",
+          "paragraphs": [
+            "同樣在 10 月 30 日，Vercel 將 InclusionAI 的 Ling 3.1 Flash 1019 加入 AI Gateway，模型 ID 為 `inclusionai/ling-3.1-flash-1019`。Vercel 將其定位為適合程式開發、多步驟推理與工具操作代理的模型，並標示一百萬 token 的上下文長度。請求在 2026 年 11 月 3 日前免費，之後會依公布費率收費；免費期間的請求仍會顯示於追蹤與用量紀錄中。",
+            "對正在網站加入 AI 功能的團隊，這段期間可用較低成本比較模型在實際任務上的表現。不過，上下文長度與適用情境來自 Vercel 公告，並非獨立的品質測試。正式切換前，仍應用自己的提示、延遲目標和輸出檢查方式評估，並將 11 月 3 日後的費用納入考量。"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "label": "Vercel 更新紀錄 — Data Cache 將併入 Runtime Cache（2026 年 10 月 30 日）",
+          "url": "https://vercel.com/changelog/data-cache-is-moving-to-runtime-cache"
+        },
+        {
+          "label": "Vercel 更新紀錄 — Ling 3.1 Flash 1019 加入 AI Gateway（2026 年 10 月 30 日）",
+          "url": "https://vercel.com/changelog/ling-3-1-flash-1019-now-available-on-ai-gateway-for-free"
+        }
+      ]
+    }
+  }
+}
