@@ -1,0 +1,71 @@
+{
+  "slug": "vercel-nodejs-26-ai-gateway-virtual-models",
+  "date": "2026-10-30",
+  "title": "Vercel adds Node.js 26 LTS and reusable AI Gateway model settings",
+  "summary": "Vercel now supports Node.js 26 LTS for builds and Functions, with new projects using it by default. Its AI Gateway also offers virtual models: saved model configurations that apps can call through a stable custom ID.",
+  "tags": ["Vercel", "Node.js", "AI Gateway", "Virtual Models"],
+  "image": "/images/vercel-node26-ai-gateway-virtual-models.svg",
+  "imageAlt": "A Node.js 26 build panel points toward an AI Gateway panel routing a virtual model to two underlying models",
+  "imageCaption": "Original illustration of the Node.js build runtime and AI Gateway virtual model routing; not a product screenshot.",
+  "sections": [
+    {
+      "heading": "Node.js 26 becomes the default runtime for new Vercel projects",
+      "paragraphs": [
+        "Vercel announced on October 29 that Node.js 26 LTS is generally available for builds and Vercel Functions. It is the default for new projects. Existing projects whose `engines.node` range allows version 26 may also use it on their next deployment; projects that want to select it explicitly can set `26.x` and redeploy.",
+        "Vercel highlights HTTP/2 by default for the built-in `fetch` in Functions, the Temporal API, and V8 14.6. For frontend teams, the immediate concern is often the build pipeline: a framework, bundler, or native dependency should be checked against the runtime that will execute the build. The release does not mean every existing site has already moved, and HTTP/2 support does not guarantee lower latency for every API call."
+      ]
+    },
+    {
+      "heading": "AI Gateway can keep model choices behind one application ID",
+      "paragraphs": [
+        "In a separate October 28 update, Vercel introduced virtual models for AI Gateway. A virtual model stores the underlying model and settings, while an app or agent calls a custom ID such as `vmc/coding-agent`. Vercel says the configuration can be changed centrally without redeploying the calling app or reconfiguring an agent. Options include provider routing, fallbacks, reasoning settings, Zero Data Retention requirements, and reporting tags.",
+        "For a web application with an AI feature, that makes model configuration an operational setting instead of a model name scattered through application code. Teams would still need to test a configuration change before directing production traffic to it: keeping the request ID stable does not imply that the new model has the same behavior, cost, or output quality."
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "label": "Vercel Changelog — Node.js 26 LTS is now Generally Available on Vercel (October 29, 2026)",
+      "url": "https://vercel.com/changelog/node-js-26-lts-is-now-generally-available-on-vercel"
+    },
+    {
+      "label": "Vercel Changelog — Virtual models now available on AI Gateway (October 28, 2026)",
+      "url": "https://vercel.com/changelog/virtual-models-now-available-on-ai-gateway"
+    }
+  ],
+  "translations": {
+    "zh-TW": {
+      "title": "Vercel 支援 Node.js 26 LTS，AI Gateway 加入可重用的模型設定",
+      "summary": "Vercel 現已支援以 Node.js 26 LTS 建置專案及執行 Functions，新專案也預設使用此版本。AI Gateway 另推出虛擬模型，讓應用程式透過固定的自訂 ID 呼叫已儲存的模型設定。",
+      "tags": ["Vercel", "Node.js", "AI Gateway", "虛擬模型"],
+      "imageAlt": "Node.js 26 建置面板指向 AI Gateway，虛擬模型再連接到兩個底層模型",
+      "imageCaption": "呈現 Node.js 建置執行環境與 AI Gateway 虛擬模型路由的原創插畫，並非產品截圖。",
+      "sections": [
+        {
+          "heading": "Node.js 26 成為 Vercel 新專案的預設版本",
+          "paragraphs": [
+            "Vercel 在 10 月 29 日宣布，Node.js 26 LTS 已正式支援用於建置流程和 Vercel Functions，並成為新專案的預設版本。既有專案若在 `engines.node` 設定中允許 26 版，下次部署時也可能使用它；想明確指定的專案可將版本設為 `26.x` 後重新部署。",
+            "Vercel 列出的更新包括 Functions 內建 `fetch` 預設使用 HTTP/2、Temporal API，以及 V8 14.6。對前端團隊來說，眼前最需要確認的往往是建置流程：框架、打包工具和原生依賴是否相容於實際執行建置的版本。這項公告不代表每個既有網站都已升級，HTTP/2 支援也不保證每次 API 請求都會更快。"
+          ]
+        },
+        {
+          "heading": "AI Gateway 可用固定 ID 管理模型選擇",
+          "paragraphs": [
+            "在另一則 10 月 28 日的更新中，Vercel 為 AI Gateway 推出虛擬模型。虛擬模型儲存底層模型及其設定，應用程式或代理則透過 `vmc/coding-agent` 這類自訂 ID 呼叫。Vercel 表示，之後可集中調整設定，不必重新部署呼叫它的應用程式，或重新設定代理。可調整的項目包含供應商路由、備援模型、推理設定、零資料保留要求與報表標籤。",
+            "對提供 AI 功能的網站，這讓模型選擇更像一項營運設定，而非散落在程式碼中的模型名稱。不過，團隊仍應先測試設定變更，再導入正式流量：請求使用的 ID 保持不變，不代表新模型的行為、成本或輸出品質都相同。"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "label": "Vercel 更新紀錄 — 正式支援 Node.js 26 LTS（2026 年 10 月 29 日）",
+          "url": "https://vercel.com/changelog/node-js-26-lts-is-now-generally-available-on-vercel"
+        },
+        {
+          "label": "Vercel 更新紀錄 — AI Gateway 加入虛擬模型（2026 年 10 月 28 日）",
+          "url": "https://vercel.com/changelog/virtual-models-now-available-on-ai-gateway"
+        }
+      ]
+    }
+  }
+}

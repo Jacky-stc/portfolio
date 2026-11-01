@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400" role="img" aria-labelledby="title description">
+  <title id="title">Node.js 26 and AI Gateway virtual models</title>
+  <desc id="description">A Node.js build runtime connects to an AI Gateway configuration that routes a stable virtual model ID to two models.</desc>
+  <rect width="640" height="400" fill="#242326"/>
+  <g fill="none" stroke="#ffcb2f" stroke-width=".125rem" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="46" y="78" width="212" height="244" rx="16"/>
+    <path d="M46 117h212M70 97h9M88 97h9"/>
+    <path d="M75 225h154M75 241h110" opacity=".55"/>
+    <path d="M75 270h68M75 286h95" opacity=".55"/>
+    <path d="M258 200h59M301 189l16 11-16 11"/>
+    <rect x="321" y="120" width="152" height="160" rx="16"/>
+    <path d="M344 174h106M344 187h75" opacity=".6"/>
+    <rect x="344" y="207" width="106" height="35" rx="7"/>
+    <path d="M473 200h28M501 200v-55M501 200v55M501 145h24M501 255h24"/>
+    <rect x="525" y="107" width="73" height="77" rx="12"/>
+    <rect x="525" y="216" width="73" height="77" rx="12"/>
+    <path d="M544 145h35M544 255h35"/>
+  </g>
+  <g fill="#ffcb2f" font-family="Inter,ui-sans-serif,system-ui,sans-serif" letter-spacing=".06em">
+    <text x="72" y="169" font-size="2.75rem">26</text>
+    <text x="72" y="201" font-size=".8125rem">NODE.JS</text>
+    <text x="345" y="151" font-size=".75rem">AI GATEWAY</text>
+    <text x="357" y="230" font-size=".7rem">VIRTUAL ID</text>
+    <text x="540" y="130" font-size=".75rem">A</text>
+    <text x="540" y="239" font-size=".75rem">B</text>
+  </g>
+</svg>
