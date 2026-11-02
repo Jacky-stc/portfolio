@@ -1,0 +1,71 @@
+{
+  "slug": "google-a2ui-copilotkit-express-generative-ui",
+  "date": "2026-11-02",
+  "title": "Google's A2UI pairs agent-generated interfaces with trusted frontend components",
+  "summary": "Google's recent A2UI updates show how agents can assemble interactive screens from a frontend team's component catalog. A CopilotKit integration connects the UI to agent backends, while a new Express format aims to reduce generation time.",
+  "tags": ["A2UI", "CopilotKit", "React", "Generative UI"],
+  "image": "/images/google-a2ui-copilotkit-express.svg",
+  "imageAlt": "An AI agent connects to a trusted component catalog that assembles an interactive interface",
+  "imageCaption": "Original illustration of an agent selecting trusted interface components; not a product screenshot.",
+  "sections": [
+    {
+      "heading": "Agents describe screens; the frontend chooses what can render",
+      "paragraphs": [
+        "In an October 29 post, Google's A2UI team and CopilotKit described a way to build agent-driven interfaces without asking a model to ship executable UI code to the browser. A2UI carries a declarative description of a screen; the client renders it using a catalog of components that the application has already approved. In the React example, developers define component properties with a schema, map them to React renderers, and pass that catalog to CopilotKit.",
+        "CopilotKit connects the frontend to an agent backend through AG-UI events. The agent can send A2UI operations, and user actions can send bound values back, allowing the same surface to change through a multi-step flow. The key boundary is still the application's component catalog: an agent cannot create a trusted component simply by naming it. Teams would need to design the catalog, validate inputs and actions, and test the resulting flows for their own product."
+      ]
+    },
+    {
+      "heading": "Express changes what the model writes before the browser renders",
+      "paragraphs": [
+        "A separate October 27 Google A2UI update introduced swappable inference formats. Instead of generating the full A2UI JSON transport messages directly, an agent can produce the shorter A2UI Express syntax, which an SDK compiles into validated A2UI messages. The component catalog and frontend renderers stay the same. Google says its tests found Express could use up to three times fewer tokens and reduce latency by up to three times versus direct JSON generation.",
+        "Those figures describe Google's evaluation, not a guarantee for every model or interface. There is also a practical trade-off for a streaming UI: the Python and TypeScript SDKs can stream direct JSON in chunks, but compile Express after the complete reply arrives. A team choosing between formats should compare time to first visible component as well as total completion time on its actual screens."
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "label": "Google Developers Blog — Build Generative UI Apps with A2UI & CopilotKit Agents (October 29, 2026)",
+      "url": "https://developers.googleblog.com/en/build-generative-ui-apps-with-a2ui-copilotkit-agents/"
+    },
+    {
+      "label": "Google Developers Blog — Fast, reliable A2UI, with swappable inference formats (October 27, 2026)",
+      "url": "https://developers.googleblog.com/fast-reliable-a2ui/"
+    }
+  ],
+  "translations": {
+    "zh-TW": {
+      "title": "Google A2UI 讓代理透過可信任的前端元件組成互動介面",
+      "summary": "Google 近期的 A2UI 更新展示代理如何利用前端團隊預先定義的元件，組成可互動的畫面。CopilotKit 負責連接代理後端，新推出的 Express 格式則嘗試縮短生成時間。",
+      "tags": ["A2UI", "CopilotKit", "React", "生成式介面"],
+      "imageAlt": "AI 代理連向可信任的元件目錄，並由元件組成互動介面",
+      "imageCaption": "描繪代理選用可信任介面元件的原創插畫，並非產品截圖。",
+      "sections": [
+        {
+          "heading": "代理描述畫面，前端決定哪些元件能被呈現",
+          "paragraphs": [
+            "Google A2UI 團隊與 CopilotKit 在 10 月 29 日的文章中，介紹一種建立代理驅動介面的方式：模型不必將可執行的介面程式碼交給瀏覽器，而是透過 A2UI 傳遞宣告式的畫面描述。客戶端再使用應用程式預先核准的元件目錄來呈現畫面。React 範例中，開發者先以 schema 定義元件屬性、對應到 React 元件，再將目錄交給 CopilotKit。",
+            "CopilotKit 透過 AG-UI 事件串接前端與代理後端。代理可以送出 A2UI 操作，使用者的操作也能把綁定的值傳回，讓同一個畫面隨多步驟流程更新。應用程式的元件目錄仍是關鍵邊界：代理不能只靠寫出名稱，就讓未核准的元件變成可信任元件。團隊仍需自行設計目錄、驗證輸入與操作，並測試產品中的實際流程。"
+          ]
+        },
+        {
+          "heading": "Express 改變模型生成內容的格式",
+          "paragraphs": [
+            "Google A2UI 在另一篇 10 月 27 日的文章中推出可切換的推論格式。代理可以先產生較精簡的 A2UI Express 語法，再由 SDK 編譯為經驗證的 A2UI 訊息，不必直接生成完整的 JSON 傳輸訊息。元件目錄與前端 renderer 不需因此更換。Google 表示，在自己的測試中，Express 相較直接生成 JSON，所需 token 最多可降至約三分之一，延遲最多也可降至約三分之一。",
+            "這些數字來自 Google 的評估，不能保證所有模型與介面都有相同結果。對串流介面還有一項實際取捨：Python 與 TypeScript SDK 可逐段串流直接生成的 JSON，Express 則是在收到完整回覆後才編譯。團隊選擇格式時，除了整體完成時間，也應以自己的畫面比較第一個元件出現所需的時間。"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "label": "Google Developers Blog — 使用 A2UI 與 CopilotKit 建立生成式介面（2026 年 10 月 29 日）",
+          "url": "https://developers.googleblog.com/en/build-generative-ui-apps-with-a2ui-copilotkit-agents/"
+        },
+        {
+          "label": "Google Developers Blog — A2UI 的可切換推論格式（2026 年 10 月 27 日）",
+          "url": "https://developers.googleblog.com/fast-reliable-a2ui/"
+        }
+      ]
+    }
+  }
+}

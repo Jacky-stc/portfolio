@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400" role="img" aria-labelledby="title description">
+  <title id="title">A2UI connects an agent to trusted interface components</title>
+  <desc id="description">An agent node feeds a catalog of components that assembles a browser interface with cards and controls.</desc>
+  <rect width="640" height="400" fill="#242326"/>
+  <g fill="none" stroke="#ffcb2f" stroke-width=".125rem" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="91" cy="200" r="48"/>
+    <circle cx="91" cy="200" r="17"/>
+    <path d="M91 152v-18M91 248v18M43 200H25M139 200h18M57 166l-13-13M125 166l13-13M57 234l-13 13M125 234l13 13"/>
+    <path d="M139 200h57M185 189l11 11-11 11"/>
+    <rect x="203" y="105" width="140" height="190" rx="16"/>
+    <rect x="227" y="132" width="92" height="33" rx="6"/>
+    <rect x="227" y="181" width="92" height="33" rx="6"/>
+    <rect x="227" y="230" width="92" height="33" rx="6"/>
+    <path d="M245 148h56M245 197h56M245 246h56" opacity=".55"/>
+    <path d="M343 200h51M383 189l11 11-11 11"/>
+    <rect x="402" y="84" width="191" height="232" rx="16"/>
+    <path d="M402 123h191M424 104h8M441 104h8"/>
+    <rect x="425" y="145" width="145" height="64" rx="8"/>
+    <path d="M443 164h75M443 183h109" opacity=".6"/>
+    <rect x="425" y="225" width="67" height="45" rx="8"/>
+    <rect x="503" y="225" width="67" height="45" rx="8"/>
+  </g>
+  <g fill="#ffcb2f" font-family="Inter,ui-sans-serif,system-ui,sans-serif" letter-spacing=".04em">
+    <text x="55" y="303" font-size=".8125rem">AGENT</text>
+    <text x="223" y="325" font-size=".8125rem">CATALOG</text>
+    <text x="449" y="343" font-size=".8125rem">A2UI</text>
+  </g>
+</svg>
