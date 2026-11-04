@@ -1,0 +1,71 @@
+{
+  "slug": "vercel-standalone-ci-cloudflare-pi-1-5",
+  "date": "2026-11-04",
+  "title": "Vercel CI runs without a hosted project; Cloudflare updates its agent runtime",
+  "summary": "Vercel now lets eligible private GitHub repositories run CI without creating a Vercel project. Cloudflare's Agents SDK also moves PiHarness to Pi 1.5, reducing storage writes and adding a way to continue unanswered sessions.",
+  "tags": ["Vercel CI", "GitHub", "Cloudflare Agents", "Pi 1.5"],
+  "image": "/images/vercel-ci-cloudflare-pi-1-5.svg",
+  "imageAlt": "A repository test pipeline and a persistent agent session shown as two connected development systems",
+  "imageCaption": "Original illustration of a CI pipeline and a persistent agent session; not a product screenshot.",
+  "sections": [
+    {
+      "heading": "Vercel CI no longer needs a deployment project",
+      "paragraphs": [
+        "Vercel announced on November 3 that its CI service can run on a private GitHub repository even when that repository has no linked Vercel project. Previously, a team had to create an empty project to connect such a repository. This gives frontend teams a way to run repository checks in Vercel CI without also hosting that project on Vercel.",
+        "The current setup requires the Vercel GitHub App to have repository access, a connected GitHub and Vercel account, and write or admin permission. Running `vercel ci enable` from a repository clone enables CI for the CLI's selected team; configured tasks run from the next push. The announcement limits this standalone option to private GitHub repositories, so it does not yet cover public repositories or other Git providers."
+      ]
+    },
+    {
+      "heading": "PiHarness persists streamed agent output in batches",
+      "paragraphs": [
+        "Also on November 3, Cloudflare said Agents SDK v0.33.0 upgrades `PiHarness` to Pi 1.5. Instead of writing each streamed update immediately, Pi batches answer and tool-output writes. Cloudflare reports about 27 times fewer SQLite transactions for long answers and 5.7 times fewer for turns with parallel tools in its tests; a separate 2,048-session benchmark rose from 88 to 459 agent runs per second per harness.",
+        "The batching trade-off matters for applications that display long-running agent work. Updates remain visible as they stream, but a crash can lose up to about one second of progress under the default persistence setting. The release also replaces `session.events()` with `session.watch()` and adds `session.continue()` for an unanswered session, so existing integrations need an API review before upgrading. The benchmark figures are Cloudflare's measurements, not a promise for every workload."
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "label": "Vercel Changelog — Vercel CI no longer requires a linked Vercel project (November 3, 2026)",
+      "url": "https://vercel.com/changelog/vercel-ci-no-longer-requires-a-linked-vercel-project"
+    },
+    {
+      "label": "Cloudflare Changelog — Agents SDK now supports Pi 1.5 (November 3, 2026)",
+      "url": "https://developers.cloudflare.com/changelog/post/2026-11-03-pi-harness-pi-1-5/"
+    }
+  ],
+  "translations": {
+    "zh-TW": {
+      "title": "Vercel CI 可獨立運作，Cloudflare 更新代理執行環境",
+      "summary": "符合條件的 GitHub 私有儲存庫，現在不必建立 Vercel 專案也能使用 Vercel CI。Cloudflare Agents SDK 則將 PiHarness 升級至 Pi 1.5，減少儲存寫入，並加入續接未完成對話的方法。",
+      "tags": ["Vercel CI", "GitHub", "Cloudflare Agents", "Pi 1.5"],
+      "imageAlt": "儲存庫測試流程與持續運作的代理工作階段，呈現為兩套相連的開發系統",
+      "imageCaption": "描繪 CI 流程與持續運作代理工作階段的原創插畫，並非產品截圖。",
+      "sections": [
+        {
+          "heading": "Vercel CI 不再需要先建立部署專案",
+          "paragraphs": [
+            "Vercel 於 11 月 3 日宣布，GitHub 私有儲存庫即使未連結 Vercel 專案，也能執行 Vercel CI。過去團隊必須先建立一個空專案，才能連接這類儲存庫。對前端團隊而言，這讓使用 Vercel CI 執行儲存庫檢查，不再以將專案部署在 Vercel 為前提。",
+            "目前的啟用條件包括：Vercel GitHub App 具有儲存庫存取權、GitHub 帳號已連接 Vercel 帳號，以及使用者對儲存庫具有寫入或管理權限。在儲存庫的本機副本執行 `vercel ci enable`，會替 CLI 目前選定的團隊啟用 CI；設定好的任務從下一次推送開始執行。公告明確指出，獨立使用功能目前僅支援 GitHub 私有儲存庫，尚不支援公開儲存庫或其他 Git 平台。"
+          ]
+        },
+        {
+          "heading": "PiHarness 將代理的串流輸出分批寫入儲存空間",
+          "paragraphs": [
+            "同樣在 11 月 3 日，Cloudflare 宣布 Agents SDK v0.33.0 將 `PiHarness` 升級至 Pi 1.5。Pi 不再每收到一段串流更新就立即寫入，而是將回答與工具輸出分批儲存。Cloudflare 表示，在其測試中，長篇回答的 SQLite 寫入次數約減少 27 倍，含平行工具呼叫的回合約減少 5.7 倍；另一項 2,048 個工作階段的測試中，單一 harness 每秒處理的代理執行次數從 88 次增至 459 次。",
+            "這項分批寫入有實際取捨：更新仍會即時顯示，但在預設設定下，系統當機時可能遺失約一秒的串流進度。新版也以 `session.watch()` 取代 `session.events()`，並加入可續接未完成工作階段的 `session.continue()`；既有整合升級前需要檢查 API 用法。效能數字來自 Cloudflare 的測試，不能視為所有工作負載的保證。"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "label": "Vercel 更新紀錄 — Vercel CI 不再需要連結 Vercel 專案（2026 年 11 月 3 日）",
+          "url": "https://vercel.com/changelog/vercel-ci-no-longer-requires-a-linked-vercel-project"
+        },
+        {
+          "label": "Cloudflare 更新紀錄 — Agents SDK 支援 Pi 1.5（2026 年 11 月 3 日）",
+          "url": "https://developers.cloudflare.com/changelog/post/2026-11-03-pi-harness-pi-1-5/"
+        }
+      ]
+    }
+  }
+}

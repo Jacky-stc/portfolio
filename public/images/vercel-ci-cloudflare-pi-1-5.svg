@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400" role="img" aria-labelledby="title description">
+  <title id="title">Standalone CI and persistent agent sessions</title>
+  <desc id="description">A repository feeds a test pipeline while an agent session streams output into a durable store.</desc>
+  <rect width="640" height="400" fill="#242326"/>
+  <g fill="none" stroke="#ffcb2f" stroke-width=".125rem" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="48" y="102" width="168" height="196" rx="16"/>
+    <path d="M48 139h168M70 120h8M87 120h8M74 172h111M74 195h86M74 218h111" opacity=".7"/>
+    <path d="M216 200h40M245 189l11 11-11 11"/>
+    <circle cx="309" cy="200" r="52"/>
+    <path d="M283 200l17 17 34-37M309 148v-24M309 252v24"/>
+    <path d="M361 200h39M389 189l11 11-11 11"/>
+    <rect x="405" y="102" width="188" height="196" rx="16"/>
+    <path d="M405 139h188M429 120h8M446 120h8"/>
+    <path d="M430 173h116M430 196h94M430 219h116M430 242h67" opacity=".65"/>
+    <rect x="508" y="233" width="57" height="40" rx="8"/>
+    <path d="M523 246h27M523 258h19"/>
+  </g>
+  <g fill="#ffcb2f" font-family="Inter,ui-sans-serif,system-ui,sans-serif" letter-spacing=".04em">
+    <text x="73" y="266" font-size=".8125rem">REPO</text>
+    <text x="284" y="307" font-size=".8125rem">CI</text>
+    <text x="431" y="282" font-size=".8125rem">AGENT</text>
+  </g>
+</svg>
