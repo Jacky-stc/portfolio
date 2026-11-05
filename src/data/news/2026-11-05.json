@@ -1,0 +1,79 @@
+{
+  "slug": "vercel-toml-openai-images-2-6",
+  "date": "2026-11-05",
+  "title": "Vercel adds TOML configuration and OpenAI releases Images 2.6",
+  "summary": "Frontend teams can now describe Vercel builds and routing in TOML. OpenAI’s Images 2.6 API adds SVG export and more control over how edits are planned.",
+  "tags": ["Vercel", "TOML", "OpenAI", "Image generation"],
+  "image": "/images/vercel-toml-openai-images-2-6.svg",
+  "imageAlt": "A deployment configuration sheet beside a vector image with visible control points",
+  "imageCaption": "Original illustration of deployment settings and vector image output.",
+  "sections": [
+    {
+      "heading": "Vercel lets teams use TOML for deployment settings",
+      "paragraphs": [
+        "On November 2, Vercel announced that all projects can use vercel.toml. It accepts the same configuration properties as vercel.json and lets teams add comments next to settings. A project uses one configuration file: vercel.toml, vercel.json, or vercel.ts.",
+        "For a frontend that sends API traffic to a separate service, a comment beside the rewrite can explain why the rule exists. Teams switching formats can compare a preview deployment against the current one, checking that page routes and API requests still reach the expected targets."
+      ]
+    },
+    {
+      "heading": "Images 2.6 brings SVG export and edit controls to the API",
+      "paragraphs": [
+        "On November 4, OpenAI released GPT Image 2.6 Flare and Sunburst in the API. The update includes SVG export and a complexity setting that controls how much planning the model does. Quality is a separate setting for visual detail. The API also accepts markup on a reference image to show where an edit should happen.",
+        "SVG output can shorten the path from a draft illustration to a web asset. For production, inspect the generated file and check how it looks at the sizes used on the site. When users can submit or generate SVGs, sanitize them before inlining them in a page."
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "label": "Vercel · TOML configuration announcement · November 2, 2026",
+      "url": "https://vercel.com/changelog/projects-can-now-be-configured-with-vercel-toml"
+    },
+    {
+      "label": "OpenAI · Images 2.6 announcement · November 4, 2026",
+      "url": "https://openai.com/index/introducing-images-2-6/"
+    },
+    {
+      "label": "OpenAI API · Image generation guide",
+      "url": "https://developers.openai.com/api/docs/guides/image-generation"
+    }
+  ],
+  "translations": {
+    "zh-TW": {
+      "title": "Vercel 新增 TOML 設定，OpenAI 推出 Images 2.6",
+      "summary": "前端團隊現在可用 TOML 設定 Vercel 的建置與路由。OpenAI 的 Images 2.6 API 則新增 SVG 匯出，並讓開發者調整模型規劃編修的程度。",
+      "tags": ["Vercel", "TOML", "OpenAI", "圖像生成"],
+      "imageAlt": "部署設定檔旁是一張帶有控制點的向量圖",
+      "imageCaption": "描繪部署設定與向量圖輸出的原創插畫。",
+      "sections": [
+        {
+          "heading": "Vercel 部署設定可改用 TOML",
+          "paragraphs": [
+            "Vercel 在 11 月 2 日宣布，所有專案都能使用 vercel.toml。它支援與 vercel.json 相同的設定欄位，也能在設定旁加上註解。每個專案只能選用一種設定檔：vercel.toml、vercel.json 或 vercel.ts。",
+            "如果前端會把 API 請求轉給另一個服務，就能在路徑改寫規則旁註明原因。切換格式時，可先用預覽部署和現有版本比對，確認頁面路由與 API 請求仍會到達預期位置。"
+          ]
+        },
+        {
+          "heading": "Images 2.6 API 新增 SVG 匯出與編修控制",
+          "paragraphs": [
+            "OpenAI 在 11 月 4 日於 API 推出 GPT Image 2.6 Flare 與 Sunburst。這次更新加入 SVG 匯出，並新增複雜度設定，用來控制模型在生成前做多少規劃；畫質則由另一項設定控制。API 也接受帶有標記的參考圖片，用來指出要編修的位置。",
+            "SVG 匯出可省下將插畫草稿轉為網站素材的部分工序。正式採用前，可檢查產出的檔案，並以網站實際使用的尺寸確認顯示效果。如果網站允許使用者上傳或生成 SVG，應先過濾不安全的內容，再將 SVG 直接嵌入頁面。"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "label": "Vercel · TOML 設定公告 · 2026 年 11 月 2 日",
+          "url": "https://vercel.com/changelog/projects-can-now-be-configured-with-vercel-toml"
+        },
+        {
+          "label": "OpenAI · Images 2.6 公告 · 2026 年 11 月 4 日",
+          "url": "https://openai.com/index/introducing-images-2-6/"
+        },
+        {
+          "label": "OpenAI API · 圖像生成指南",
+          "url": "https://developers.openai.com/api/docs/guides/image-generation"
+        }
+      ]
+    }
+  }
+}
