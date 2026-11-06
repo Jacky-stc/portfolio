@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400" role="img" aria-labelledby="title">
+  <title id="title">Scheduled web jobs and generated video</title>
+  <rect width="640" height="400" fill="#242326"/>
+  <g fill="none" stroke="#ffcb2f" stroke-width=".125rem" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="70" y="105" width="200" height="180" rx="15"/>
+    <path d="M70 149h200M110 91v29M230 91v29M104 181h21m27 0h21m27 0h21m-117 31h21m27 0h21m-69 31h21"/>
+    <circle cx="235" cy="243" r="47" fill="#242326"/>
+    <path d="M235 219v24l18 12M302 195h32m-9-9 9 9-9 9"/>
+    <rect x="361" y="105" width="208" height="180" rx="15"/>
+    <path d="M448 145l43 27-43 27zM389 241h18l8-12 10 27 12-40 12 25h22l8-9 10 21 10-12h42"/>
+  </g>
+</svg>

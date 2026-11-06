@@ -1,0 +1,71 @@
+{
+  "slug": "vercel-schedules-gemini-omni-flash",
+  "date": "2026-11-06",
+  "title": "Vercel opens Schedules beta and adds Gemini Omni 1.2 Flash",
+  "summary": "Vercel’s new scheduler runs one-time and recurring tasks in preview and production. AI Gateway adds a Google model that generates short videos with audio.",
+  "tags": ["Vercel", "Schedules", "Gemini", "Video generation"],
+  "image": "/images/vercel-schedules-gemini-omni-flash.svg",
+  "imageAlt": "A calendar with a clock sits beside a video player with an audio waveform",
+  "imageCaption": "Original illustration of scheduled web jobs and generated video.",
+  "sections": [
+    {
+      "heading": "Vercel Schedules brings timed jobs to preview environments",
+      "paragraphs": [
+        "On November 5, Vercel opened Schedules to all plans in public beta. It can run a job once or on a recurring schedule, with support for preview, production, and custom environments. Schedules declared in vercel.json can target a private function, an HTTP path, or a queue topic. A schedule created at runtime targets a queue topic.",
+        "For a website that refreshes a catalog on a timer, running the job on demand in preview makes it possible to check the data and page behavior before enabling the production schedule. Vercel says existing Cron Jobs continue to work."
+      ]
+    },
+    {
+      "heading": "Gemini Omni returns a finished video file through AI Gateway",
+      "paragraphs": [
+        "In a separate November 5 announcement, Vercel added Google’s Gemini Omni 1.2 Flash to AI Gateway. It generates clips of 3 to 15 seconds with audio and can edit source clips with up to six reference images. The AI SDK integration returns the video as a complete file, including when the application uses streamText.",
+        "A web editor can show a pending state while generation runs and offer playback once the file arrives. For an interface that lets users refine a clip, keep the previous result visible until its replacement is ready so they can compare the two."
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "label": "Vercel · Schedules public beta · November 5, 2026",
+      "url": "https://vercel.com/changelog/vercel-schedules-is-now-in-public-beta"
+    },
+    {
+      "label": "Vercel · Gemini Omni 1.2 Flash on AI Gateway · November 5, 2026",
+      "url": "https://vercel.com/changelog/gemini-omni-1-2-flash-now-available-on-ai-gateway"
+    }
+  ],
+  "translations": {
+    "zh-TW": {
+      "title": "Vercel Schedules 開放公測，AI Gateway 加入 Gemini Omni 1.2 Flash",
+      "summary": "Vercel 的新排程服務可在預覽與正式環境執行單次或週期性任務。AI Gateway 也加入 Google 的模型，可生成帶有聲音的短片。",
+      "tags": ["Vercel", "排程", "Gemini", "影片生成"],
+      "imageAlt": "帶有時鐘的日曆，旁邊是顯示音訊波形的影片播放器",
+      "imageCaption": "描繪網站排程與影片生成的原創插畫。",
+      "sections": [
+        {
+          "heading": "Vercel Schedules 可在預覽環境執行定時任務",
+          "paragraphs": [
+            "Vercel 於 11 月 5 日向所有方案開放 Schedules 公測。排程可以執行一次，也能定期執行，並支援預覽、正式與自訂環境。在 vercel.json 宣告的排程可呼叫私有函式、HTTP 路徑，或將訊息送到佇列主題。程式在執行期間建立的排程則以佇列主題為目標。",
+            "以定時更新商品目錄的網站為例，團隊可以先在預覽環境手動觸發排程，確認資料與頁面顯示是否符合預期，再啟用正式環境的排程。Vercel 表示，既有的 Cron Jobs 仍可繼續使用。"
+          ]
+        },
+        {
+          "heading": "Gemini Omni 透過 AI Gateway 回傳完整影片",
+          "paragraphs": [
+            "Vercel 在 11 月 5 日的另一則公告中，將 Google 的 Gemini Omni 1.2 Flash 加入 AI Gateway。它可生成 3 至 15 秒的有聲影片，也可搭配最多六張參考圖片編修來源影片。即使用 AI SDK 的 streamText，影片仍會以完整檔案回傳。",
+            "網頁編輯器可在生成期間顯示等待狀態，等檔案到達後再提供播放。如果介面允許使用者反覆調整影片，可以保留上一個版本，待新版本完成後讓使用者比較。"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "label": "Vercel · Schedules 開放公測 · 2026 年 11 月 5 日",
+          "url": "https://vercel.com/changelog/vercel-schedules-is-now-in-public-beta"
+        },
+        {
+          "label": "Vercel · AI Gateway 加入 Gemini Omni 1.2 Flash · 2026 年 11 月 5 日",
+          "url": "https://vercel.com/changelog/gemini-omni-1-2-flash-now-available-on-ai-gateway"
+        }
+      ]
+    }
+  }
+}
