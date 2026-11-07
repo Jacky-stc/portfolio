@@ -1,0 +1,71 @@
+{
+  "slug": "chat-sdk-json-render-streaming-cards",
+  "date": "2026-11-07",
+  "title": "Chat SDK agents can stream tables and charts through json-render",
+  "summary": "Vercel’s November 6 update brings generated interface cards to Chat SDK. Agents describe components in JSON, and adapters turn the result into messages for platforms such as Slack and Teams.",
+  "tags": ["Chat SDK", "json-render", "Generative UI"],
+  "image": "/images/chat-sdk-json-render-streaming-cards.svg",
+  "imageAlt": "A JSON document branches into two chat cards containing a chart and a table",
+  "imageCaption": "Original illustration of JSON interface specifications becoming chat cards.",
+  "sections": [
+    {
+      "heading": "A component catalog shapes the agent’s reply",
+      "paragraphs": [
+        "Vercel announced on November 6 that Chat SDK agents can stream interface cards through json-render. The agent produces a JSON specification using a typed component catalog. A renderer converts it into a card, then a platform adapter presents it using formats such as Slack Block Kit or Teams Adaptive Cards.",
+        "The catalog includes tables, charts, and buttons. This gives a team building a reporting bot reusable interface pieces that the model can arrange according to the question. The team still defines what those pieces can display and which actions users can take."
+      ]
+    },
+    {
+      "heading": "Streaming cards need an error state as well as a loading state",
+      "paragraphs": [
+        "The streamCard helper posts a card once the root has content and updates it as generation continues. Message edits are spaced at least 500 milliseconds apart by default. According to the API documentation, an invalid final specification can raise CardSpecError after a partial message has already appeared.",
+        "The documentation also describes explicit platform limits. For example, a Slack adapter can turn a second table into a code block, while a configured limit can reject that specification. For a reporting interface, this makes the visible error or retry behavior part of the design, alongside the final card layout."
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "label": "Vercel · Streaming json-render cards in Chat SDK · November 6, 2026",
+      "url": "https://vercel.com/changelog/json-render-and-chat-sdk-agents"
+    },
+    {
+      "label": "json-render · Chat renderer API documentation",
+      "url": "https://json-render.dev/docs/api/chat"
+    }
+  ],
+  "translations": {
+    "zh-TW": {
+      "title": "Chat SDK 代理可透過 json-render 串流呈現表格與圖表",
+      "summary": "Vercel 11 月 6 日的更新讓 Chat SDK 支援生成式介面卡片。代理以 JSON 描述元件，再由轉接器轉成 Slack、Teams 等平台的訊息。",
+      "tags": ["Chat SDK", "json-render", "生成式介面"],
+      "imageAlt": "JSON 文件分別連向含有圖表與表格的聊天卡片",
+      "imageCaption": "描繪 JSON 介面規格轉換為聊天卡片的原創插畫。",
+      "sections": [
+        {
+          "heading": "元件目錄決定代理能組成哪些回覆",
+          "paragraphs": [
+            "Vercel 在 11 月 6 日宣布，Chat SDK 代理可以透過 json-render 串流呈現介面卡片。代理依照具有型別定義的元件目錄產生 JSON 規格，renderer 將規格轉成卡片，再由平台轉接器輸出為 Slack Block Kit 或 Teams Adaptive Cards 等格式。",
+            "目錄包含表格、圖表與按鈕。開發報表機器人的團隊可建立可重用的介面元件，讓模型依問題安排內容。元件能顯示哪些資料、使用者能執行哪些操作，仍由團隊定義。"
+          ]
+        },
+        {
+          "heading": "串流卡片也需要設計錯誤狀態",
+          "paragraphs": [
+            "streamCard 會在根元件有內容後先發布卡片，並隨生成進度更新。預設每次編輯訊息至少間隔 500 毫秒。依 API 文件說明，如果最終規格無效，即使部分訊息已經出現，仍可能拋出 CardSpecError。",
+            "文件也提供明確的平台限制設定。例如 Slack 轉接器可能將第二個表格轉成程式碼區塊，而設定限制後則能拒絕這份規格。對報表介面而言，使用者看到錯誤時如何處理或重試，也需要與最終卡片版面一起設計。"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "label": "Vercel · Chat SDK 串流 json-render 卡片 · 2026 年 11 月 6 日",
+          "url": "https://vercel.com/changelog/json-render-and-chat-sdk-agents"
+        },
+        {
+          "label": "json-render · 聊天 renderer API 文件",
+          "url": "https://json-render.dev/docs/api/chat"
+        }
+      ]
+    }
+  }
+}

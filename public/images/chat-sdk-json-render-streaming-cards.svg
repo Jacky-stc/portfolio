@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400" role="img" aria-labelledby="title">
+  <title id="title">JSON specifications become chat cards</title>
+  <rect width="640" height="400" fill="#242326"/>
+  <g fill="none" stroke="#ffcb2f" stroke-width=".125rem" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="64" y="119" width="159" height="165" rx="15"/>
+    <path d="M106 157c-15 0-15 0-15 17v10c0 12-8 17-14 17 6 0 14 5 14 17v10c0 17 0 17 15 17m74-88c15 0 15 0 15 17v10c0 12 8 17 14 17-6 0-14 5-14 17v10c0 17 0 17-15 17M127 181h30m-30 21h39m-39 21h20"/>
+    <path d="M223 201h68m0-85v170m0-170h51m-11-11 11 11-11 11m-40 159h51m-11-11 11 11-11 11"/>
+    <rect x="352" y="65" width="221" height="116" rx="14"/>
+    <path d="M375 91h103m-103 59h172m-148-5v-21h21v21m22 0v-36h21v36m22 0v-51h21v51"/>
+    <rect x="352" y="226" width="221" height="116" rx="14"/>
+    <path d="M375 252h103m-103 23h172m-172 21h172m-172 21h172M428 275v42m64-42v42"/>
+  </g>
+</svg>
