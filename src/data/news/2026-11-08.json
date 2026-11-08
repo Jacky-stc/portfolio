@@ -1,0 +1,71 @@
+{
+  "slug": "vercel-tracing-ampersand-group-chat",
+  "date": "2026-11-08",
+  "title": "Vercel Tracing reaches general availability as Ampersand joins AI Gateway",
+  "summary": "Vercel’s November 6 updates expand trace search for web applications and add a model designed to participate in group conversations, including deciding when to stay quiet.",
+  "tags": ["Vercel", "Tracing", "Ampersand", "AI Gateway"],
+  "image": "/images/vercel-tracing-ampersand-group-chat.svg",
+  "imageAlt": "A request timeline beside a group conversation with an optional agent reply",
+  "imageCaption": "Original illustration of request traces and an agent taking part in a group conversation.",
+  "sections": [
+    {
+      "heading": "Trace search moves beyond individual request logs",
+      "paragraphs": [
+        "Vercel announced on November 6 that Tracing is generally available on all plans. The dashboard now has a Traces page with span and trace lists, KQL search, and a live view. The CLI accepts the same queries. Eligible new Next.js projects on version 16.5 or later get automatic instrumentation after their first successful build when they include a Node.js function.",
+        "For a web team investigating a slow page response, searching several requests together can help locate a repeated slow database or service call. It gives the team a place to compare timing across requests before changing application code."
+      ]
+    },
+    {
+      "heading": "Ampersand exposes speaking and waiting as application actions",
+      "paragraphs": [
+        "In another November 6 announcement, Vercel added Humans&’s Ampersand model to AI Gateway, with free usage through November 13, 2026. It is designed for group conversations. The caller supplies function tools such as send_message and pass, executes the selected action, and records its result.",
+        "For a shared chat interface, choosing to wait affects the conversation just as sending a reply does. A product can use those separate actions to represent the agent’s participation without inserting an empty message. The announcement describes the model’s intended behavior, while its usefulness in a particular group would need evaluation in that setting."
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "label": "Vercel · Tracing general availability · November 6, 2026",
+      "url": "https://vercel.com/changelog/vercel-tracing-is-now-generally-available"
+    },
+    {
+      "label": "Vercel · Ampersand on AI Gateway · November 6, 2026",
+      "url": "https://vercel.com/changelog/humans-and-ampersand-now-available-on-ai-gateway"
+    }
+  ],
+  "translations": {
+    "zh-TW": {
+      "title": "Vercel Tracing 正式推出，Ampersand 加入 AI Gateway",
+      "summary": "Vercel 11 月 6 日的更新擴充網站請求追蹤的搜尋功能，也加入專為群組對話設計的模型，讓代理決定何時發言、何時等待。",
+      "tags": ["Vercel", "請求追蹤", "Ampersand", "AI Gateway"],
+      "imageAlt": "請求時間軸旁是一段群組對話，代理可選擇是否回覆",
+      "imageCaption": "描繪請求追蹤與代理參與群組對話的原創插畫。",
+      "sections": [
+        {
+          "heading": "請求追蹤可集中搜尋多筆紀錄",
+          "paragraphs": [
+            "Vercel 在 11 月 6 日宣布，Tracing 已向所有方案正式推出。儀表板新增 Traces 頁面，提供 span 與 trace 列表、KQL 搜尋及即時檢視，CLI 也接受相同查詢。符合條件、使用 Next.js 16.5 以上版本且包含 Node.js 函式的新專案，會在首次成功建置後自動加入追蹤。",
+            "前端團隊調查頁面回應緩慢時，可一起搜尋多筆請求，找出反覆耗時的資料庫或服務呼叫，先比對時間分布，再決定要調整哪段程式。"
+          ]
+        },
+        {
+          "heading": "Ampersand 將發言與等待交由應用程式執行",
+          "paragraphs": [
+            "在另一則 11 月 6 日公告中，Vercel 將 Humans& 的 Ampersand 模型加入 AI Gateway，免費使用期間至 2026 年 11 月 13 日。這個模型以參與群組對話為設計目標。呼叫端提供 send_message、pass 等函式工具，執行模型選擇的動作，並記錄結果。",
+            "對共用聊天介面而言，選擇等待也會影響對話節奏。產品可透過這兩種動作表達代理是否參與，避免插入空白訊息。公告描述的是模型的設計目標，實際在特定群組中能提供多少幫助，仍需在該情境評估。"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "label": "Vercel · Tracing 正式推出 · 2026 年 11 月 6 日",
+          "url": "https://vercel.com/changelog/vercel-tracing-is-now-generally-available"
+        },
+        {
+          "label": "Vercel · Ampersand 加入 AI Gateway · 2026 年 11 月 6 日",
+          "url": "https://vercel.com/changelog/humans-and-ampersand-now-available-on-ai-gateway"
+        }
+      ]
+    }
+  }
+}
