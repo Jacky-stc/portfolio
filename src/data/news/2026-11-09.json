@@ -1,0 +1,71 @@
+{
+  "slug": "safari-preview-256-open-webui-agent-automations",
+  "date": "2026-11-09",
+  "title": "Safari previews scroll animation fixes as Open WebUI adds scheduled coding agents",
+  "summary": "Safari Technology Preview 256 fixes scroll animations and list accessibility. Open WebUI 0.13.3 lets users choose a terminal and working folder for scheduled coding agents.",
+  "tags": ["WebKit", "CSS", "Accessibility", "Open WebUI", "Coding agents"],
+  "image": "/images/safari-preview-256-open-webui-agent-automations.svg",
+  "imageAlt": "A browser with a scroll track beside a terminal window and a clock",
+  "imageCaption": "Original illustration of browser behavior and scheduled terminal work.",
+  "sections": [
+    {
+      "heading": "WebKit fixes scroll animation and list marker behavior",
+      "paragraphs": [
+        "WebKit’s November 4 notes for Safari Technology Preview 256 describe a fix for scroll animations that used an element’s own translation in place of a keyframe set to translate: none. The preview also skips style invalidation during animation updates when timing stays the same. A separate fix exposes list marker text generated with CSS content to the accessibility tree.",
+        "These changes give frontend teams concrete cases to test in the preview. A scroll animation with a base translation should reach the expected position at the none keyframe. Custom list markers can also be checked in the accessibility tree alongside their visual appearance."
+      ]
+    },
+    {
+      "heading": "Open WebUI gives scheduled coding agents a working folder",
+      "paragraphs": [
+        "The Open WebUI 0.13.3 release, dated November 8 on GitHub, adds coding agents to the automation editor. Users select a terminal and working folder, then pick an agent available there. Before a scheduled run starts, Open WebUI checks that the saved terminal and agent are still available. Agent automation results go to a chat.",
+        "For jobs such as reviewing a repository overnight, the saved folder gives the task a consistent starting point. Checking which workspace a job will open and where its results will appear makes the schedule easier to review before enabling it."
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "label": "WebKit · Safari Technology Preview 256 · November 4, 2026",
+      "url": "https://webkit.org/blog/18602/release-notes-for-safari-technology-preview-256/"
+    },
+    {
+      "label": "Open WebUI · v0.13.3 release notes · November 8, 2026",
+      "url": "https://github.com/open-webui/open-webui/releases/tag/v0.13.3"
+    }
+  ],
+  "translations": {
+    "zh-TW": {
+      "title": "Safari 預覽版修正捲動動畫，Open WebUI 加入程式代理排程",
+      "summary": "Safari Technology Preview 256 修正捲動動畫與清單的無障礙問題。Open WebUI 0.13.3 可為排程中的程式代理指定終端機與工作資料夾。",
+      "tags": ["WebKit", "CSS", "無障礙", "Open WebUI", "程式代理"],
+      "imageAlt": "帶有捲動軌道的瀏覽器，旁邊是終端機視窗與時鐘",
+      "imageCaption": "描繪瀏覽器行為與終端機排程的原創插畫。",
+      "sections": [
+        {
+          "heading": "WebKit 修正捲動動畫與清單標記",
+          "paragraphs": [
+            "WebKit 於 11 月 4 日發布 Safari Technology Preview 256 版本說明。這版修正捲動動畫將 translate: none 關鍵影格誤套為元素自身位移值的問題。動畫時序未變時，更新也會略過重新計算樣式前的失效標記。另一項修正讓 CSS content 產生的清單標記文字出現在無障礙樹中。",
+            "前端團隊可以用預覽版驗證兩個具體情境。帶有初始位移的捲動動畫，在 none 關鍵影格應到達預期位置。自訂清單標記則可同時檢查畫面呈現與無障礙樹中的文字。"
+          ]
+        },
+        {
+          "heading": "Open WebUI 可為程式代理排程指定工作資料夾",
+          "paragraphs": [
+            "Open WebUI 0.13.3 在 GitHub 上標示於 11 月 8 日發布，並在自動化編輯器加入程式代理。使用者先選擇終端機與工作資料夾，再選擇該環境中可用的代理。排程開始前，Open WebUI 會確認儲存的終端機與代理仍可使用。代理排程的結果會送到聊天中。",
+            "以夜間檢查儲存庫為例，儲存工作資料夾可讓每次執行都有一致的起點。啟用前先確認任務會開啟哪個工作區、結果會送到哪裡，也能讓排程更容易檢查。"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "label": "WebKit · Safari Technology Preview 256 · 2026 年 11 月 4 日",
+          "url": "https://webkit.org/blog/18602/release-notes-for-safari-technology-preview-256/"
+        },
+        {
+          "label": "Open WebUI · v0.13.3 版本說明 · 2026 年 11 月 8 日",
+          "url": "https://github.com/open-webui/open-webui/releases/tag/v0.13.3"
+        }
+      ]
+    }
+  }
+}
