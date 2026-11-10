@@ -1,0 +1,79 @@
+{
+  "slug": "cloudflare-access-passkeys-codex-workers",
+  "date": "2026-11-10",
+  "title": "Cloudflare Access adds passkeys and Workers gets an experimental Codex harness",
+  "summary": "Cloudflare adds passkey sign-in to protected web apps and shows how a Codex agent can recover work after a Durable Object restarts.",
+  "tags": ["Cloudflare Access", "Passkeys", "Codex", "Durable Objects"],
+  "image": "/images/cloudflare-access-passkeys-codex-workers.svg",
+  "imageAlt": "A browser sign-in window with a key beside an agent timeline with a replay arrow",
+  "imageCaption": "Original illustration of passkey sign-in and replayable agent events.",
+  "sections": [
+    {
+      "heading": "Passkeys come to protected web apps",
+      "paragraphs": [
+        "On November 6, Cloudflare announced passkey sign-in for applications behind Access and for its App Launcher. A user first verifies their identity through an existing method, then enrolls a passkey. Administrators choose which apps accept passkeys, and Access policies still decide who can enter.",
+        "For a team sharing a protected preview site, enrollment and routine sign-in are distinct parts of the user journey. A first visit on a device without the enrolled credential can feel different from a return visit where the browser can offer a saved passkey."
+      ]
+    },
+    {
+      "heading": "Cloudflare experiments with a Codex agent that can resume work",
+      "paragraphs": [
+        "On November 9, Cloudflare published an experimental Agents SDK example that adapts Codex’s Rust turn processing to WebAssembly in a Durable Object. It saves conversations and files, reuses recorded model and tool results after a restart, and stores ordered events that a client can replay when it reconnects.",
+        "For a browser interface showing a long agent run, replay can fill gaps in the activity feed after a disconnect. Cloudflare says interrupted steps can run again, so an integration that writes to an external service needs to account for repeat attempts."
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "label": "Cloudflare · Access passkey sign-in · November 6, 2026",
+      "url": "https://developers.cloudflare.com/changelog/post/2026-11-06-access-passkeys/"
+    },
+    {
+      "label": "Cloudflare · Codex agent loop on Workers · November 9, 2026",
+      "url": "https://developers.cloudflare.com/changelog/post/2026-11-09-codex-harness/"
+    },
+    {
+      "label": "Cloudflare Agents SDK · Codex harness documentation",
+      "url": "https://developers.cloudflare.com/agents/harnesses/codex/"
+    }
+  ],
+  "translations": {
+    "zh-TW": {
+      "title": "Cloudflare Access 加入通行金鑰，Workers 展示 Codex 代理實驗範例",
+      "summary": "Cloudflare 讓受保護的網站支援通行金鑰登入，也展示 Codex 代理如何在 Durable Object 重啟後接續工作。",
+      "tags": ["Cloudflare Access", "通行金鑰", "Codex", "Durable Objects"],
+      "imageAlt": "帶有鑰匙的瀏覽器登入視窗，旁邊是帶有重播箭頭的代理事件時間軸",
+      "imageCaption": "描繪通行金鑰登入與代理事件重播的原創插畫。",
+      "sections": [
+        {
+          "heading": "受保護的網頁應用程式可用通行金鑰登入",
+          "paragraphs": [
+            "Cloudflare 在 11 月 6 日宣布，受 Access 保護的應用程式與 App Launcher 可使用通行金鑰登入。使用者先透過既有方式驗證身分，再註冊通行金鑰。管理員可選擇哪些應用程式接受這種登入方式，存取權限仍由 Access 政策決定。",
+            "對分享受保護預覽網站的團隊而言，註冊與日常登入是兩個不同的流程。使用者透過尚無已註冊憑證的裝置首次造訪時，看到的步驟可能不同於瀏覽器可直接提供已儲存通行金鑰的回訪。"
+          ]
+        },
+        {
+          "heading": "Cloudflare 展示可接續工作的 Codex 代理",
+          "paragraphs": [
+            "Cloudflare 在 11 月 9 日發布 Agents SDK 的實驗範例，將 Codex 用 Rust 撰寫的回合處理程式移植到 WebAssembly，在 Durable Object 內執行。範例會儲存對話與檔案，在重啟後沿用已記錄的模型與工具結果，並保留依序排列的事件，讓客戶端重新連線時可以重播。",
+            "如果瀏覽器介面會顯示長時間執行的代理任務，重播事件可補上斷線期間遺漏的進度。Cloudflare 指出，中斷的步驟可能重新執行，因此若整合會寫入外部服務，就得考慮同一操作可能被重試。"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "label": "Cloudflare · Access 通行金鑰登入 · 2026 年 11 月 6 日",
+          "url": "https://developers.cloudflare.com/changelog/post/2026-11-06-access-passkeys/"
+        },
+        {
+          "label": "Cloudflare · 在 Workers 執行 Codex 代理迴圈 · 2026 年 11 月 9 日",
+          "url": "https://developers.cloudflare.com/changelog/post/2026-11-09-codex-harness/"
+        },
+        {
+          "label": "Cloudflare Agents SDK · Codex 執行環境文件",
+          "url": "https://developers.cloudflare.com/agents/harnesses/codex/"
+        }
+      ]
+    }
+  }
+}

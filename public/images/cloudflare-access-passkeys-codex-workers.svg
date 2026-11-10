@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400" role="img" aria-labelledby="title">
+  <title id="title">Passkey sign-in and agent event replay</title>
+  <rect width="640" height="400" fill="#242326"/>
+  <g fill="none" stroke="#ffcb2f" stroke-width=".125rem" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="58" y="97" width="238" height="206" rx="16"/>
+    <path d="M58 137h238M83 117h8m9 0h8"/>
+    <circle cx="143" cy="204" r="26"/>
+    <circle cx="143" cy="204" r="8"/>
+    <path d="M169 204h65v17h-15v-10h-15v-7M105 261h144" />
+    <rect x="344" y="97" width="238" height="206" rx="16"/>
+    <path d="M344 137h238M369 117h8m9 0h8M392 166v105"/>
+    <circle cx="392" cy="174" r="6" fill="#242326"/>
+    <circle cx="392" cy="216" r="6" fill="#242326"/>
+    <circle cx="392" cy="257" r="6" fill="#242326"/>
+    <path d="M413 174h73m-73 42h58m-58 41h81"/>
+    <path d="M517 185a26 26 0 1 1-16 25m16-25v14h-14"/>
+  </g>
+</svg>
